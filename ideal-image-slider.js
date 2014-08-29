@@ -52,12 +52,17 @@ var IdealImageSlider = (function() {
 			interval: 4000,
 			effect: 'slide',
 			height: null, // Override auto height
+			disableNav: false,
+			previousNavSelector: '',
+			nextNavSelector: '',
 			classes: {
 				container: 'ideal-image-slider',
 				slide: 'iis-slide',
+				previousSlide: 'iis-previous-slide',
 				currentSlide: 'iis-current-slide',
 				nextSlide: 'iis-next-slide',
-				previousSlide: 'iis-previous-slide'
+				previousNav: 'iis-previous-nav',
+				nextNav: 'iis-next-nav'
 			},
 			onInit: function(){},
 			onStart: function(){},
@@ -79,13 +84,41 @@ var IdealImageSlider = (function() {
 		var slides = _toArray(sliderEl.children);
 		if(slides.length <= 1) return null;
 
+		// Create navigation
+		if(!this.settings.disableNav){
+			var previousNav, nextNav;
+			if(this.settings.previousNavSelector){
+				previousNav = document.querySelector(this.settings.previousNavSelector);
+			} else {
+				previousNav = document.createElement('a');
+				sliderEl.appendChild(previousNav);
+			}
+			if(this.settings.nextNavSelector){
+				nextNav = document.querySelector(this.settings.nextNavSelector);
+			} else {
+				nextNav = document.createElement('a');
+				sliderEl.appendChild(nextNav);
+			}
+
+			_addClass(previousNav, this.settings.classes.previousNav);
+			_addClass(nextNav, this.settings.classes.nextNav);
+			previousNav.addEventListener('click', (function(){
+				this.stop();
+				this.previousSlide();
+			}).bind(this));
+			nextNav.addEventListener('click', (function(){
+				this.stop();
+				this.nextSlide();
+			}).bind(this));
+		}
+
 		// Create internal attributes
 		this._attributes = {
 			container: sliderEl,
 			slides: slides,
+			previousSlide: typeof slides[slides.length-1] !== 'undefined' ? slides[slides.length-1] : slides[0],
 			currentSlide: slides[0],
 			nextSlide: typeof slides[1] !== 'undefined' ? slides[1] : slides[0],
-			previousSlide: typeof slides[slides.length-1] !== 'undefined' ? slides[slides.length-1] : slides[0],
 			timerId: 0
 		};
 
