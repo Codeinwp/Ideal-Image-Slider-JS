@@ -1,4 +1,4 @@
-Ideal-Image-Slider
+Ideal Image Slider
 ==================
 
-Quite simply the ideal Image Slider in Vanilla JS.
+Currently in development...

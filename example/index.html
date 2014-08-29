@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ideal Image Slider Example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/style.css">
+    <style media="screen">
+    .slider {
+        max-width: 900px;
+        margin: 50px auto;
+    }
+    </style>
+</head>
+<body>
+
+	<div class="slider">
+		<img src="img/1.jpg" alt="" />
+		<img src="img/2.jpg" alt="" />
+		<img src="img/3.jpg" alt="" />
+		<img src="img/4.jpg" alt="" />
+	</div>
+
+    <script src="../ideal-image-slider.js"></script>
+	<script>
+	var slider = new IdealImageSlider.Slider({
+		selector: '.slider'
+	});
+    slider.start();
+	</script>
+</body>
+</html>
