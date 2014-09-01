@@ -78,7 +78,7 @@ var IdealImageSlider = (function() {
 		// Defaults
 		this.settings = {
 			selector: '',
-			height: 300, // Required but can be set by CSS
+			height: 400, // Required but can be set by CSS
 			interval: 4000,
 			effect: 'slide',
 			disableNav: false,
@@ -121,11 +121,19 @@ var IdealImageSlider = (function() {
 		Array.prototype.forEach.call(origChildren, function(slide, i){
 			if(slide instanceof HTMLImageElement){
 				var imgDiv = document.createElement('div');
+
 				_deepExtend(imgDiv.dataset, slide.dataset);
-				imgDiv.dataset.src = slide.src;
+				if(slide.dataset.src){
+					// Use data-src for on-demand loading
+					imgDiv.dataset.src = slide.dataset.src;
+				} else {
+					imgDiv.dataset.src = slide.src;
+				}
+
 				if(slide.getAttribute('className')) _addClass(imgDiv, slide.getAttribute('className'));
 				if(slide.getAttribute('id')) imgDiv.setAttribute('id', slide.id);
 				imgDiv.setAttribute('role', 'option');
+
 				sliderEl.appendChild(imgDiv);
 				imgSlides.push(imgDiv);
 			}
