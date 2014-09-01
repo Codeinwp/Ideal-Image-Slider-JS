@@ -112,6 +112,7 @@ var IdealImageSlider = (function() {
 		// Slider (container) element
 		var sliderEl = document.querySelector(this.settings.selector);
 		if(!sliderEl) return null;
+		sliderEl.setAttribute('role', 'listbox');
 
 		// Slides
 		var origChildren = _toArray(sliderEl.children),
@@ -122,8 +123,9 @@ var IdealImageSlider = (function() {
 				var imgDiv = document.createElement('div');
 				_deepExtend(imgDiv.dataset, slide.dataset);
 				imgDiv.dataset.src = slide.src;
-				if(slide.className) _addClass(imgDiv, slide.className);
-				if(slide.id) imgDiv.id = slide.id;
+				if(slide.getAttribute('className')) _addClass(imgDiv, slide.getAttribute('className'));
+				if(slide.getAttribute('id')) imgDiv.setAttribute('id', slide.id);
+				imgDiv.setAttribute('role', 'option');
 				sliderEl.appendChild(imgDiv);
 				imgSlides.push(imgDiv);
 			}
