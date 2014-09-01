@@ -10,15 +10,6 @@ QUnit.test('Slider.set', function(assert){
 	assert.equal(slider.get('someValue'), '123', 'Set value');
 });
 
-QUnit.test('Slider.refreshHeight', function(assert){
-	var slider = new IdealImageSlider.Slider({
-		selector: '.slider-default',
-		height: 100
-	});
-	slider.refreshHeight();
-	assert.equal(slider.get('container').style.height, '100px', 'Slider height is correct');
-});
-
 QUnit.test('Slider.previousSlide', function(assert){
 	var slider = new IdealImageSlider.Slider('.slider-default');
 	slider.previousSlide();
@@ -69,15 +60,21 @@ QUnit.test('Slider.gotoSlide', function(assert){
 	assert.equal(slider.get('nextSlide').dataset.index, 1, 'Next slide URL index is 1');
 });
 
+QUnit.test('Slider.destroy', function(assert){
+	var slider = new IdealImageSlider.Slider('.slider-default');
+	slider.destroy();
+	assert.equal(slider.get('container').className, 'slider-default', 'Slider is destoryed');
+});
+
 QUnit.asyncTest('Slider.start', function(assert){
 	var slider = new IdealImageSlider.Slider({
 		selector: '.slider-default',
-		pauseTime: 500
+		interval: 600
 	});
 	slider.start();
 
 	setTimeout(function() {
-		assert.equal(slider.get('currentSlide').dataset.index, 2, 'Current slide has changed');
+		assert.equal(slider.get('currentSlide').dataset.index, 2, 'Current slide is correct');
 		QUnit.start();
 	}, 1000);
 });
@@ -85,13 +82,13 @@ QUnit.asyncTest('Slider.start', function(assert){
 QUnit.asyncTest('Slider.stop', function(assert){
 	var slider = new IdealImageSlider.Slider({
 		selector: '.slider-default',
-		pauseTime: 500
+		interval: 600
 	});
 	slider.start();
-	slider.stop();
 
 	setTimeout(function() {
-		assert.equal(slider.get('currentSlide').dataset.index, 1, 'Current slide has not changed');
+		slider.stop();
+		assert.equal(slider.get('currentSlide').dataset.index, 2, 'Current slide is correct');
 		QUnit.start();
 	}, 1000);
 });

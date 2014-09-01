@@ -23,6 +23,7 @@ var IdealImageSlider = (function() {
 	};
 
 	var _addClass = function(el, className) {
+		if(!className) return;
 		if(el.classList){
 			el.classList.add(className);
 		} else {
@@ -42,6 +43,34 @@ var IdealImageSlider = (function() {
 		return Array.prototype.slice.call(obj);
 	}
 
+	var _arrayRemove = function(array, from, to) {
+		var rest = array.slice((to || from) + 1 || array.length);
+		array.length = from < 0 ? array.length + from : from;
+		return array.push.apply(array, rest);
+	};
+
+	var _loadImg = function(slide, callback) {
+		if(!slide.style.backgroundImage){
+			var img = new Image();
+			img.src = slide.dataset.src;
+			img.onload = function() {
+				slide.style.backgroundImage = 'url('+ slide.dataset.src +')';
+				if(typeof(callback) === 'function') callback(this);
+			};
+		}
+	};
+
+	// Touch event listeners
+	var ce=function(e,n){var a=document.createEvent("CustomEvent");a.initCustomEvent(n,true,true,e.target);e.target.dispatchEvent(a);a=null;return false},
+		nm=true,sp={x:0,y:0},ep={x:0,y:0},
+		touch={
+			touchstart:function(e){sp={x:e.touches[0].pageX,y:e.touches[0].pageY}},
+			touchmove:function(e){nm=false;ep={x:e.touches[0].pageX,y:e.touches[0].pageY}},
+			touchend:function(e){if(nm){ce(e,'fc')}else{var x=ep.x-sp.x,xr=Math.abs(x),y=ep.y-sp.y,yr=Math.abs(y);if(Math.max(xr,yr)>20){ce(e,(xr>yr?(x<0?'swl':'swr'):(y<0?'swu':'swd')))}};nm=true},
+			touchcancel:function(e){nm=false}
+		};
+	for(var a in touch){document.addEventListener(a,touch[a],false);}
+
 	/*
 	 * Slider class
 	 */
@@ -49,9 +78,9 @@ var IdealImageSlider = (function() {
 		// Defaults
 		this.settings = {
 			selector: '',
+			height: 300, // Required but can be set by CSS
 			interval: 4000,
 			effect: 'slide',
-			height: null, // Override auto height
 			disableNav: false,
 			previousNavSelector: '',
 			nextNavSelector: '',
@@ -67,6 +96,7 @@ var IdealImageSlider = (function() {
 			onInit: function(){},
 			onStart: function(){},
 			onStop: function(){},
+			onDestroy: function(){},
 			beforeChange: function(){},
 			afterChange: function(){}
 		}
@@ -79,9 +109,26 @@ var IdealImageSlider = (function() {
 			_deepExtend(this.settings, args);
 		}
 
+		// Slider (container) element
 		var sliderEl = document.querySelector(this.settings.selector);
 		if(!sliderEl) return null;
-		var slides = _toArray(sliderEl.children);
+
+		// Slides
+		var origChildren = _toArray(sliderEl.children),
+			imgSlides = [];
+		sliderEl.innerHTML = '';
+		Array.prototype.forEach.call(origChildren, function(slide, i){
+			if(slide instanceof HTMLImageElement){
+				var imgDiv = document.createElement('div');
+				_deepExtend(imgDiv.dataset, slide.dataset);
+				imgDiv.dataset.src = slide.src;
+				if(slide.className) _addClass(imgDiv, slide.className);
+				if(slide.id) imgDiv.id = slide.id;
+				sliderEl.appendChild(imgDiv);
+				imgSlides.push(imgDiv);
+			}
+		}.bind(this));
+		var slides = imgSlides;
 		if(slides.length <= 1) return null;
 
 		// Create navigation
@@ -110,6 +157,19 @@ var IdealImageSlider = (function() {
 				this.stop();
 				this.nextSlide();
 			}).bind(this));
+
+			// Touch Navigation
+			if('ontouchstart' in document.documentElement){
+				previousNav.style.display = 'none';
+				nextNav.style.display = 'none';
+
+				document.body.addEventListener('swl', function(){
+					this.nextSlide();
+				}.bind(this), false);
+				document.body.addEventListener('swr', function(){
+					this.previousSlide();
+				}.bind(this), false);
+			}
 		}
 
 		// Create internal attributes
@@ -119,8 +179,19 @@ var IdealImageSlider = (function() {
 			previousSlide: typeof slides[slides.length-1] !== 'undefined' ? slides[slides.length-1] : slides[0],
 			currentSlide: slides[0],
 			nextSlide: typeof slides[1] !== 'undefined' ? slides[1] : slides[0],
-			timerId: 0
+			timerId: 0,
+			// Used in destroy()
+			origChildren: origChildren,
+			// For touch nav
+			touchX: null,
+			touchY: null,
+			touchIsMoving: false
 		};
+
+		// Set height
+		if(this.settings.height){
+			this._attributes.container.style.height = this.settings.height +'px';
+		}
 
 		// Add classes
 		_addClass(sliderEl, this.settings.classes.container);
@@ -132,16 +203,13 @@ var IdealImageSlider = (function() {
 		_addClass(this._attributes.currentSlide, this.settings.classes.currentSlide);
 		_addClass(this._attributes.nextSlide, this.settings.classes.nextSlide);
 
-		// Set height
-		var height = this.settings.height ? this.settings.height : this._attributes.currentSlide.height;
-		this._attributes.container.style.height = height +'px';
-
-		this.settings.onInit.apply(this);
-	};
-
-	Slider.prototype.refreshHeight = function() {
-		var height = this.settings.height ? this.settings.height : this._attributes.currentSlide.height;
-		this._attributes.container.style.height = height +'px';
+		// Load first image
+		_loadImg(this._attributes.currentSlide, (function(){
+			this.settings.onInit.apply(this);
+		}).bind(this));
+		// Preload next images
+		_loadImg(this._attributes.previousSlide);
+		_loadImg(this._attributes.nextSlide);
 	};
 
 	Slider.prototype.get = function(attribute) {
@@ -167,9 +235,9 @@ var IdealImageSlider = (function() {
 
 	Slider.prototype.previousSlide = function() {
 		this.settings.beforeChange.apply(this);
+		_removeClass(this._attributes.previousSlide, this.settings.classes.previousSlide);
 		_removeClass(this._attributes.currentSlide, this.settings.classes.currentSlide);
 		_removeClass(this._attributes.nextSlide, this.settings.classes.nextSlide);
-		_removeClass(this._attributes.previousSlide, this.settings.classes.previousSlide);
 
 		var slides = this._attributes.slides,
 			index = slides.indexOf(this._attributes.currentSlide);
@@ -186,19 +254,20 @@ var IdealImageSlider = (function() {
 			}
 		}
 
+		// Preload next image
+		_loadImg(this._attributes.previousSlide);
+
+		_addClass(this._attributes.previousSlide, this.settings.classes.previousSlide);
 		_addClass(this._attributes.currentSlide, this.settings.classes.currentSlide);
 		_addClass(this._attributes.nextSlide, this.settings.classes.nextSlide);
-		_addClass(this._attributes.previousSlide, this.settings.classes.previousSlide);
-
-		this.refreshHeight();
 		this.settings.afterChange.apply(this);
 	};
 
 	Slider.prototype.nextSlide = function() {
 		this.settings.beforeChange.apply(this);
+		_removeClass(this._attributes.previousSlide, this.settings.classes.previousSlide);
 		_removeClass(this._attributes.currentSlide, this.settings.classes.currentSlide);
 		_removeClass(this._attributes.nextSlide, this.settings.classes.nextSlide);
-		_removeClass(this._attributes.previousSlide, this.settings.classes.previousSlide);
 
 		var slides = this._attributes.slides,
 			index = slides.indexOf(this._attributes.currentSlide);
@@ -215,19 +284,20 @@ var IdealImageSlider = (function() {
 			}
 		}
 
+		// Preload next image
+		_loadImg(this._attributes.nextSlide);
+
+		_addClass(this._attributes.previousSlide, this.settings.classes.previousSlide);
 		_addClass(this._attributes.currentSlide, this.settings.classes.currentSlide);
 		_addClass(this._attributes.nextSlide, this.settings.classes.nextSlide);
-		_addClass(this._attributes.previousSlide, this.settings.classes.previousSlide);
-
-		this.refreshHeight();
 		this.settings.afterChange.apply(this);
 	};
 
 	Slider.prototype.gotoSlide = function(index) {
 		this.settings.beforeChange.apply(this);
+		_removeClass(this._attributes.previousSlide, this.settings.classes.previousSlide);
 		_removeClass(this._attributes.currentSlide, this.settings.classes.currentSlide);
 		_removeClass(this._attributes.nextSlide, this.settings.classes.nextSlide);
-		_removeClass(this._attributes.previousSlide, this.settings.classes.previousSlide);
 
 		index--; // Index should be 1-indexed
 		var slides = this._attributes.slides;
@@ -241,10 +311,31 @@ var IdealImageSlider = (function() {
 			this._attributes.nextSlide = slides[0];
 		}
 
+		// Load images
+		_loadImg(this._attributes.previousSlide);
+		_loadImg(this._attributes.currentSlide);
+		_loadImg(this._attributes.nextSlide);
+
+		_addClass(this._attributes.previousSlide, this.settings.classes.previousSlide);
 		_addClass(this._attributes.currentSlide, this.settings.classes.currentSlide);
 		_addClass(this._attributes.nextSlide, this.settings.classes.nextSlide);
-		_addClass(this._attributes.previousSlide, this.settings.classes.previousSlide);
 		this.settings.afterChange.apply(this);
+	};
+
+	Slider.prototype.destroy = function() {
+		clearInterval(this._attributes.timerId);
+		this._attributes.timerId = 0;
+
+		this._attributes.container.innerHTML = '';
+		Array.prototype.forEach.call(this._attributes.origChildren, function(child, i){
+			this._attributes.container.appendChild(child);
+		}.bind(this));
+
+		_removeClass(this._attributes.container, this.settings.classes.container);
+		_removeClass(this._attributes.container, 'iis-effect-'+ this.settings.effect);
+		this._attributes.container.style.height = '';
+
+		this.settings.onDestroy.apply(this);
 	};
 
 	return {
