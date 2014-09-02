@@ -60,6 +60,13 @@ var IdealImageSlider = (function() {
 		}
 	};
 
+	var _isHighDPI = function(){
+	    return ((window.matchMedia && (window.matchMedia('only screen and (min-resolution: 124dpi), only screen and (min-resolution: 1.3dppx), only screen and (min-resolution: 48.8dpcm)').matches ||
+				window.matchMedia('only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 2.6/2), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (min-device-pixel-ratio: 1.3)').matches)) ||
+				(window.devicePixelRatio && window.devicePixelRatio > 1.3));
+	}
+
+
 	// Touch event listeners
 	var ce=function(e,n){var a=document.createEvent("CustomEvent");a.initCustomEvent(n,true,true,e.target);e.target.dispatchEvent(a);a=null;return false},
 		nm=true,sp={x:0,y:0},ep={x:0,y:0},
@@ -128,6 +135,11 @@ var IdealImageSlider = (function() {
 					imgDiv.dataset.src = slide.dataset.src;
 				} else {
 					imgDiv.dataset.src = slide.src;
+				}
+
+				// HiDPI support
+				if(_isHighDPI() && slide.dataset.src2x){
+					imgDiv.dataset.src = slide.dataset.src2x;
 				}
 
 				if(slide.getAttribute('className')) _addClass(imgDiv, slide.getAttribute('className'));
@@ -310,7 +322,7 @@ var IdealImageSlider = (function() {
 	Slider.prototype.gotoSlide = function(index) {
 		this.settings.beforeChange.apply(this);
 		this.stop();
-		
+
 		_removeClass(this._attributes.previousSlide, this.settings.classes.previousSlide);
 		_removeClass(this._attributes.currentSlide, this.settings.classes.currentSlide);
 		_removeClass(this._attributes.nextSlide, this.settings.classes.nextSlide);
