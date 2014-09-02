@@ -155,6 +155,16 @@ slider.start();
 |get(attribute)|Get an attribute value (attributes are mostly used internally)|
 |set(attribute, value)|Set an attribute. Can be useful for storing custom data|
 
+## Browsers
+
+Ideal Image Slider has been tested on:
+
+* Chrome
+* Firefox
+* Safari (Desktop + Mobile)
+* Opera
+* IE9
+
 ## Contribute
 
 So you want to help out? That's awesome. Here is how you can do it:

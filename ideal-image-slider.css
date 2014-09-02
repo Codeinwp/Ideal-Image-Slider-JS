@@ -29,10 +29,11 @@
 
 /* Slide effect */
 .iis-effect-slide .iis-slide {
-	-webkit-transition-property: all;
-       -moz-transition-property: all;
-    	 -o-transition-property: all;
-    		transition-property: all;
+	opacity: 0;
+	-webkit-transition-property: -webkit-transform;
+       -moz-transition-property: -moz-transform;
+    	 -o-transition-property: -o-transform;
+    		transition-property: transform;
 	-webkit-transition-timing-function: ease-out;
        -moz-transition-timing-function: ease-out;
     	 -o-transition-timing-function: ease-out;
@@ -41,6 +42,7 @@
 		-ms-transform: translateX(0%);
 			transform: translateX(0%);
 }
+.iis-effect-slide .iis-current-slide { opacity: 1; }
 .iis-effect-slide .iis-previous-slide {
 	-webkit-transform: translateX(-100%);
 		-ms-transform: translateX(-100%);
@@ -51,9 +53,8 @@
 		-ms-transform: translateX(100%);
 			transform: translateX(100%);
 }
-.iis-effect-slide .iis-previous-slide { z-index: 1; }
-.iis-effect-slide .iis-next-slide { z-index: 2; }
-.iis-effect-slide .iis-current-slide { z-index: 3; }
+.iis-direction-previous.iis-effect-slide .iis-next-slide,
+.iis-direction-next.iis-effect-slide .iis-previous-slide { opacity: 1; }
 
 /* Fade effect */
 .iis-effect-fade .iis-slide {

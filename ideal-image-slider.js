@@ -62,18 +62,24 @@ var IdealImageSlider = (function() {
 	var _loadImg = function(slide, callback) {
 		if(!slide.style.backgroundImage){
 			var img = new Image();
-			img.src = slide.dataset.src;
+			img.setAttribute('src', slide.getAttribute('data-src'));
 			img.onload = function() {
-				slide.style.backgroundImage = 'url('+ slide.dataset.src +')';
+				slide.style.backgroundImage = 'url('+ slide.getAttribute('data-src') +')';
 				if(typeof(callback) === 'function') callback(this);
 			};
 		}
 	};
 
 	var _isHighDPI = function(){
-	    return ((window.matchMedia && (window.matchMedia('only screen and (min-resolution: 124dpi), only screen and (min-resolution: 1.3dppx), only screen and (min-resolution: 48.8dpcm)').matches ||
-				window.matchMedia('only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 2.6/2), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (min-device-pixel-ratio: 1.3)').matches)) ||
-				(window.devicePixelRatio && window.devicePixelRatio > 1.3));
+	    var mediaQuery = "(-webkit-min-device-pixel-ratio: 1.5),\
+				          (min--moz-device-pixel-ratio: 1.5),\
+				          (-o-min-device-pixel-ratio: 3/2),\
+				          (min-resolution: 1.5dppx)";
+	    if (window.devicePixelRatio > 1)
+	        return true;
+	    if (window.matchMedia && window.matchMedia(mediaQuery).matches)
+	        return true;
+	    return false;
 	}
 
 
@@ -110,7 +116,9 @@ var IdealImageSlider = (function() {
 				nextSlide: 'iis-next-slide',
 				previousNav: 'iis-previous-nav',
 				nextNav: 'iis-next-nav',
-				animating: 'iis-is-animating'
+				animating: 'iis-is-animating',
+				directionPrevious: 'iis-direction-previous',
+				directionNext: 'iis-direction-next'
 			},
 			onInit: function(){},
 			onStart: function(){},
@@ -155,17 +163,26 @@ var IdealImageSlider = (function() {
 					}
 				}
 
-				_deepExtend(slideEl.dataset, slide.dataset);
-				if(slide.dataset.src){
-					// Use data-src for on-demand loading
-					slideEl.dataset.src = slide.dataset.src;
-				} else {
-					slideEl.dataset.src = slide.src;
-				}
+				if(typeof slide.dataset !== 'undefined'){
+					_deepExtend(slideEl.dataset, slide.dataset);
+					if(slide.dataset.src){
+						// Use data-src for on-demand loading
+						slideEl.dataset.src = slide.dataset.src;
+					} else {
+						slideEl.dataset.src = slide.src;
+					}
 
-				// HiDPI support
-				if(_isHighDPI() && slide.dataset.src2x){
-					slideEl.dataset.src = slide.dataset.src2x;
+					// HiDPI support
+					if(_isHighDPI() && slide.dataset['src-2x']){
+						slideEl.dataset.src = slide.dataset['src-2x'];
+					}
+				} else {
+					// IE
+					if(slide.getAttribute('data-src')){
+						slideEl.setAttribute('data-src', slide.getAttribute('data-src'));
+					} else {
+						slideEl.setAttribute('data-src', slide.getAttribute('src'));
+					}
 				}
 
 				if(href) slideEl.setAttribute('href', href);
@@ -316,6 +333,11 @@ var IdealImageSlider = (function() {
 		_addClass(this._attributes.currentSlide, this.settings.classes.currentSlide);
 		_addClass(this._attributes.nextSlide, this.settings.classes.nextSlide);
 
+		_addClass(this._attributes.container, this.settings.classes.directionPrevious);
+		setTimeout(function(){
+			_removeClass(this._attributes.container, this.settings.classes.directionPrevious);
+		}.bind(this), this.settings.transitionDuration);
+
 		if(this.settings.transitionDuration){
 			_addClass(this._attributes.container, this.settings.classes.animating);
 			setTimeout(function(){
@@ -352,6 +374,11 @@ var IdealImageSlider = (function() {
 		_addClass(this._attributes.previousSlide, this.settings.classes.previousSlide);
 		_addClass(this._attributes.currentSlide, this.settings.classes.currentSlide);
 		_addClass(this._attributes.nextSlide, this.settings.classes.nextSlide);
+
+		_addClass(this._attributes.container, this.settings.classes.directionNext);
+		setTimeout(function(){
+			_removeClass(this._attributes.container, this.settings.classes.directionNext);
+		}.bind(this), this.settings.transitionDuration);
 
 		if(this.settings.transitionDuration){
 			_addClass(this._attributes.container, this.settings.classes.animating);
