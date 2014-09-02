@@ -173,10 +173,10 @@ var IdealImageSlider = (function() {
 				previousNav.style.display = 'none';
 				nextNav.style.display = 'none';
 
-				document.body.addEventListener('swl', function(){
+				sliderEl.addEventListener('swl', function(){
 					this.nextSlide();
 				}.bind(this), false);
-				document.body.addEventListener('swr', function(){
+				sliderEl.addEventListener('swr', function(){
 					this.previousSlide();
 				}.bind(this), false);
 			}
@@ -245,6 +245,8 @@ var IdealImageSlider = (function() {
 
 	Slider.prototype.previousSlide = function() {
 		this.settings.beforeChange.apply(this);
+		this.stop();
+
 		_removeClass(this._attributes.previousSlide, this.settings.classes.previousSlide);
 		_removeClass(this._attributes.currentSlide, this.settings.classes.currentSlide);
 		_removeClass(this._attributes.nextSlide, this.settings.classes.nextSlide);
@@ -275,6 +277,8 @@ var IdealImageSlider = (function() {
 
 	Slider.prototype.nextSlide = function() {
 		this.settings.beforeChange.apply(this);
+		this.stop();
+
 		_removeClass(this._attributes.previousSlide, this.settings.classes.previousSlide);
 		_removeClass(this._attributes.currentSlide, this.settings.classes.currentSlide);
 		_removeClass(this._attributes.nextSlide, this.settings.classes.nextSlide);
@@ -305,6 +309,8 @@ var IdealImageSlider = (function() {
 
 	Slider.prototype.gotoSlide = function(index) {
 		this.settings.beforeChange.apply(this);
+		this.stop();
+		
 		_removeClass(this._attributes.previousSlide, this.settings.classes.previousSlide);
 		_removeClass(this._attributes.currentSlide, this.settings.classes.currentSlide);
 		_removeClass(this._attributes.nextSlide, this.settings.classes.nextSlide);
