@@ -6,10 +6,10 @@
     <title>Ideal Image Slider Example</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/normalize.css">
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="../ideal-image-slider.css">
     <link rel="stylesheet" href="../themes/default/default.css">
     <style media="screen">
-    .slider {
+    #slider {
         max-width: 900px;
         margin: 50px auto;
     }
@@ -17,18 +17,18 @@
 </head>
 <body>
 
-	<div class="slider">
-		<img src="img/1.jpg" data-src-2x="img/1@2x.jpg" alt="" />
-		<img data-src="img/2.jpg" data-src-2x="img/2@2x.jpg" src="" alt="" />
-		<img data-src="img/3.jpg" data-src-2x="img/3@2x.jpg" src="" alt="" />
-		<img data-src="img/4.jpg" data-src-2x="img/4@2x.jpg" src="" alt="" />
+	<div id="slider">
+		<img src="img/1.jpg" data-src-2x="img/1@2x.jpg" alt="Slide 1" />
+		<img data-src="img/2.jpg" data-src-2x="img/2@2x.jpg" src="" alt="Slide 2" />
+		<img data-src="img/3.jpg" data-src-2x="img/3@2x.jpg" src="" alt="Slide 3" />
+		<img data-src="img/4.jpg" data-src-2x="img/4@2x.jpg" src="" alt="Slide 4" />
         <img data-src="img/5.jpg" src="" alt="" />
 	</div>
 
     <script src="../ideal-image-slider.js"></script>
 	<script>
 	var slider = new IdealImageSlider.Slider({
-		selector: '.slider'
+		selector: '#slider'
 	});
     slider.start();
 	</script>

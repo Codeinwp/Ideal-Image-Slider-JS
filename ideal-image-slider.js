@@ -1,3 +1,13 @@
+/*
+ * Ideal Image Slider v1.0.0
+ *
+ * By Gilbert Pellegrom
+ * http://gilbert.pellegrom.me
+ *
+ * Free to use and abuse under the MIT license.
+ * https://raw.githubusercontent.com/gilbitron/Ideal-Image-Slider/master/LICENSE
+ */
+
 var IdealImageSlider = (function() {
 	"use strict";
 
@@ -146,6 +156,7 @@ var IdealImageSlider = (function() {
 
 				if(slide.getAttribute('className')) _addClass(imgDiv, slide.getAttribute('className'));
 				if(slide.getAttribute('id')) imgDiv.setAttribute('id', slide.id);
+				if(slide.getAttribute('alt')) imgDiv.innerHTML = slide.getAttribute('alt');
 				imgDiv.setAttribute('role', 'option');
 
 				imgDiv.style.cssText += '-webkit-transition-duration:'+ this.settings.transitionDuration +'ms;-moz-transition-duration:'+ this.settings.transitionDuration +'ms;-o-transition-duration:'+ this.settings.transitionDuration +'ms;transition-duration:'+ this.settings.transitionDuration +'ms;';

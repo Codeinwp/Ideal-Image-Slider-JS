@@ -1,3 +1,13 @@
+/*
+ * Ideal Image Slider v1.0.0
+ *
+ * By Gilbert Pellegrom
+ * http://gilbert.pellegrom.me
+ *
+ * Free to use and abuse under the MIT license.
+ * https://raw.githubusercontent.com/gilbitron/Ideal-Image-Slider/master/LICENSE
+ */
+
 .ideal-image-slider {
 	position: relative;
 	overflow: hidden;
@@ -11,6 +21,7 @@
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
 	background-size: cover;
+	text-indent: -999%;
 }
 
 /* Slide effect */
