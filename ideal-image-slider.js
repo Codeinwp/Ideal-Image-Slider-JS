@@ -87,6 +87,7 @@ var IdealImageSlider = (function() {
 			selector: '',
 			height: 400, // Required but can be set by CSS
 			interval: 4000,
+			transitionDuration: 700,
 			effect: 'slide',
 			disableNav: false,
 			previousNavSelector: '',
@@ -98,7 +99,8 @@ var IdealImageSlider = (function() {
 				currentSlide: 'iis-current-slide',
 				nextSlide: 'iis-next-slide',
 				previousNav: 'iis-previous-nav',
-				nextNav: 'iis-next-nav'
+				nextNav: 'iis-next-nav',
+				animating: 'iis-is-animating'
 			},
 			onInit: function(){},
 			onStart: function(){},
@@ -146,6 +148,8 @@ var IdealImageSlider = (function() {
 				if(slide.getAttribute('id')) imgDiv.setAttribute('id', slide.id);
 				imgDiv.setAttribute('role', 'option');
 
+				imgDiv.style.cssText += '-webkit-transition-duration:'+ this.settings.transitionDuration +'ms;-moz-transition-duration:'+ this.settings.transitionDuration +'ms;-o-transition-duration:'+ this.settings.transitionDuration +'ms;transition-duration:'+ this.settings.transitionDuration +'ms;';
+
 				sliderEl.appendChild(imgDiv);
 				imgSlides.push(imgDiv);
 			}
@@ -185,11 +189,13 @@ var IdealImageSlider = (function() {
 				previousNav.style.display = 'none';
 				nextNav.style.display = 'none';
 
-				sliderEl.addEventListener('swl', function(){
-					this.nextSlide();
-				}.bind(this), false);
 				sliderEl.addEventListener('swr', function(){
+					this.stop();
 					this.previousSlide();
+				}.bind(this), false);
+				sliderEl.addEventListener('swl', function(){
+					this.stop();
+					this.nextSlide();
 				}.bind(this), false);
 			}
 		}
@@ -257,8 +263,6 @@ var IdealImageSlider = (function() {
 
 	Slider.prototype.previousSlide = function() {
 		this.settings.beforeChange.apply(this);
-		this.stop();
-
 		_removeClass(this._attributes.previousSlide, this.settings.classes.previousSlide);
 		_removeClass(this._attributes.currentSlide, this.settings.classes.currentSlide);
 		_removeClass(this._attributes.nextSlide, this.settings.classes.nextSlide);
@@ -284,13 +288,18 @@ var IdealImageSlider = (function() {
 		_addClass(this._attributes.previousSlide, this.settings.classes.previousSlide);
 		_addClass(this._attributes.currentSlide, this.settings.classes.currentSlide);
 		_addClass(this._attributes.nextSlide, this.settings.classes.nextSlide);
+
+		if(this.settings.transitionDuration){
+			_addClass(this._attributes.container, this.settings.classes.animating);
+			setTimeout(function(){
+				_removeClass(this._attributes.container, this.settings.classes.animating);
+			}.bind(this), this.settings.transitionDuration);
+		}
 		this.settings.afterChange.apply(this);
 	};
 
 	Slider.prototype.nextSlide = function() {
 		this.settings.beforeChange.apply(this);
-		this.stop();
-
 		_removeClass(this._attributes.previousSlide, this.settings.classes.previousSlide);
 		_removeClass(this._attributes.currentSlide, this.settings.classes.currentSlide);
 		_removeClass(this._attributes.nextSlide, this.settings.classes.nextSlide);
@@ -316,6 +325,13 @@ var IdealImageSlider = (function() {
 		_addClass(this._attributes.previousSlide, this.settings.classes.previousSlide);
 		_addClass(this._attributes.currentSlide, this.settings.classes.currentSlide);
 		_addClass(this._attributes.nextSlide, this.settings.classes.nextSlide);
+
+		if(this.settings.transitionDuration){
+			_addClass(this._attributes.container, this.settings.classes.animating);
+			setTimeout(function(){
+				_removeClass(this._attributes.container, this.settings.classes.animating);
+			}.bind(this), this.settings.transitionDuration);
+		}
 		this.settings.afterChange.apply(this);
 	};
 
@@ -347,6 +363,13 @@ var IdealImageSlider = (function() {
 		_addClass(this._attributes.previousSlide, this.settings.classes.previousSlide);
 		_addClass(this._attributes.currentSlide, this.settings.classes.currentSlide);
 		_addClass(this._attributes.nextSlide, this.settings.classes.nextSlide);
+
+		if(this.settings.transitionDuration){
+			_addClass(this._attributes.container, this.settings.classes.animating);
+			setTimeout(function(){
+				_removeClass(this._attributes.container, this.settings.classes.animating);
+			}.bind(this), this.settings.transitionDuration);
+		}
 		this.settings.afterChange.apply(this);
 	};
 
