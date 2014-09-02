@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Ideal Image Slider by gilbitron</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Ideal Image Slider</h1>
+        <h2>Quite simply the ideal Image Slider in vanilla JS.</h2>
+        <a href="https://github.com/gilbitron/Ideal-Image-Slider" class="button"><small>View project on</small>GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>
+<a name="ideal-image-slider" class="anchor" href="#ideal-image-slider"><span class="octicon octicon-link"></span></a>Ideal Image Slider</h1>
+
+<p>The aim behind the Ideal Image Slider is to create a slider which has just the right amount of features,
+with no bloat and be easy to extend so that more features can be added as "extensions". Here are the ideals
+and core features I wanted to include:</p>
+
+<ul>
+<li>HTML5 (SEO optimised)</li>
+<li>CSS3 transitions (a few simple transitions like slide/fade)</li>
+<li>Left/Right navigation (including touch/swipe support)</li>
+<li>Responsive</li>
+<li>HiDPI (retina) support</li>
+<li>ARIA support</li>
+<li>Extremely simple to setup (no dependancies)</li>
+<li>Very extensible</li>
+<li>Uses progressive enhancement</li>
+<li>Open source (goes without saying)</li>
+</ul><p>And, as an example, here are some features that <em>should not</em> be in the core and could be optional extensions:</p>
+
+<ul>
+<li>Themes or skins</li>
+<li>More transitions</li>
+<li>Bullet navigation</li>
+<li>Thumbnail navigation</li>
+<li>Full screen slider</li>
+<li>Video/Audio support</li>
+<li>etc...</li>
+</ul><p><a href="http://gilbert.pellegrom.me/the-ideal-image-slider">Read the original blog post →</a></p>
+
+<h2>
+<a name="requirements" class="anchor" href="#requirements"><span class="octicon octicon-link"></span></a>Requirements</h2>
+
+<ul>
+<li><strong>None</strong></li>
+</ul><p>Ideal Image Slider is written in vanilla JS and has no dependancies.</p>
+
+<h2>
+<a name="getting-started" class="anchor" href="#getting-started"><span class="octicon octicon-link"></span></a>Getting Started</h2>
+
+<p>To install the slider you can either manually download this repository or you can use <a href="http://bower.io">Bower</a>
+and run the following command:</p>
+
+<pre><code>bower install ideal-image-slider --save
+</code></pre>
+
+<p>Next you need to include the CSS file in the <code>&lt;head&gt;</code> section of your HTML and you need to include the script
+before the <code>&lt;/body&gt;</code> tag in your HTML. Note you can optionally include a theme CSS file in the <code>&lt;head&gt;</code> too.</p>
+
+<div class="highlight highlight-html"><pre><span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+    ...
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"/path/to/ideal-image-slider.css"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"/path/to/themes/default/default.css"</span><span class="nt">&gt;</span>
+    ...
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+    ...
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"/path/to/ideal-image-slider.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+
+<p>Next you need to set up your slider HTML where you want it to appear in your page. It should look something
+like this:</p>
+
+<div class="highlight highlight-html"><pre><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"slider"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"img/1.jpg"</span> <span class="na">src=</span><span class="s">""</span> <span class="na">alt=</span><span class="s">"Minimum required attributes"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;img</span> <span class="na">data-src=</span><span class="s">"img/2.jpg"</span> <span class="na">src=</span><span class="s">""</span> <span class="na">alt=</span><span class="s">"Use data-src for on-demand loading"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;img</span> <span class="na">data-src=</span><span class="s">"img/3.jpg"</span> <span class="na">data-src-2x=</span><span class="s">"img/3@2x.jpg"</span> <span class="na">src=</span><span class="s">""</span> <span class="na">alt=</span><span class="s">"Use data-src-2x for HiDPI devices"</span><span class="nt">&gt;</span>
+    ...
+<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+
+<p>There a few things to note about the structure of the images in your slider:</p>
+
+<ul>
+<li>This is an image slider, so only images are supported. Any other content will be removed.</li>
+<li>You can use the <code>data-src</code> attribute to load your images "on-demand" (i.e. images are not loaded until they are required).</li>
+<li>The first image should not use <code>data-src</code> so it is loaded if no JS is detected.</li>
+<li>If you specify a <code>data-src-2x</code> image, it will be used on devices that support HiDPI (such as Apple's retina devices).</li>
+</ul><p>Finally you can create your slider by using the following Javascript:</p>
+
+<div class="highlight highlight-js"><pre><span class="k">new</span> <span class="nx">IdealImageSlider</span><span class="p">.</span><span class="nx">Slider</span><span class="p">(</span><span class="s1">'#slider'</span><span class="p">);</span>
+</pre></div>
+
+<p>If you want to tweak the settings or use the slider API it would look more like:</p>
+
+<div class="highlight highlight-js"><pre><span class="kd">var</span> <span class="nx">slider</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">IdealImageSlider</span><span class="p">.</span><span class="nx">Slider</span><span class="p">({</span>
+    <span class="nx">selector</span><span class="o">:</span> <span class="s1">'#slider'</span><span class="p">,</span>
+    <span class="nx">height</span><span class="o">:</span> <span class="mi">400</span><span class="p">,</span> <span class="c1">// Required but can be set by CSS</span>
+    <span class="nx">interval</span><span class="o">:</span> <span class="mi">4000</span><span class="p">,</span>
+<span class="p">});</span>
+<span class="nx">slider</span><span class="p">.</span><span class="nx">start</span><span class="p">();</span>
+</pre></div>
+
+<p>Note: If you don't pass a <code>height</code> to the Javascript constructor you <strong>must</strong> set it
+in your CSS.</p>
+
+<h2>
+<a name="settings" class="anchor" href="#settings"><span class="octicon octicon-link"></span></a>Settings</h2>
+
+<table>
+<thead><tr>
+<th>Setting</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>selector</td>
+<td><code>''</code></td>
+<td>CSS selector for the slider</td>
+</tr>
+<tr>
+<td>height</td>
+<td><code>400</code></td>
+<td>Height (in px) of the slider</td>
+</tr>
+<tr>
+<td>interval</td>
+<td><code>4000</code></td>
+<td>Time (in ms) to wait before changing to the next slide</td>
+</tr>
+<tr>
+<td>transitionDuration</td>
+<td><code>700</code></td>
+<td>Duration (in ms) of animated transition</td>
+</tr>
+<tr>
+<td>effect</td>
+<td><code>'slide'</code></td>
+<td>Transition effect (slide/fade by default)</td>
+</tr>
+<tr>
+<td>disableNav</td>
+<td><code>false</code></td>
+<td>Disables the previous/next navigation</td>
+</tr>
+<tr>
+<td>previousNavSelector</td>
+<td><code>''</code></td>
+<td>Selector for custom previous nav element</td>
+</tr>
+<tr>
+<td>nextNavSelector</td>
+<td><code>''</code></td>
+<td>Selector for custom next nav element</td>
+</tr>
+<tr>
+<td>classes</td>
+<td><code>{...}</code></td>
+<td>List of classes to be used by slider. Probably shouldn't be changed</td>
+</tr>
+</tbody>
+</table><h2>
+<a name="events" class="anchor" href="#events"><span class="octicon octicon-link"></span></a>Events</h2>
+
+<p>Event callback functions can be passed in with the settings. For example:</p>
+
+<div class="highlight highlight-js"><pre><span class="k">new</span> <span class="nx">IdealImageSlider</span><span class="p">.</span><span class="nx">Slider</span><span class="p">({</span>
+    <span class="nx">selector</span><span class="o">:</span> <span class="s1">'#slider'</span><span class="p">,</span>
+    <span class="nx">onStart</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'onStart'</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+
+<table>
+<thead><tr>
+<th>Event</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>onInit</td>
+<td>Callback that fires when slider and first image have loaded</td>
+</tr>
+<tr>
+<td>onStart</td>
+<td>Callback that fires when slider has started playing</td>
+</tr>
+<tr>
+<td>onStop</td>
+<td>Callback that fires when slider has stopped playing</td>
+</tr>
+<tr>
+<td>onDestroy</td>
+<td>Callback that fires when slider is destroyed</td>
+</tr>
+<tr>
+<td>beforeChange</td>
+<td>Callback that fires before a slide has changed</td>
+</tr>
+<tr>
+<td>afterChange</td>
+<td>Callback that fires after a slide has changed</td>
+</tr>
+</tbody>
+</table><h2>
+<a name="api" class="anchor" href="#api"><span class="octicon octicon-link"></span></a>API</h2>
+
+<p>To use the API methods you must store the slider object. For example:</p>
+
+<div class="highlight highlight-js"><pre><span class="kd">var</span> <span class="nx">slider</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">IdealImageSlider</span><span class="p">.</span><span class="nx">Slider</span><span class="p">(</span><span class="s1">'#slider'</span><span class="p">);</span>
+<span class="nx">slider</span><span class="p">.</span><span class="nx">start</span><span class="p">();</span>
+</pre></div>
+
+<table>
+<thead><tr>
+<th>Method</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>start()</td>
+<td>Start the slider. Note the slider will automatically be stopped when navigation is used</td>
+</tr>
+<tr>
+<td>stop()</td>
+<td>Stop the slider</td>
+</tr>
+<tr>
+<td>previousSlide()</td>
+<td>Change to the previous slide</td>
+</tr>
+<tr>
+<td>nextSlide()</td>
+<td>Change to the next slide</td>
+</tr>
+<tr>
+<td>gotoSlide(index)</td>
+<td>Change to a specific slide (1 indexed)</td>
+</tr>
+<tr>
+<td>destroy()</td>
+<td>Destroy the slider</td>
+</tr>
+<tr>
+<td>get(attribute)</td>
+<td>Get an attribute value (attributes are mostly used internally)</td>
+</tr>
+<tr>
+<td>set(attribute, value)</td>
+<td>Set an attribute. Can be useful for storing custom data</td>
+</tr>
+</tbody>
+</table><h2>
+<a name="browsers" class="anchor" href="#browsers"><span class="octicon octicon-link"></span></a>Browsers</h2>
+
+<p>Ideal Image Slider has been tested on:</p>
+
+<ul>
+<li>Chrome</li>
+<li>Firefox</li>
+<li>Safari (Desktop + Mobile)</li>
+<li>Opera</li>
+<li>IE9</li>
+</ul><h2>
+<a name="contribute" class="anchor" href="#contribute"><span class="octicon octicon-link"></span></a>Contribute</h2>
+
+<p>So you want to help out? That's awesome. Here is how you can do it:</p>
+
+<ul>
+<li><a href="https://github.com/gilbitron/Ideal-Image-Slider/labels/bug">Report a bug</a></li>
+<li><a href="https://github.com/gilbitron/Ideal-Image-Slider/labels/enhancement">Ask for a feature</a></li>
+<li><a href="https://github.com/gilbitron/Ideal-Image-Slider/pulls">Submit a pull request</a></li>
+</ul><p>If you are submitting a pull request please adhere to the existing coding standards used throughout the code
+and only submit <strong>1 feature/fix per pull request</strong>. Pull requests containing multiple changes will be rejected.</p>
+
+<h2>
+<a name="credits" class="anchor" href="#credits"><span class="octicon octicon-link"></span></a>Credits</h2>
+
+<p>Ideal Image Slider was created by <a href="http://gilbert.pellegrom.me">Gilbert Pellegrom</a> from
+<a href="http://dev7studios.com">Dev7studios</a>. Released under the <a href="https://raw.githubusercontent.com/gilbitron/Ideal-Image-Slider/master/LICENSE">MIT license</a>.</p>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/gilbitron/Ideal-Image-Slider/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/gilbitron/Ideal-Image-Slider/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/gilbitron/Ideal-Image-Slider"></a> is maintained by <a href="https://github.com/gilbitron">gilbitron</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+            <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-3892196-69");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
