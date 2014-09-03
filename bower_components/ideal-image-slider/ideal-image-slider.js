@@ -1,5 +1,5 @@
 /*
- * Ideal Image Slider v1.0.0
+ * Ideal Image Slider v1.0.1
  *
  * By Gilbert Pellegrom
  * http://gilbert.pellegrom.me
@@ -32,6 +32,15 @@ var IdealImageSlider = (function() {
 		return out;
 	};
 
+	var _hasClass = function(el, className) {
+		if(!className) return false;
+		if(el.classList){
+			return el.classList.contains(className);
+		} else {
+			return new RegExp('(^| )' + className + '( |$)', 'gi').test(el.className);
+		}
+	};
+
 	var _addClass = function(el, className) {
 		if(!className) return;
 		if(el.classList){
@@ -42,6 +51,7 @@ var IdealImageSlider = (function() {
 	};
 
 	var _removeClass = function(el, className) {
+		if(!className) return;
 		if(el.classList){
 			el.classList.remove(className);
 		} else {
@@ -220,10 +230,12 @@ var IdealImageSlider = (function() {
 			_addClass(previousNav, this.settings.classes.previousNav);
 			_addClass(nextNav, this.settings.classes.nextNav);
 			previousNav.addEventListener('click', (function(){
+				if(_hasClass(this._attributes.container, this.settings.classes.animating)) return false;
 				this.stop();
 				this.previousSlide();
 			}).bind(this));
 			nextNav.addEventListener('click', (function(){
+				if(_hasClass(this._attributes.container, this.settings.classes.animating)) return false;
 				this.stop();
 				this.nextSlide();
 			}).bind(this));
@@ -234,10 +246,12 @@ var IdealImageSlider = (function() {
 				nextNav.style.display = 'none';
 
 				sliderEl.addEventListener('swr', function(){
+					if(_hasClass(this._attributes.container, this.settings.classes.animating)) return false;
 					this.stop();
 					this.previousSlide();
 				}.bind(this), false);
 				sliderEl.addEventListener('swl', function(){
+					if(_hasClass(this._attributes.container, this.settings.classes.animating)) return false;
 					this.stop();
 					this.nextSlide();
 				}.bind(this), false);
@@ -297,6 +311,11 @@ var IdealImageSlider = (function() {
 	Slider.prototype.start = function() {
 		this._attributes.timerId = setInterval(this.nextSlide.bind(this), this.settings.interval);
 		this.settings.onStart.apply(this);
+
+		// Stop if window blur
+		window.onblur = function(){
+			this.stop();
+		}.bind(this);
 	};
 
 	Slider.prototype.stop = function() {

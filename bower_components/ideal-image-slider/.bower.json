@@ -1,7 +1,7 @@
 {
   "name": "ideal-image-slider",
   "main": "ideal-image-slider.js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "https://github.com/gilbitron/Ideal-Image-Slider",
   "authors": [
     "Gilbert Pellegrom <gilbert@pellegrom.me>"
@@ -20,14 +20,13 @@
     "bower_components",
     "tests"
   ],
-  "_release": "1.0.0",
+  "_release": "1.0.1",
   "_resolution": {
     "type": "version",
-    "tag": "1.0.0",
-    "commit": "182140bf3ccb6ad12ec877f67f606b5bbc60aa76"
+    "tag": "1.0.1",
+    "commit": "e2df8bae7b297071a5e47f3bea86ec7689188809"
   },
   "_source": "git://github.com/gilbitron/Ideal-Image-Slider.git",
   "_target": "~1.0.0",
-  "_originalSource": "ideal-image-slider",
-  "_direct": true
+  "_originalSource": "ideal-image-slider"
 }
