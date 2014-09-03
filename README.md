@@ -27,6 +27,10 @@ And, as an example, here are some features that *should not* be in the core and 
 
 [Read the original blog post &rarr;](http://gilbert.pellegrom.me/the-ideal-image-slider)
 
+## Demo
+
+http://gilbitron.github.io/Ideal-Image-Slider
+
 ## Requirements
 
 * **None**
