@@ -69,9 +69,20 @@
             </div>
 
             <div class="share">
-                <span class='st_twitter_hcount' displayText='Tweet'></span>
-                <span class='st_facebook_hcount' displayText='Facebook'></span>
-                <span class='st_googleplus_hcount' displayText='Google +'></span>
+                <a href="https://twitter.com/share" class="twitter-share-button" data-via="gilbitron">Tweet</a>
+                <div class="fb-like" data-href="http://gilbitron.github.io/Ideal-Image-Slider" data-width="130" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+                <div class="g-plusone" data-size="medium"></div>
+                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                <div id="fb-root"></div>
+                <script>(function(d, s, id) {
+                  var js, fjs = d.getElementsByTagName(s)[0];
+                  if (d.getElementById(id)) return;
+                  js = d.createElement(s); js.id = id;
+                  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&appId=595239743887539&version=v2.0";
+                  fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));</script>
+                <script src="https://apis.google.com/js/platform.js" async defer></script>
+
             </div>
         </div>
     </section>
@@ -102,7 +113,5 @@
     ga('create', 'UA-3892196-69', 'auto');
     ga('send', 'pageview');
     </script>
-    <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
-    <script type="text/javascript">stLight.options({publisher: "736b234f-9935-4f88-8dae-5ce99eecf11c", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script>
 </body>
 </html>
