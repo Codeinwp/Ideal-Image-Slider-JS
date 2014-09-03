@@ -297,6 +297,11 @@ var IdealImageSlider = (function() {
 	Slider.prototype.start = function() {
 		this._attributes.timerId = setInterval(this.nextSlide.bind(this), this.settings.interval);
 		this.settings.onStart.apply(this);
+
+		// Stop if window blur
+		window.onblur = function(){
+			this.stop();
+		}.bind(this);
 	};
 
 	Slider.prototype.stop = function() {
