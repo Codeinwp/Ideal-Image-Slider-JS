@@ -7,10 +7,11 @@
     <meta name="description" content="HTML5 (SEO optimised), CSS3 transitions, Touch/swipe support, Responsive, HiDPI (retina) support, ARIA support. Need I say more?">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
     <script src="js/modernizr-2.8.3.min.js"></script>
+    <script type="text/javascript" src="//use.typekit.net/cko4cga.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
     <link rel="stylesheet" href="bower_components/ideal-image-slider/ideal-image-slider.css">
     <link rel="stylesheet" href="bower_components/ideal-image-slider/themes/default/default.css">
@@ -18,43 +19,64 @@
 <body>
 
     <header class="header">
-        <h1>Ideal Image Slider</h1>
-        <div id="slider">
-            <img src="bower_components/ideal-image-slider/example/img/1.jpg" data-src-2x="bower_components/ideal-image-slider/example/img/1@2x.jpg" src="" alt="">
-            <img data-src="bower_components/ideal-image-slider/example/img/2.jpg" data-src-2x="bower_components/ideal-image-slider/example/img/2@2x.jpg" src="" alt="">
-            <img data-src="bower_components/ideal-image-slider/example/img/3.jpg" data-src-2x="bower_components/ideal-image-slider/example/img/3@2x.jpg" src="" alt="">
-            <img data-src="bower_components/ideal-image-slider/example/img/4.jpg" data-src-2x="bower_components/ideal-image-slider/example/img/4@2x.jpg" src="" alt="">
+        <div class="inner">
+            <h1>Ideal Image Slider</h1>
+            <h2>Quite simply the ideal Image Slider in vanilla JS</h2>
+            <div id="slider">
+                <img src="img/1.jpg" data-src-2x="img/1@2x.jpg" src="" alt="">
+                <img data-src="img/2.jpg" data-src-2x="img/2@2x.jpg" src="" alt="">
+                <img data-src="img/3.jpg" data-src-2x="img/3@2x.jpg" src="" alt="">
+                <img data-src="img/4.jpg" data-src-2x="img/4@2x.jpg" src="" alt="">
+            </div>
         </div>
     </header>
 
     <section class="content">
-        <p>The aim behind the Ideal Image Slider is to create a slider which has just the right amount of features,
-        with no bloat and be easy to extend so that more features can be added as "extensions". Here are the ideals
-        and core features I wanted to include:</p>
-        <ul>
-            <li>HTML5 (SEO optimised)</li>
-            <li>CSS3 transitions (a few simple transitions like slide/fade)</li>
-            <li>Left/Right navigation (including touch/swipe support)</li>
-            <li>Responsive</li>
-            <li>HiDPI (retina) support</li>
-            <li>ARIA support</li>
-            <li>Extremely simple to setup (no dependancies)</li>
-            <li>Very extensible</li>
-            <li>Uses progressive enhancement</li>
-            <li>Open source (goes without saying)</li>
-        </ul>
-        <p>And, as an example, here are some features that <em>should not</em> be in the core and could be optional extensions:</p>
-        <ul>
-            <li>Themes or skins</li>
-            <li>More transitions</li>
-            <li>Bullet navigation</li>
-            <li>Thumbnail navigation</li>
-            <li>Full screen slider</li>
-            <li>Video/Audio support</li>
-            <li>etc...</li>
-        </ul>
-        <p><a href="https://github.com/gilbitron/Ideal-Image-Slider">Download on Github</a></p>
+        <div class="inner">
+            <p class="intro">The aim behind the Ideal Image Slider was to create a slider which has just the right amount of features,
+            with no bloat and be easy to extend so that more features can be added as "extensions".</p>
+
+            <div class="features clearfix">
+                <div class="feature">
+                    <h3><span class="icon-search"></span> HTML5 &amp; SEO friendly</h3>
+                    <p>Modern HTML5 structure that is search engine friendly.</p>
+                </div>
+                <div class="feature">
+                    <h3><span class="icon-play"></span> CSS3 powered transitions</h3>
+                    <p>Hardware-accelerated transition effects powered by CSS3.</p>
+                </div>
+                <div class="feature last">
+                    <h3><span class="icon-touch"></span> Touch-enabled navigation</h3>
+                    <p>Standard left/right navigation with touch support for mobile devices.</p>
+                </div>
+                <div class="feature">
+                    <h3><span class="icon-size"></span> Fully responsive</h3>
+                    <p>Images fit the slider on devices of any shape and size.</p>
+                </div>
+                <div class="feature">
+                    <h3><span class="icon-location"></span> HiDPI (retina) support</h3>
+                    <p>Optional @2x support for HiDPI devices, including retina devices.</p>
+                </div>
+                <div class="feature last">
+                    <h3><span class="icon-support"></span> ARIA support</h3>
+                    <p>Increased accessability using the W3C ARIA specification.</p>
+                </div>
+            </div>
+
+            <div class="cta">
+                <a href="https://github.com/gilbitron/Ideal-Image-Slider/releases" class="btn">Download Latest Version</a>
+                <a href="https://github.com/gilbitron/Ideal-Image-Slider#requirements" class="btn">View Docs</a>
+            </div>
+        </div>
     </section>
+
+    <footer class="footer">
+        <div class="inner">
+            <p>Ideal Image Slider was created by <a href="http://gilbert.pellegrom.me">Gilbert Pellegrom</a> from
+            <a href="http://dev7studios.com">Dev7studios</a>. Released under the
+            <a href="https://raw.githubusercontent.com/gilbitron/Ideal-Image-Slider/master/LICENSE">MIT license</a>.</p>
+        </div>
+    </footer>
 
     <script src="bower_components/ideal-image-slider/ideal-image-slider.js"></script>
     <script>

@@ -6,6 +6,63 @@
  * Kroc Camen, and the H5BP dev community and team.
  */
 
+ @font-face {
+   font-family: "untitled-font-2";
+   src:url("../fonts/untitled-font-2.eot");
+   src:url("../fonts/untitled-font-2.eot?#iefix") format("embedded-opentype"),
+     url("../fonts/untitled-font-2.woff") format("woff"),
+     url("../fonts/untitled-font-2.ttf") format("truetype"),
+     url("../fonts/untitled-font-2.svg#untitled-font-2") format("svg");
+   font-weight: normal;
+   font-style: normal;
+
+ }
+
+ [data-icon]:before {
+   font-family: "untitled-font-2" !important;
+   content: attr(data-icon);
+   font-style: normal !important;
+   font-weight: normal !important;
+   font-variant: normal !important;
+   text-transform: none !important;
+   speak: none;
+   line-height: 1;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+ }
+
+ [class^="icon-"]:before,
+ [class*=" icon-"]:before {
+   font-family: "untitled-font-2" !important;
+   font-style: normal !important;
+   font-weight: normal !important;
+   font-variant: normal !important;
+   text-transform: none !important;
+   speak: none;
+   line-height: 1;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+ }
+
+ .icon-search:before {
+   content: "a";
+ }
+ .icon-play:before {
+   content: "b";
+ }
+ .icon-touch:before {
+   content: "c";
+ }
+ .icon-size:before {
+   content: "d";
+ }
+ .icon-location:before {
+   content: "e";
+ }
+ .icon-support:before {
+   content: "f";
+ }
+
 /* ==========================================================================
    Base styles: opinionated defaults
    ========================================================================== */
@@ -75,21 +132,124 @@ textarea {
    ========================================================================== */
 
 body {
-    font: 14px/1.6em "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font: 16px/1.6em "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
     background: #FAFAFB;
-    color: #5D6D81;
+    color: #6F7C82;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3, h4, h5, h6, strong {
-    color: #1A3547;
+    color: #292E31;
+    font-weight: normal;
 }
 
-.header,
-.content,
-.footer {
+a, a:visited {
+    color: #008CDD;
+    text-decoration: none;
+}
+a:hover, a:active {
+    color: #292E31;
+    text-decoration: none;
+}
+
+.btn,
+a.btn {
+    display: inline-block;
+    background: #64BD2E;
+    background-image: -webkit-linear-gradient(#64BD2E, #50A91A);
+    background-image: -moz-linear-gradient(#64bd2e, #50a91a);
+    background-image: -ms-linear-gradient(#64bd2e, #50a91a);
+    background-image: -o-linear-gradient(#64bd2e, #50a91a);
+    background-image: linear-gradient(#64BD2E, #50A91A);
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 10px 30px;
+    text-align: center;
+    border-radius: 4px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.1);
+}
+.btn:hover,
+a.btn:hover {
+    background: #79ca3c;
+    background-image: -webkit-linear-gradient(#79ca3c, #62b524);
+    background-image: -moz-linear-gradient(#79ca3c, #62b524);
+    background-image: -ms-linear-gradient(#79ca3c, #62b524);
+    background-image: -o-linear-gradient(#79ca3c, #62b524);
+    background-image: linear-gradient(#79ca3c, #62b524);
+}
+
+.inner {
     max-width: 800px;
     margin: 0 auto;
     padding: 0 20px;
+}
+
+.header {
+    background: #2c3c74;
+	background: -webkit-linear-gradient(15deg, #85BBCD 12%, #2c3c74 72%);
+	background: -moz-linear-gradient(15deg, #85BBCD 12%, #2c3c74 72%);
+	background: -o-linear-gradient(15deg, #85BBCD 12%, #2c3c74 72%);
+	background: linear-gradient(15deg, #85BBCD 12%, #2c3c74 72%);
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    padding: 50px 0;
+    text-align: center;
+    box-shadow: inset 0 -1px 3px rgba(0,0,0,0.1);
+}
+.header h1 {
+    font-size: 40px;
+    line-height: 1em;
+    margin: 0 0 10px 0;
+    color: #fff;
+}
+.header h2 {
+    font-size: 20px;
+    line-height: 1em;
+    margin: 0 0 40px 0;
+    color: #D6E2E9;
+    color: rgba(255,255,255,0.7);
+}
+#slider {
+    background: #F7F9FA;
+    border-radius: 6px;
+    box-shadow: 0 3px 5px rgba(0,0,0,0.3), 0 0 0 1px rgba(0,0,0,0.08);
+    margin-bottom: 10px;
+}
+
+.content { padding: 50px 0; }
+.content .intro {
+    text-align: center;
+    margin: 0 0 40px 0;
+}
+.features { margin-bottom: 20px; }
+.features .feature {
+    width: 31%;
+    float: left;
+    margin: 0 3.5% 0 0;
+}
+.features .feature.last { margin-right: 0; }
+.features h3 { margin: 0 0 7px 0; }
+.features h3 span {
+    vertical-align: -10%;
+    margin-right: 3px;
+    color: #64BD2E;
+}
+.features p { margin: 0 0 30px 0; }
+
+.cta { text-align: center; }
+.cta .btn { margin: 0 5px 10px; }
+
+.footer { margin-bottom: 10px; }
+.footer p {
+    font-size: 14px;
+    border-top: 1px solid #E7E9EA;
+    padding: 20px 0;
+    margin: 0;
 }
 
 /* ==========================================================================
@@ -171,8 +331,15 @@ h1, h2, h3, h4, h5, h6, strong {
    Modify as content requires.
    ========================================================================== */
 
-@media only screen and (min-width: 35em) {
-    /* Style adjustments for viewports that meet the condition */
+@media only screen and (max-width: 700px) {
+    .features .feature {
+        width: auto;
+        float: none;
+    }
+}
+@media only screen and (max-width: 500px) {
+    .header h1 { font-size: 32px; }
+    .content .intro { text-align: left; }
 }
 
 @media print,
