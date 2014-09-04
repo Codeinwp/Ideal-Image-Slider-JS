@@ -61,7 +61,7 @@ var IdealImageSlider = (function() {
 
 	var _toArray = function(obj) {
 		return Array.prototype.slice.call(obj);
-	}
+	};
 
 	var _arrayRemove = function(array, from, to) {
 		var rest = array.slice((to || from) + 1 || array.length);
@@ -81,26 +81,22 @@ var IdealImageSlider = (function() {
 	};
 
 	var _isHighDPI = function(){
-	    var mediaQuery = "(-webkit-min-device-pixel-ratio: 1.5),\
-				          (min--moz-device-pixel-ratio: 1.5),\
-				          (-o-min-device-pixel-ratio: 3/2),\
-				          (min-resolution: 1.5dppx)";
+	    var mediaQuery = "(-webkit-min-device-pixel-ratio: 1.5),(min--moz-device-pixel-ratio: 1.5),(-o-min-device-pixel-ratio: 3/2),(min-resolution: 1.5dppx)";
 	    if (window.devicePixelRatio > 1)
 	        return true;
 	    if (window.matchMedia && window.matchMedia(mediaQuery).matches)
 	        return true;
 	    return false;
-	}
-
+	};
 
 	// Touch event listeners
-	var ce=function(e,n){var a=document.createEvent("CustomEvent");a.initCustomEvent(n,true,true,e.target);e.target.dispatchEvent(a);a=null;return false},
+	var ce=function(e,n){var a=document.createEvent("CustomEvent");a.initCustomEvent(n,true,true,e.target);e.target.dispatchEvent(a);a=null;return false;},
 		nm=true,sp={x:0,y:0},ep={x:0,y:0},
 		touch={
-			touchstart:function(e){sp={x:e.touches[0].pageX,y:e.touches[0].pageY}},
-			touchmove:function(e){nm=false;ep={x:e.touches[0].pageX,y:e.touches[0].pageY}},
-			touchend:function(e){if(nm){ce(e,'fc')}else{var x=ep.x-sp.x,xr=Math.abs(x),y=ep.y-sp.y,yr=Math.abs(y);if(Math.max(xr,yr)>20){ce(e,(xr>yr?(x<0?'swl':'swr'):(y<0?'swu':'swd')))}};nm=true},
-			touchcancel:function(e){nm=false}
+			touchstart:function(e){sp={x:e.touches[0].pageX,y:e.touches[0].pageY};},
+			touchmove:function(e){nm=false;ep={x:e.touches[0].pageX,y:e.touches[0].pageY};},
+			touchend:function(e){if(nm){ce(e,'fc');}else{var x=ep.x-sp.x,xr=Math.abs(x),y=ep.y-sp.y,yr=Math.abs(y);if(Math.max(xr,yr)>20){ce(e,(xr>yr?(x<0?'swl':'swr'):(y<0?'swu':'swd')));}}nm=true;},
+			touchcancel:function(e){nm=false;}
 		};
 	for(var a in touch){document.addEventListener(a,touch[a],false);}
 
@@ -136,7 +132,7 @@ var IdealImageSlider = (function() {
 			onDestroy: function(){},
 			beforeChange: function(){},
 			afterChange: function(){}
-		}
+		};
 
 		// Parse args
 		if(typeof args === 'string'){
