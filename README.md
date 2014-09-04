@@ -27,9 +27,12 @@ And, as an example, here are some features that *should not* be in the core and 
 
 [Read the original blog post &rarr;](http://gilbert.pellegrom.me/the-ideal-image-slider)
 
-## Demo
+## Demos
 
-http://gilbitron.github.io/Ideal-Image-Slider
+* [Standard Slider](http://gilbitron.github.io/Ideal-Image-Slider/demo/standard-slider.html)
+* [Using the API](http://gilbitron.github.io/Ideal-Image-Slider/demo/using-the-api.html)
+* [Using Events](http://gilbitron.github.io/Ideal-Image-Slider/demo/using-events.html)
+* [Multiple Sliders](http://gilbitron.github.io/Ideal-Image-Slider/demo/multiple-sliders.html)
 
 ## Requirements
 

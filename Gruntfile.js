@@ -16,9 +16,27 @@ module.exports = function(grunt) {
 		},
 
 		uglify: {
-			player: {
+			options: {
+				banner: '/*! Ideal Image Slider v<%= pkg.version %> */\n'
+			},
+			dist: {
 				files: {
 					'ideal-image-slider.min.js': 'ideal-image-slider.js'
+				}
+			}
+		},
+
+		'string-replace': {
+			version: {
+				options: {
+					replacements: [{
+						pattern: /(v\d+.\d+.\d+)/,
+						replacement: 'v<%= pkg.version %>'
+					}]
+				},
+				files: {
+					'ideal-image-slider.js': 'ideal-image-slider.js',
+					'ideal-image-slider.css': 'ideal-image-slider.css'
 				}
 			}
 		},
@@ -29,7 +47,7 @@ module.exports = function(grunt) {
 			},
 			dist: {
 				files: ['ideal-image-slider.js'],
-				tasks: ['jshint','uglify'],
+				tasks: ['jshint','uglify','string-replace'],
 				options: {
 					spawn: false,
 				}
@@ -57,6 +75,7 @@ module.exports = function(grunt) {
 	grunt.registerTask('default', [
 		'jshint',
 		'uglify',
+		'string-replace',
 		'watch'
 	]);
 

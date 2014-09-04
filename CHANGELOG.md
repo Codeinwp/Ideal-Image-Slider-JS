@@ -1,5 +1,10 @@
 # Ideal Image Slider Changelog
 
+Version 1.0.2 - 2014.09.04
+--------------------------
+ * [New] Added minified script
+ * [New] Added Grunt build script
+
 Version 1.0.1 - 2014.09.03
 --------------------------
  * [New] Added loading spinner to default theme

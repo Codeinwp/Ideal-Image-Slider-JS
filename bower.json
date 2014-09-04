@@ -1,7 +1,6 @@
 {
   "name": "ideal-image-slider",
   "main": "ideal-image-slider.js",
-  "version": "1.0.1",
   "homepage": "https://github.com/gilbitron/Ideal-Image-Slider",
   "authors": [
     "Gilbert Pellegrom <gilbert@pellegrom.me>"
