@@ -144,6 +144,10 @@ h1, h2, h3, h4, h5, h6, strong {
     font-weight: normal;
 }
 
+strong { font-weight: 600; }
+
+ul,ol { padding-left: 25px; }
+
 a, a:visited {
     color: #008CDD;
     text-decoration: none;
@@ -214,7 +218,9 @@ a.btn:hover {
     color: #D6E2E9;
     color: rgba(255,255,255,0.7);
 }
-#slider {
+#slider,
+#slider1,
+#slider2 {
     background: #F7F9FA;
     border-radius: 6px;
     box-shadow: 0 3px 5px rgba(0,0,0,0.3), 0 0 0 1px rgba(0,0,0,0.08);
@@ -241,6 +247,20 @@ a.btn:hover {
 }
 .features p { margin: 0 0 30px 0; }
 
+.col2 { margin-bottom: 30px; }
+.col2 .col {
+    float: left;
+    width: 65.5%;
+    margin-right: 3.5%;
+}
+.col2 .col.last {
+    float: left;
+    width: 31%;
+    margin-right: 0;
+}
+.col2 h3 { margin: 0 0 1em 0; }
+.col2 pre { padding: 10px; }
+
 .cta { text-align: center; }
 .cta .btn { margin: 0 5px 10px; }
 
@@ -261,6 +281,21 @@ a.btn:hover {
     padding: 20px 0;
     margin: 0;
 }
+
+code {
+	font-family: Menlo, Consolas, Monaco, 'Lucida Console', monospace;
+    font-size: 13px;
+    line-height: 1.6em;
+	color: #333;
+}
+pre {
+	background: #272822;
+	padding: 20px;
+	overflow: auto;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+pre code { padding: 0; }
 
 /* ==========================================================================
    Helper classes

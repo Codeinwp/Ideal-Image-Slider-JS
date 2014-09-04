@@ -7,6 +7,7 @@
     <meta name="description" content="HTML5 (SEO optimised), CSS3 transitions, Touch/swipe support, Responsive, HiDPI (retina) support, ARIA support. Need I say more?">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/monokai.min.css">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
     <script src="js/modernizr-2.8.3.min.js"></script>
@@ -63,9 +64,49 @@
                 </div>
             </div>
 
+            <div class="col2 clearfix">
+                <div class="col">
+                    <h3>Quick Start</h3>
+                    <pre class="html"><code>&lt;html&gt;
+&lt;head&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;ideal-image-slider.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;themes/default/default.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id=&quot;slider&quot;&gt;
+        &lt;img src=&quot;img/1.jpg&quot; src=&quot;&quot; alt=&quot;&quot;&gt;
+        &lt;img data-src=&quot;img/2.jpg&quot; src=&quot;&quot; alt=&quot;&quot;&gt;
+        &lt;img data-src=&quot;img/3.jpg&quot; src=&quot;&quot; alt=&quot;&quot;&gt;
+    &lt;/div&gt;
+    &lt;script src=&quot;ideal-image-slider.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;
+    new IdealImageSlider.Slider(&#39;#slider&#39;);
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                </div>
+                <div class="col last">
+                    <h3>Demos</h3>
+                    <ul>
+                        <li><a href="demo/standard-slider.html">Standard Slider</a></li>
+                        <li><a href="demo/using-the-api.html">Using the API</a></li>
+                        <li><a href="demo/using-events.html">Using Events</a></li>
+                        <li><a href="demo/multiple-sliders.html">Multiple Sliders</a></li>
+                    </ul>
+                    <h3>Documentation</h3>
+                    <ul>
+                        <li><a href="https://github.com/gilbitron/Ideal-Image-Slider#getting-started">Getting Started</a></li>
+                        <li><a href="https://github.com/gilbitron/Ideal-Image-Slider#settings">Settings</a></li>
+                        <li><a href="https://github.com/gilbitron/Ideal-Image-Slider#events">Events</a></li>
+                        <li><a href="https://github.com/gilbitron/Ideal-Image-Slider#api">API</a></li>
+                        <li><a href="https://github.com/gilbitron/Ideal-Image-Slider#contribute">Contribute</a></li>
+                    </ul>
+                </div>
+            </div>
+
             <div class="cta">
                 <a href="https://github.com/gilbitron/Ideal-Image-Slider/releases" class="btn">Download Latest Version</a>
-                <a href="https://github.com/gilbitron/Ideal-Image-Slider#requirements" class="btn">View Docs</a>
+                <a href="https://github.com/gilbitron/Ideal-Image-Slider" class="btn">View on Github</a>
             </div>
 
             <div class="share">
@@ -113,5 +154,7 @@
     ga('create', 'UA-3892196-69', 'auto');
     ga('send', 'pageview');
     </script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
 </body>
 </html>
