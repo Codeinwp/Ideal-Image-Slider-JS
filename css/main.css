@@ -381,6 +381,13 @@ pre code { padding: 0; }
         width: auto;
         float: none;
     }
+
+    .col2 .col,
+    .col2 .col.last {
+        width: auto;
+        float: none;
+        margin-right: 0;
+    }
 }
 @media only screen and (max-width: 500px) {
     .header h1 { font-size: 32px; }
