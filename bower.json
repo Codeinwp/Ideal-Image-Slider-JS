@@ -1,0 +1,6 @@
+{
+  "name": "ideal-image-slider-site",
+  "dependencies": {
+    "ideal-image-slider": "^1.0.0"
+  }
+}
