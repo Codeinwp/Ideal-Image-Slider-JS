@@ -219,6 +219,7 @@ var IdealImageSlider = (function() {
 				_removeClass(this._attributes.previousSlide, this.settings.classes.previousSlide);
 				_removeClass(this._attributes.currentSlide, this.settings.classes.currentSlide);
 				_removeClass(this._attributes.nextSlide, this.settings.classes.nextSlide);
+				this._attributes.currentSlide.setAttribute('aria-hidden', 'true');
 
 				var slides = this._attributes.slides,
 					index = slides.indexOf(this._attributes.currentSlide);
@@ -258,6 +259,7 @@ var IdealImageSlider = (function() {
 				_addClass(this._attributes.previousSlide, this.settings.classes.previousSlide);
 				_addClass(this._attributes.currentSlide, this.settings.classes.currentSlide);
 				_addClass(this._attributes.nextSlide, this.settings.classes.nextSlide);
+				this._attributes.currentSlide.setAttribute('aria-hidden', 'false');
 
 				this.settings.afterChange.apply(this);
 			}
@@ -311,7 +313,6 @@ var IdealImageSlider = (function() {
 		// Slider (container) element
 		var sliderEl = document.querySelector(this.settings.selector);
 		if(!sliderEl) return null;
-		sliderEl.setAttribute('role', 'listbox');
 
 		// Slides
 		var origChildren = _toArray(sliderEl.children),
@@ -362,7 +363,8 @@ var IdealImageSlider = (function() {
 				if(slide.getAttribute('className')) _addClass(slideEl, slide.getAttribute('className'));
 				if(slide.getAttribute('id')) slideEl.setAttribute('id', slide.id);
 				if(slide.getAttribute('alt')) slideEl.innerHTML = slide.getAttribute('alt');
-				slideEl.setAttribute('role', 'option');
+				slideEl.setAttribute('role', 'tabpanel');
+				slideEl.setAttribute('aria-hidden', 'true');
 
 				slideEl.style.cssText += '-webkit-transition-duration:'+ this.settings.transitionDuration +'ms;-moz-transition-duration:'+ this.settings.transitionDuration +'ms;-o-transition-duration:'+ this.settings.transitionDuration +'ms;transition-duration:'+ this.settings.transitionDuration +'ms;';
 
@@ -457,6 +459,9 @@ var IdealImageSlider = (function() {
 		_addClass(this._attributes.currentSlide, this.settings.classes.currentSlide);
 		_addClass(this._attributes.nextSlide, this.settings.classes.nextSlide);
 
+		// ARIA
+		this._attributes.currentSlide.setAttribute('aria-hidden', 'false');
+
 		// Load first image
 		_loadImg(this._attributes.currentSlide, (function(){
 			this.settings.onInit.apply(this);
@@ -497,6 +502,7 @@ var IdealImageSlider = (function() {
 		_removeClass(this._attributes.previousSlide, this.settings.classes.previousSlide);
 		_removeClass(this._attributes.currentSlide, this.settings.classes.currentSlide);
 		_removeClass(this._attributes.nextSlide, this.settings.classes.nextSlide);
+		this._attributes.currentSlide.setAttribute('aria-hidden', 'true');
 
 		var slides = this._attributes.slides,
 			index = slides.indexOf(this._attributes.currentSlide);
@@ -519,6 +525,7 @@ var IdealImageSlider = (function() {
 		_addClass(this._attributes.previousSlide, this.settings.classes.previousSlide);
 		_addClass(this._attributes.currentSlide, this.settings.classes.currentSlide);
 		_addClass(this._attributes.nextSlide, this.settings.classes.nextSlide);
+		this._attributes.currentSlide.setAttribute('aria-hidden', 'false');
 
 		_addClass(this._attributes.container, this.settings.classes.directionPrevious);
 		setTimeout(function(){
@@ -539,6 +546,7 @@ var IdealImageSlider = (function() {
 		_removeClass(this._attributes.previousSlide, this.settings.classes.previousSlide);
 		_removeClass(this._attributes.currentSlide, this.settings.classes.currentSlide);
 		_removeClass(this._attributes.nextSlide, this.settings.classes.nextSlide);
+		this._attributes.currentSlide.setAttribute('aria-hidden', 'true');
 
 		var slides = this._attributes.slides,
 			index = slides.indexOf(this._attributes.currentSlide);
@@ -561,6 +569,7 @@ var IdealImageSlider = (function() {
 		_addClass(this._attributes.previousSlide, this.settings.classes.previousSlide);
 		_addClass(this._attributes.currentSlide, this.settings.classes.currentSlide);
 		_addClass(this._attributes.nextSlide, this.settings.classes.nextSlide);
+		this._attributes.currentSlide.setAttribute('aria-hidden', 'false');
 
 		_addClass(this._attributes.container, this.settings.classes.directionNext);
 		setTimeout(function(){
@@ -583,6 +592,7 @@ var IdealImageSlider = (function() {
 		_removeClass(this._attributes.previousSlide, this.settings.classes.previousSlide);
 		_removeClass(this._attributes.currentSlide, this.settings.classes.currentSlide);
 		_removeClass(this._attributes.nextSlide, this.settings.classes.nextSlide);
+		this._attributes.currentSlide.setAttribute('aria-hidden', 'true');
 
 		index--; // Index should be 1-indexed
 		var slides = this._attributes.slides;
@@ -604,6 +614,7 @@ var IdealImageSlider = (function() {
 		_addClass(this._attributes.previousSlide, this.settings.classes.previousSlide);
 		_addClass(this._attributes.currentSlide, this.settings.classes.currentSlide);
 		_addClass(this._attributes.nextSlide, this.settings.classes.nextSlide);
+		this._attributes.currentSlide.setAttribute('aria-hidden', 'false');
 
 		if(this.settings.transitionDuration){
 			_addClass(this._attributes.container, this.settings.classes.animating);
