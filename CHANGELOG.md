@@ -1,5 +1,11 @@
 # Ideal Image Slider Changelog
 
+Version 1.1.0 - 2014.09.08
+--------------------------
+ * [New] Added keyboard navigation
+ * [Changed] Implemented better touch navigation
+ * [Changed] Changed ARIA listbox to tabpanel
+
 Version 1.0.2 - 2014.09.04
 --------------------------
  * [New] Added minified script
