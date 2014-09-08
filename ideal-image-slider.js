@@ -276,6 +276,7 @@ var IdealImageSlider = (function() {
 			transitionDuration: 700,
 			effect: 'slide',
 			disableNav: false,
+			keyboardNav: true,
 			previousNavSelector: '',
 			nextNavSelector: '',
 			classes: {
@@ -390,16 +391,16 @@ var IdealImageSlider = (function() {
 
 			_addClass(previousNav, this.settings.classes.previousNav);
 			_addClass(nextNav, this.settings.classes.nextNav);
-			previousNav.addEventListener('click', (function(){
+			previousNav.addEventListener('click', function(){
 				if(_hasClass(this._attributes.container, this.settings.classes.animating)) return false;
 				this.stop();
 				this.previousSlide();
-			}).bind(this));
-			nextNav.addEventListener('click', (function(){
+			}.bind(this));
+			nextNav.addEventListener('click', function(){
 				if(_hasClass(this._attributes.container, this.settings.classes.animating)) return false;
 				this.stop();
 				this.nextSlide();
-			}).bind(this));
+			}.bind(this));
 
 			// Touch Navigation
 			if(('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch){
@@ -410,6 +411,23 @@ var IdealImageSlider = (function() {
 				sliderEl.addEventListener('touchstart', _touch.start.bind(this), false);
 				sliderEl.addEventListener('touchmove', _touch.move.bind(this), false);
 				sliderEl.addEventListener('touchend', _touch.end.bind(this), false);
+			}
+
+			// Keyboard Navigation
+			if(this.settings.keyboardNav){
+				document.addEventListener('keyup', function(e){
+					e = e || window.event;
+					var button = (typeof e.which == 'number') ? e.which : e.keyCode;
+					if (button == 37) {
+						if(_hasClass(this._attributes.container, this.settings.classes.animating)) return false;
+						this.stop();
+						this.previousSlide();
+					} else if (button == 39) {
+						if(_hasClass(this._attributes.container, this.settings.classes.animating)) return false;
+						this.stop();
+						this.nextSlide();
+					}
+				}.bind(this));
 			}
 		}
 

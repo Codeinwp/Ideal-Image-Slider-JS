@@ -115,7 +115,8 @@ in your CSS.
 |interval|`4000`|Time (in ms) to wait before changing to the next slide|
 |transitionDuration|`700`|Duration (in ms) of animated transition|
 |effect|`'slide'`|Transition effect (slide/fade by default)|
-|disableNav|`false`|Disables the previous/next navigation|
+|disableNav|`false`|Toggle the previous/next navigation (also disables touch and keyboard navigation)|
+|keyboardNav|`true`|Toggle keyboard navigation|
 |previousNavSelector|`''`|Selector for custom previous nav element|
 |nextNavSelector|`''`|Selector for custom next nav element|
 |classes|`{...}`|List of classes to be used by slider. Probably shouldn't be changed|
@@ -170,7 +171,7 @@ Ideal Image Slider has been tested on:
 * Firefox
 * Safari (Desktop + Mobile)
 * Opera
-* IE9
+* IE9+
 
 ## Contribute
 
