@@ -166,12 +166,17 @@ a.btn {
     background-image: -ms-linear-gradient(#64bd2e, #50a91a);
     background-image: -o-linear-gradient(#64bd2e, #50a91a);
     background-image: linear-gradient(#64BD2E, #50A91A);
+    font: 16px/1.6em "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #fff;
     font-size: 18px;
     font-weight: 600;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
     padding: 10px 30px;
     text-align: center;
+    border: 0;
     border-radius: 4px;
+    outline: none;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -185,6 +190,32 @@ a.btn:hover {
     background-image: -ms-linear-gradient(#79ca3c, #62b524);
     background-image: -o-linear-gradient(#79ca3c, #62b524);
     background-image: linear-gradient(#79ca3c, #62b524);
+}
+.btn.secondary,
+a.btn.secondary {
+    background: transparent;
+    background-image: none;
+    color: #6F7C82;
+    border: 1px solid #e1e1e1;
+    box-shadow: none;
+}
+.btn.secondary:hover,
+a.btn.secondary:hover {
+    color: #292E31;
+}
+
+input {
+    font: 16px/1.6em "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #6F7C82;
+    background: #fff;
+    border: 1px solid #e1e1e1;
+    border-radius: 3px;
+    padding: 7px 15px;
+}
+input:hover { border-color: #ccc; }
+input:focus {
+    outline: none;
+    border-color: #bbb;
 }
 
 .inner {
@@ -266,12 +297,28 @@ a.btn:hover {
 
 .share {
     text-align: center;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 .share .fb-like {
     position: relative;
     top: -8px;
     margin-right: 30px;
+}
+
+.updates {
+    text-align: center;
+    margin-top: 20px;
+}
+.updates label {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+.updates input { width: 230px; }
+.updates .btn {
+    font-size: 15px;
+    line-height: 1.6em;
+    padding: 8px 20px 7px;
+    margin-left: 5px;
 }
 
 .footer { margin-bottom: 10px; }
