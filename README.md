@@ -10,7 +10,7 @@ and core features I wanted to include:
 * Responsive
 * HiDPI (retina) support
 * ARIA support
-* Extremely simple to setup (no dependancies)
+* Extremely simple to setup (no dependencies)
 * Very extensible
 * Uses progressive enhancement
 * Open source (goes without saying)
