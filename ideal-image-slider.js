@@ -112,7 +112,7 @@ var IdealImageSlider = (function() {
 		slide.style.removeProperty('-webkit-transform');
 		slide.style.removeProperty('-moz-transform');
 		slide.style.removeProperty('-ms-transform');
-		slide.style.removeProperty('-0-transform');
+		slide.style.removeProperty('-o-transform');
 		slide.style.removeProperty('transform');
 	};
 
