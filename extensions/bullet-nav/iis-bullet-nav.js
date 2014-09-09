@@ -17,8 +17,10 @@
 
 		Array.prototype.forEach.call(bullets, function(bullet, i){
 			IIS._removeClass(bullet, 'iis-bullet-active');
+			bullet.setAttribute('aria-selected', 'false');
 			if(i === activeIndex){
 				IIS._addClass(bullet, 'iis-bullet-active');
+				bullet.setAttribute('aria-selected', 'true');
 			}
 		}.bind(this));
 	};
@@ -28,9 +30,13 @@
 
 		// Create bullet nav
 		IIS._addClass(bulletNav, 'iis-bullet-nav');
+		bulletNav.setAttribute('role', 'tablist');
+
+		// Create bullets
 		Array.prototype.forEach.call(this._attributes.slides, function(slide, i){
 			var bullet = document.createElement('a');
 			bullet.innerHTML = i + 1;
+			bullet.setAttribute('role', 'tab');
 
 			bullet.addEventListener('click', function(){
 				if(IIS._hasClass(this._attributes.container, this.settings.classes.animating)) return false;
