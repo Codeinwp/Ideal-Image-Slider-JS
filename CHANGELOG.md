@@ -1,5 +1,12 @@
 # Ideal Image Slider Changelog
 
+Version 1.2.0 - 2014.09.10
+--------------------------
+ * [New] Added Bullet Navigation extension
+ * [Changed] Added Bullet Navigation styles to Default theme
+ * [Changed] gotoSlide() now adds directional classes
+ * [Fixed] Transform property typo
+
 Version 1.1.0 - 2014.09.08
 --------------------------
  * [New] Added keyboard navigation
