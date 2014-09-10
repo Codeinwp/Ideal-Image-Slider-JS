@@ -1,5 +1,5 @@
 /*
- * Ideal Image Slider v1.1.0
+ * Ideal Image Slider v1.2.0
  *
  * By Gilbert Pellegrom
  * http://gilbert.pellegrom.me
@@ -112,7 +112,7 @@ var IdealImageSlider = (function() {
 		slide.style.removeProperty('-webkit-transform');
 		slide.style.removeProperty('-moz-transform');
 		slide.style.removeProperty('-ms-transform');
-		slide.style.removeProperty('-0-transform');
+		slide.style.removeProperty('-o-transform');
 		slide.style.removeProperty('transform');
 	};
 
@@ -595,7 +595,8 @@ var IdealImageSlider = (function() {
 		this._attributes.currentSlide.setAttribute('aria-hidden', 'true');
 
 		index--; // Index should be 1-indexed
-		var slides = this._attributes.slides;
+		var slides = this._attributes.slides,
+			oldIndex = slides.indexOf(this._attributes.currentSlide);
 		this._attributes.previousSlide = slides[index-1];
 		this._attributes.currentSlide = slides[index];
 		this._attributes.nextSlide = slides[index+1];
@@ -615,6 +616,18 @@ var IdealImageSlider = (function() {
 		_addClass(this._attributes.currentSlide, this.settings.classes.currentSlide);
 		_addClass(this._attributes.nextSlide, this.settings.classes.nextSlide);
 		this._attributes.currentSlide.setAttribute('aria-hidden', 'false');
+
+		if(index < oldIndex){
+			_addClass(this._attributes.container, this.settings.classes.directionPrevious);
+			setTimeout(function(){
+				_removeClass(this._attributes.container, this.settings.classes.directionPrevious);
+			}.bind(this), this.settings.transitionDuration);
+		} else {
+			_addClass(this._attributes.container, this.settings.classes.directionNext);
+			setTimeout(function(){
+				_removeClass(this._attributes.container, this.settings.classes.directionNext);
+			}.bind(this), this.settings.transitionDuration);
+		}
 
 		if(this.settings.transitionDuration){
 			_addClass(this._attributes.container, this.settings.classes.animating);
@@ -642,6 +655,9 @@ var IdealImageSlider = (function() {
 	};
 
 	return {
+		_hasClass: _hasClass,
+		_addClass: _addClass,
+		_removeClass: _removeClass,
 		Slider: Slider
 	};
 

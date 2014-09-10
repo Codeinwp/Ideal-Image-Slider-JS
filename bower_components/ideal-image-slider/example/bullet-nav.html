@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Ideal Image Slider Example</title>
+    <title>Bullet Navigation - Ideal Image Slider Example</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="../ideal-image-slider.css">
@@ -25,8 +25,10 @@
 	</div>
 
     <script src="../ideal-image-slider.js"></script>
+    <script src="../extensions/bullet-nav/iis-bullet-nav.js"></script>
 	<script>
 	var slider = new IdealImageSlider.Slider('#slider');
+    slider.addBulletNav();
     slider.start();
 	</script>
 </body>

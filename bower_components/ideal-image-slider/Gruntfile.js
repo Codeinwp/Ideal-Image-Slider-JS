@@ -12,6 +12,11 @@ module.exports = function(grunt) {
 				files: {
 					src: ['ideal-image-slider.js']
 				}
+			},
+			extensions: {
+				files: {
+					src: ['extensions/**/*.js']
+				}
 			}
 		},
 
@@ -47,7 +52,14 @@ module.exports = function(grunt) {
 			},
 			dist: {
 				files: ['ideal-image-slider.js'],
-				tasks: ['jshint','uglify','string-replace'],
+				tasks: ['jshint:dist','uglify','string-replace'],
+				options: {
+					spawn: false,
+				}
+			},
+			extensions: {
+				files: ['extensions/**/*.js'],
+				tasks: ['jshint:extensions'],
 				options: {
 					spawn: false,
 				}
