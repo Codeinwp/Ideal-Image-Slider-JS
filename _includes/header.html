@@ -1,0 +1,25 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>{% if page.title == "Home" %}
+      {{ site.title }} - {{ site.tagline }}
+    {% else %}
+      {{ page.title }} - {{ site.title }}
+    {% endif %}</title>
+	{% if page.description %}
+	<meta name="description" content="{{ page.description }}">
+	{% endif %}
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/monokai.min.css">
+	<link rel="stylesheet" href="{{ site.baseurl }}/public/css/style.css">
+	<script src="{{ site.baseurl }}/public/js/modernizr-2.8.3.min.js"></script>
+	<script type="text/javascript" src="//use.typekit.net/cko4cga.js"></script>
+	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+	<link rel="stylesheet" href="{{ site.baseurl }}/public/bower_components/ideal-image-slider/ideal-image-slider.css">
+	<link rel="stylesheet" href="{{ site.baseurl }}/public/bower_components/ideal-image-slider/themes/default/default.css">
+</head>
+<body>

@@ -1,0 +1,7 @@
+baseurl:	/Ideal-Image-Slider
+title:		Ideal Image Slider
+tagline:	Quite simply the ideal Image Slider in vanilla JS
+
+sass:
+    sass_dir: _sass
+    style: :compressed

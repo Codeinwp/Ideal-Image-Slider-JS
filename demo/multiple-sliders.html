@@ -1,84 +1,47 @@
-<!doctype html>
-<html class="no-js" lang="">
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Multiple Sliders - Ideal Image Slider Demos</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+---
+layout: clean
+title: Multiple Sliders Demo
+---
 
-	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/monokai.min.css">
-	<link rel="stylesheet" href="../css/normalize.css">
-	<link rel="stylesheet" href="../css/main.css">
-	<script src="../js/modernizr-2.8.3.min.js"></script>
-	<script type="text/javascript" src="//use.typekit.net/cko4cga.js"></script>
-	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-
-	<link rel="stylesheet" href="../bower_components/ideal-image-slider/ideal-image-slider.css">
-	<link rel="stylesheet" href="../bower_components/ideal-image-slider/themes/default/default.css">
-</head>
-<body>
-
-	<header class="header">
-		<div class="inner">
-			<div id="slider1" style="margin-bottom:30px;">
-				<img src="../img/1.jpg" data-src-2x="../img/1@2x.jpg" src="" alt="">
-				<img data-src="../img/2.jpg" data-src-2x="../img/2@2x.jpg" src="" alt="">
-				<img data-src="../img/3.jpg" data-src-2x="../img/3@2x.jpg" src="" alt="">
-				<img data-src="../img/4.jpg" data-src-2x="../img/4@2x.jpg" src="" alt="">
-			</div>
-
-			<div id="slider2">
-				<img src="../img/2.jpg" data-src-2x="../img/2@2x.jpg" src="" alt="">
-				<img data-src="../img/1.jpg" data-src-2x="../img/1@2x.jpg" src="" alt="">
-				<img data-src="../img/3.jpg" data-src-2x="../img/3@2x.jpg" src="" alt="">
-				<img data-src="../img/4.jpg" data-src-2x="../img/4@2x.jpg" src="" alt="">
-			</div>
+<header class="header">
+	<div class="inner">
+		{% include nav.html %}
+		<div id="slider1" style="margin-bottom:30px;">
+			<img src="{{ site.baseurl }}/public/img/1.jpg" data-src-2x="{{ site.baseurl }}/public/img/1@2x.jpg" src="" alt="">
+			<img data-src="{{ site.baseurl }}/public/img/2.jpg" data-src-2x="{{ site.baseurl }}/public/img/2@2x.jpg" src="" alt="">
+			<img data-src="{{ site.baseurl }}/public/img/3.jpg" data-src-2x="{{ site.baseurl }}/public/img/3@2x.jpg" src="" alt="">
+			<img data-src="{{ site.baseurl }}/public/img/4.jpg" data-src-2x="{{ site.baseurl }}/public/img/4@2x.jpg" src="" alt="">
 		</div>
-	</header>
 
-	<section class="content">
-		<div class="inner">
-			<p>Multiple sliders are supported and can be controlled independantly.</p>
-			<pre><code>var slider1 = new IdealImageSlider.Slider('#slider1');
+		<div id="slider2">
+			<img src="{{ site.baseurl }}/public/img/2.jpg" data-src-2x="{{ site.baseurl }}/public/img/2@2x.jpg" src="" alt="">
+			<img data-src="{{ site.baseurl }}/public/img/1.jpg" data-src-2x="{{ site.baseurl }}/public/img/1@2x.jpg" src="" alt="">
+			<img data-src="{{ site.baseurl }}/public/img/3.jpg" data-src-2x="{{ site.baseurl }}/public/img/3@2x.jpg" src="" alt="">
+			<img data-src="{{ site.baseurl }}/public/img/4.jpg" data-src-2x="{{ site.baseurl }}/public/img/4@2x.jpg" src="" alt="">
+		</div>
+	</div>
+</header>
+
+<section class="content">
+	<div class="inner">
+		<p>Multiple sliders are supported and can be controlled independantly.</p>
+		<pre><code>var slider1 = new IdealImageSlider.Slider('#slider1');
 var slider2 = new IdealImageSlider.Slider({
     selector: '#slider2',
     effect: 'fade'
 });</code></pre>
-			<p><a href="../index.html">&larr; Back</a></p>
-		</div>
-	</section>
+	</div>
+</section>
 
-	<footer class="footer">
-		<div class="inner">
-			<p>
-				Ideal Image Slider was created by <a href="http://gilbert.pellegrom.me">Gilbert Pellegrom</a> from
-				<a href="http://dev7studios.com">Dev7studios</a>. Released under the
-				<a href="https://raw.githubusercontent.com/gilbitron/Ideal-Image-Slider/master/LICENSE">MIT license</a>.
-			</p>
-		</div>
-	</footer>
-
-	<script src="../bower_components/ideal-image-slider/ideal-image-slider.js"></script>
-	<script>
-	var slider1 = new IdealImageSlider.Slider({
-		selector: '#slider1',
-		height: 400
-	});
-	var slider2 = new IdealImageSlider.Slider({
-		selector: '#slider2',
-		height: 400,
-		effect: 'fade'
-	});
-	</script>
-	<script>
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-3892196-69', 'auto');
-	ga('send', 'pageview');
-	</script>
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
-	<script>hljs.initHighlightingOnLoad();</script>
-</body>
-</html>
+<script src="{{ site.baseurl }}/public/bower_components/ideal-image-slider/ideal-image-slider.js"></script>
+<script>
+var slider1 = new IdealImageSlider.Slider({
+	selector: '#slider1',
+	height: 400
+});
+var slider2 = new IdealImageSlider.Slider({
+	selector: '#slider2',
+	height: 400,
+	effect: 'fade'
+});
+</script>

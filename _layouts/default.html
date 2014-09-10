@@ -1,0 +1,25 @@
+{% include header.html %}
+
+	<header class="header">
+		<div class="inner">
+			{% include nav.html %}
+			{% if page.title == "Home" %}
+			<h1>{{ site.title }}</h1>
+			<h2>{{ site.tagline }}</h2>
+			{% endif %}
+			<div id="slider">
+				<img src="{{ site.baseurl }}/public/img/1.jpg" data-src-2x="{{ site.baseurl }}/public/img/1@2x.jpg" alt="Slide 1">
+				<img data-src="{{ site.baseurl }}/public/img/2.jpg" data-src-2x="{{ site.baseurl }}/public/img/2@2x.jpg" src="" alt="Slide 2">
+				<img data-src="{{ site.baseurl }}/public/img/3.jpg" data-src-2x="{{ site.baseurl }}/public/img/3@2x.jpg" src="" alt="Slide 3">
+				<img data-src="{{ site.baseurl }}/public/img/4.jpg" data-src-2x="{{ site.baseurl }}/public/img/4@2x.jpg" src="" alt="Slide 4">
+			</div>
+		</div>
+	</header>
+
+	<section class="content">
+		<div class="inner">
+			{{ content }}
+		</div>
+	</section>
+
+{% include footer.html %}

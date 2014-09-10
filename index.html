@@ -1,80 +1,50 @@
-<!doctype html>
-<html class="no-js" lang="">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Ideal Image Slider - Quite simply the ideal Image Slider in vanilla JS</title>
-    <meta name="description" content="HTML5 (SEO optimised), CSS3 transitions, Touch/swipe support, Responsive, HiDPI (retina) support, ARIA support. Need I say more?">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+---
+layout: default
+title: Home
+description: HTML5 (SEO optimised), CSS3 transitions, Touch/swipe support, Responsive, HiDPI (retina) support, ARIA support. Need I say more?
+---
 
-    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/monokai.min.css">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/main.css">
-    <script src="js/modernizr-2.8.3.min.js"></script>
-    <script type="text/javascript" src="//use.typekit.net/cko4cga.js"></script>
-    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+<p class="intro">The aim behind the Ideal Image Slider was to create a slider which has just the right amount of features,
+with no bloat and be easy to extend so that more features can be added as "extensions".</p>
 
-    <link rel="stylesheet" href="bower_components/ideal-image-slider/ideal-image-slider.css">
-    <link rel="stylesheet" href="bower_components/ideal-image-slider/themes/default/default.css">
-</head>
-<body>
+<div class="features clearfix">
+	<div class="feature">
+		<h3><span class="icon-search"></span> HTML5 &amp; SEO friendly</h3>
+		<p>Modern HTML5 structure that is search engine friendly.</p>
+	</div>
+	<div class="feature">
+		<h3><span class="icon-play"></span> CSS3 powered transitions</h3>
+		<p>Hardware-accelerated transition effects powered by CSS3.</p>
+	</div>
+	<div class="feature last">
+		<h3><span class="icon-touch"></span> Touch-enabled navigation</h3>
+		<p>Standard left/right navigation with touch support for mobile devices.</p>
+	</div>
+	<div class="feature">
+		<h3><span class="icon-size"></span> Fully responsive</h3>
+		<p>Images fit the slider on devices of any shape and size.</p>
+	</div>
+	<div class="feature">
+		<h3><span class="icon-location"></span> HiDPI (retina) support</h3>
+		<p>Optional @2x support for HiDPI devices, including retina devices.</p>
+	</div>
+	<div class="feature last">
+		<h3><span class="icon-support"></span> ARIA support</h3>
+		<p>Increased accessibility using the W3C ARIA specification.</p>
+	</div>
+</div>
 
-    <header class="header">
-        <div class="inner">
-            <h1>Ideal Image Slider</h1>
-            <h2>Quite simply the ideal Image Slider in vanilla JS</h2>
-            <div id="slider">
-                <img src="img/1.jpg" data-src-2x="img/1@2x.jpg" src="" alt="">
-                <img data-src="img/2.jpg" data-src-2x="img/2@2x.jpg" src="" alt="">
-                <img data-src="img/3.jpg" data-src-2x="img/3@2x.jpg" src="" alt="">
-                <img data-src="img/4.jpg" data-src-2x="img/4@2x.jpg" src="" alt="">
-            </div>
-        </div>
-    </header>
-
-    <section class="content">
-        <div class="inner">
-            <p class="intro">The aim behind the Ideal Image Slider was to create a slider which has just the right amount of features,
-            with no bloat and be easy to extend so that more features can be added as "extensions".</p>
-
-            <div class="features clearfix">
-                <div class="feature">
-                    <h3><span class="icon-search"></span> HTML5 &amp; SEO friendly</h3>
-                    <p>Modern HTML5 structure that is search engine friendly.</p>
-                </div>
-                <div class="feature">
-                    <h3><span class="icon-play"></span> CSS3 powered transitions</h3>
-                    <p>Hardware-accelerated transition effects powered by CSS3.</p>
-                </div>
-                <div class="feature last">
-                    <h3><span class="icon-touch"></span> Touch-enabled navigation</h3>
-                    <p>Standard left/right navigation with touch support for mobile devices.</p>
-                </div>
-                <div class="feature">
-                    <h3><span class="icon-size"></span> Fully responsive</h3>
-                    <p>Images fit the slider on devices of any shape and size.</p>
-                </div>
-                <div class="feature">
-                    <h3><span class="icon-location"></span> HiDPI (retina) support</h3>
-                    <p>Optional @2x support for HiDPI devices, including retina devices.</p>
-                </div>
-                <div class="feature last">
-                    <h3><span class="icon-support"></span> ARIA support</h3>
-                    <p>Increased accessibility using the W3C ARIA specification.</p>
-                </div>
-            </div>
-
-            <div class="col2 clearfix">
-                <div class="col">
-                    <h3>Quick Start</h3>
-                    <pre class="html"><code>&lt;html&gt;
+<div class="col2 clearfix">
+	<div class="col">
+		<h3>Quick Start</h3>
+		<pre class="html"><code>&lt;html&gt;
 &lt;head&gt;
     &lt;link rel=&quot;stylesheet&quot; href=&quot;ideal-image-slider.css&quot;&gt;
     &lt;link rel=&quot;stylesheet&quot; href=&quot;themes/default/default.css&quot;&gt;
 &lt;/head&gt;
 &lt;body&gt;
     &lt;div id=&quot;slider&quot;&gt;
-        &lt;img src=&quot;img/1.jpg&quot; src=&quot;&quot; alt=&quot;&quot;&gt;
+        &lt;img src=&quot;img/1.jpg&quot; alt=&quot;&quot;&gt;
         &lt;img data-src=&quot;img/2.jpg&quot; src=&quot;&quot; alt=&quot;&quot;&gt;
         &lt;img data-src=&quot;img/3.jpg&quot; src=&quot;&quot; alt=&quot;&quot;&gt;
     &lt;/div&gt;
@@ -84,88 +54,63 @@
     &lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
-                </div>
-                <div class="col last">
-                    <h3>Demos</h3>
-                    <ul>
-                        <li><a href="demo/standard-slider.html">Standard Slider</a></li>
-                        <li><a href="demo/using-the-api.html">Using the API</a></li>
-                        <li><a href="demo/using-events.html">Using Events</a></li>
-                        <li><a href="demo/multiple-sliders.html">Multiple Sliders</a></li>
-                        <li><a href="demo/bullet-nav.html">Bullet Nav (extension)</a></li>
-                    </ul>
-                    <h3>Documentation</h3>
-                    <ul>
-                        <li><a href="https://github.com/gilbitron/Ideal-Image-Slider#getting-started">Getting Started</a></li>
-                        <li><a href="https://github.com/gilbitron/Ideal-Image-Slider#settings">Settings</a></li>
-                        <li><a href="https://github.com/gilbitron/Ideal-Image-Slider#events">Events</a></li>
-                        <li><a href="https://github.com/gilbitron/Ideal-Image-Slider#api">API</a></li>
-                        <li><a href="https://github.com/gilbitron/Ideal-Image-Slider#contribute">Contribute</a></li>
-                        <li><a href="https://github.com/gilbitron/Ideal-Image-Slider/blob/master/CHANGELOG.md">Changelog</a></li>
-                    </ul>
-                </div>
-            </div>
+	</div>
+	<div class="col last">
+		<h3>Demos</h3>
+		<ul>
+			<li><a href="{{ site.baseurl }}/demo/standard-slider.html">Standard Slider</a></li>
+			<li><a href="{{ site.baseurl }}/demo/using-the-api.html">Using the API</a></li>
+			<li><a href="{{ site.baseurl }}/demo/using-events.html">Using Events</a></li>
+			<li><a href="{{ site.baseurl }}/demo/multiple-sliders.html">Multiple Sliders</a></li>
+			<li><a href="{{ site.baseurl }}/demo/bullet-nav.html">Bullet Nav (extension)</a></li>
+		</ul>
+		<h3>Documentation</h3>
+		<ul>
+			<li><a href="https://github.com/gilbitron/Ideal-Image-Slider#getting-started">Getting Started</a></li>
+			<li><a href="https://github.com/gilbitron/Ideal-Image-Slider#settings">Settings</a></li>
+			<li><a href="https://github.com/gilbitron/Ideal-Image-Slider#events">Events</a></li>
+			<li><a href="https://github.com/gilbitron/Ideal-Image-Slider#api">API</a></li>
+			<li><a href="https://github.com/gilbitron/Ideal-Image-Slider#contribute">Contribute</a></li>
+			<li><a href="https://github.com/gilbitron/Ideal-Image-Slider/blob/master/CHANGELOG.md">Changelog</a></li>
+		</ul>
+	</div>
+</div>
 
-            <div class="cta">
-                <a href="https://github.com/gilbitron/Ideal-Image-Slider/releases" class="btn">Download Latest Version</a>
-                <a href="https://github.com/gilbitron/Ideal-Image-Slider" class="btn">View on Github</a>
-            </div>
+<div class="cta">
+	<a href="https://github.com/gilbitron/Ideal-Image-Slider/releases" class="btn">Download Latest Version</a>
+	<a href="https://github.com/gilbitron/Ideal-Image-Slider" class="btn">View on Github</a>
+</div>
 
-            <div class="share">
-                <a href="https://twitter.com/share" class="twitter-share-button" data-via="gilbitron">Tweet</a>
-                <div class="fb-like" data-href="http://gilbitron.github.io/Ideal-Image-Slider" data-width="130" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
-                <div class="g-plusone" data-size="medium"></div>
-                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-                <div id="fb-root"></div>
-                <script>(function(d, s, id) {
-                  var js, fjs = d.getElementsByTagName(s)[0];
-                  if (d.getElementById(id)) return;
-                  js = d.createElement(s); js.id = id;
-                  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&appId=595239743887539&version=v2.0";
-                  fjs.parentNode.insertBefore(js, fjs);
-                }(document, 'script', 'facebook-jssdk'));</script>
-                <script src="https://apis.google.com/js/platform.js" async defer></script>
+<div class="share">
+	<a href="https://twitter.com/share" class="twitter-share-button" data-via="gilbitron">Tweet</a>
+	<div class="fb-like" data-href="http://gilbitron.github.io/Ideal-Image-Slider" data-width="130" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+	<div class="g-plusone" data-size="medium"></div>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	var js, fjs = d.getElementsByTagName(s)[0];
+	if (d.getElementById(id)) return;
+	js = d.createElement(s); js.id = id;
+	js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&appId=595239743887539&version=v2.0";
+	fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+</div>
 
-            </div>
+<div class="updates">
+	<form action="http://dev7studios.createsend.com/t/r/s/ilzhrr/" method="post">
+		<label for="fieldEmail">To get news and updates pop in your email address below:</label><br>
+		<input id="fieldEmail" name="cm-ilzhrr-ilzhrr" type="email" required placeholder="Email Address" />
+		<button type="submit" class="btn secondary">Subscribe</button>
+		</p>
+	</form>
+</div>
 
-            <div class="updates">
-                <form action="http://dev7studios.createsend.com/t/r/s/ilzhrr/" method="post">
-                    <label for="fieldEmail">To get news and updates pop in your email address below:</label><br>
-                    <input id="fieldEmail" name="cm-ilzhrr-ilzhrr" type="email" required placeholder="Email Address" />
-                    <button type="submit" class="btn secondary">Subscribe</button>
-                    </p>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer">
-        <div class="inner">
-            <p>
-                Ideal Image Slider was created by <a href="http://gilbert.pellegrom.me">Gilbert Pellegrom</a> from
-                <a href="http://dev7studios.com">Dev7studios</a>. Released under the
-                <a href="https://raw.githubusercontent.com/gilbitron/Ideal-Image-Slider/master/LICENSE">MIT license</a>.
-            </p>
-        </div>
-    </footer>
-
-    <script src="bower_components/ideal-image-slider/ideal-image-slider.js"></script>
-    <script>
-    var slider = new IdealImageSlider.Slider({
-        selector: '#slider',
-        height: 400
-    });
-    slider.start();
-    </script>
-    <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-    ga('create', 'UA-3892196-69', 'auto');
-    ga('send', 'pageview');
-    </script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-</body>
-</html>
+<script src="{{ site.baseurl }}/public/bower_components/ideal-image-slider/ideal-image-slider.js"></script>
+<script>
+var slider = new IdealImageSlider.Slider({
+	selector: '#slider',
+	height: 400
+});
+slider.start();
+</script>
