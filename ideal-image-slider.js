@@ -290,6 +290,7 @@ var IdealImageSlider = (function() {
 				previousNav: 'iis-previous-nav',
 				nextNav: 'iis-next-nav',
 				animating: 'iis-is-animating',
+				touchEnabled: 'iis-touch-enabled',
 				touching: 'iis-is-touching',
 				directionPrevious: 'iis-direction-previous',
 				directionNext: 'iis-direction-next'
@@ -412,9 +413,10 @@ var IdealImageSlider = (function() {
 
 			// Touch Navigation
 			if(('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch){
-				this.settings.effect = 'touch';
+				this.settings.effect = 'slide';
 				previousNav.style.display = 'none';
 				nextNav.style.display = 'none';
+				_addClass(sliderEl, this.settings.classes.touchEnabled);
 
 				sliderEl.addEventListener('touchstart', _touch.start.bind(this), false);
 				sliderEl.addEventListener('touchmove', _touch.move.bind(this), false);

@@ -56,6 +56,12 @@
 .iis-effect-slide.iis-direction-next .iis-previous-slide,
 .iis-effect-slide.iis-direction-previous .iis-next-slide { opacity: 1; }
 
+/* Touch styles */
+.iis-touch-enabled .iis-slide { z-index: 1; }
+.iis-touch-enabled .iis-current-slide { z-index: 2; }
+.iis-touch-enabled.iis-is-touching .iis-previous-slide,
+.iis-touch-enabled.iis-is-touching .iis-next-slide { opacity: 1; }
+
 /* Fade effect */
 .iis-effect-fade .iis-slide {
 	-webkit-transition-property: opacity;
@@ -71,21 +77,3 @@
 .iis-effect-fade .iis-current-slide {
 	opacity: 1;
 }
-
-/* Touch effect */
-.iis-effect-touch .iis-slide {
-	opacity: 0;
-	z-index: 1;
-	-webkit-transition-property: -webkit-transform;
-	   -moz-transition-property: -moz-transform;
-		 -o-transition-property: -o-transform;
-			transition-property: transform;
-	-webkit-transition-timing-function: ease-out;
-	   -moz-transition-timing-function: ease-out;
-		 -o-transition-timing-function: ease-out;
-			transition-timing-function: ease-out;
-}
-.iis-effect-touch .iis-current-slide { z-index: 2; }
-.iis-effect-touch .iis-current-slide,
-.iis-effect-touch.iis-is-touching .iis-previous-slide,
-.iis-effect-touch.iis-is-touching .iis-next-slide { opacity: 1; }
