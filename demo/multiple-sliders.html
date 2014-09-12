@@ -7,14 +7,14 @@ title: Multiple Sliders Demo
 	<div class="inner">
 		{% include nav.html %}
 		<div id="slider1" style="margin-bottom:30px;">
-			<img src="{{ site.baseurl }}/public/img/1.jpg" data-src-2x="{{ site.baseurl }}/public/img/1@2x.jpg" src="" alt="">
+			<img src="{{ site.baseurl }}/public/img/1.jpg" data-src-2x="{{ site.baseurl }}/public/img/1@2x.jpg" alt="">
 			<img data-src="{{ site.baseurl }}/public/img/2.jpg" data-src-2x="{{ site.baseurl }}/public/img/2@2x.jpg" src="" alt="">
 			<img data-src="{{ site.baseurl }}/public/img/3.jpg" data-src-2x="{{ site.baseurl }}/public/img/3@2x.jpg" src="" alt="">
 			<img data-src="{{ site.baseurl }}/public/img/4.jpg" data-src-2x="{{ site.baseurl }}/public/img/4@2x.jpg" src="" alt="">
 		</div>
 
 		<div id="slider2">
-			<img src="{{ site.baseurl }}/public/img/2.jpg" data-src-2x="{{ site.baseurl }}/public/img/2@2x.jpg" src="" alt="">
+			<img src="{{ site.baseurl }}/public/img/2.jpg" data-src-2x="{{ site.baseurl }}/public/img/2@2x.jpg" alt="">
 			<img data-src="{{ site.baseurl }}/public/img/1.jpg" data-src-2x="{{ site.baseurl }}/public/img/1@2x.jpg" src="" alt="">
 			<img data-src="{{ site.baseurl }}/public/img/3.jpg" data-src-2x="{{ site.baseurl }}/public/img/3@2x.jpg" src="" alt="">
 			<img data-src="{{ site.baseurl }}/public/img/4.jpg" data-src-2x="{{ site.baseurl }}/public/img/4@2x.jpg" src="" alt="">
@@ -33,7 +33,7 @@ var slider2 = new IdealImageSlider.Slider({
 	</div>
 </section>
 
-<script src="{{ site.baseurl }}/public/bower_components/ideal-image-slider/ideal-image-slider.js"></script>
+<script src="{{ site.baseurl }}/public/bower_components/ideal-image-slider/ideal-image-slider.min.js"></script>
 <script>
 var slider1 = new IdealImageSlider.Slider({
 	selector: '#slider1',
