@@ -1,5 +1,9 @@
 # Ideal Image Slider Changelog
 
+Version 1.2.2 - 2014.09.12
+--------------------------
+ * [Fixed] Links z-index bug
+
 Version 1.2.1 - 2014.09.12
 --------------------------
  * [Fixed] Single slide bug

@@ -30,6 +30,7 @@ And, as an example, here are some features that *should not* be in the core and 
 ## Demos
 
 * [Standard Slider](http://gilbitron.github.io/Ideal-Image-Slider/demo/standard-slider.html)
+* [With Links](http://gilbitron.github.io/Ideal-Image-Slider/demo/links.html)
 * [Using the API](http://gilbitron.github.io/Ideal-Image-Slider/demo/using-the-api.html)
 * [Using Events](http://gilbitron.github.io/Ideal-Image-Slider/demo/using-events.html)
 * [Multiple Sliders](http://gilbitron.github.io/Ideal-Image-Slider/demo/multiple-sliders.html)
@@ -79,6 +80,7 @@ like this:
 	<img src="img/1.jpg" src="" alt="Minimum required attributes">
 	<img data-src="img/2.jpg" src="" alt="Use data-src for on-demand loading">
 	<img data-src="img/3.jpg" data-src-2x="img/3@2x.jpg" src="" alt="Use data-src-2x for HiDPI devices">
+	<a href="http://example.com"><img data-src="img/4.jpg" src="" alt="Links work too"></a>
 	...
 </div>
 ```
