@@ -1,5 +1,10 @@
 # Ideal Image Slider Changelog
 
+Version 1.2.1 - 2014.09.12
+--------------------------
+ * [Fixed] Single slide bug
+ * [Fixed] "slide" transitions don't work on mobile
+
 Version 1.2.0 - 2014.09.10
 --------------------------
  * [New] Added Bullet Navigation extension

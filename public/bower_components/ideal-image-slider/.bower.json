@@ -19,12 +19,12 @@
     "bower_components",
     "tests"
   ],
-  "version": "1.2.0",
-  "_release": "1.2.0",
+  "version": "1.2.1",
+  "_release": "1.2.1",
   "_resolution": {
     "type": "version",
-    "tag": "1.2.0",
-    "commit": "c73a6450bb7d30345cba6cb960fa46386e88594e"
+    "tag": "1.2.1",
+    "commit": "6bf1cbe35386bf9818c1da2e532df3622df30f9b"
   },
   "_source": "git://github.com/gilbitron/Ideal-Image-Slider.git",
   "_target": "^1.0.0",

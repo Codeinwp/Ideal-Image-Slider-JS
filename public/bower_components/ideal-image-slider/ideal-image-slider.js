@@ -1,5 +1,5 @@
 /*
- * Ideal Image Slider v1.2.0
+ * Ideal Image Slider v1.2.1
  *
  * By Gilbert Pellegrom
  * http://gilbert.pellegrom.me
@@ -290,6 +290,7 @@ var IdealImageSlider = (function() {
 				previousNav: 'iis-previous-nav',
 				nextNav: 'iis-next-nav',
 				animating: 'iis-is-animating',
+				touchEnabled: 'iis-touch-enabled',
 				touching: 'iis-is-touching',
 				directionPrevious: 'iis-direction-previous',
 				directionNext: 'iis-direction-next'
@@ -373,7 +374,13 @@ var IdealImageSlider = (function() {
 			}
 		}.bind(this));
 		var slides = validSlides;
-		if(slides.length <= 1) return null;
+		if(slides.length <= 1){
+			sliderEl.innerHTML = '';
+			Array.prototype.forEach.call(origChildren, function(child, i){
+				sliderEl.appendChild(child);
+			});
+			return null;
+		}
 
 		// Create navigation
 		if(!this.settings.disableNav){
@@ -406,9 +413,10 @@ var IdealImageSlider = (function() {
 
 			// Touch Navigation
 			if(('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch){
-				this.settings.effect = 'touch';
+				this.settings.effect = 'slide';
 				previousNav.style.display = 'none';
 				nextNav.style.display = 'none';
+				_addClass(sliderEl, this.settings.classes.touchEnabled);
 
 				sliderEl.addEventListener('touchstart', _touch.start.bind(this), false);
 				sliderEl.addEventListener('touchmove', _touch.move.bind(this), false);
@@ -472,16 +480,19 @@ var IdealImageSlider = (function() {
 	};
 
 	Slider.prototype.get = function(attribute) {
+		if(!this._attributes) return null;
 		if(this._attributes.hasOwnProperty(attribute)){
 			return this._attributes[attribute];
 		}
 	};
 
 	Slider.prototype.set = function(attribute, value) {
+		if(!this._attributes) return null;
 		return (this._attributes[attribute] = value);
 	};
 
 	Slider.prototype.start = function() {
+		if(!this._attributes) return;
 		this._attributes.timerId = setInterval(this.nextSlide.bind(this), this.settings.interval);
 		this.settings.onStart.apply(this);
 
@@ -492,6 +503,7 @@ var IdealImageSlider = (function() {
 	};
 
 	Slider.prototype.stop = function() {
+		if(!this._attributes) return;
 		clearInterval(this._attributes.timerId);
 		this._attributes.timerId = 0;
 		this.settings.onStop.apply(this);

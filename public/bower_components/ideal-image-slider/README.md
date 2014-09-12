@@ -34,6 +34,10 @@ And, as an example, here are some features that *should not* be in the core and 
 * [Using Events](http://gilbitron.github.io/Ideal-Image-Slider/demo/using-events.html)
 * [Multiple Sliders](http://gilbitron.github.io/Ideal-Image-Slider/demo/multiple-sliders.html)
 
+## Extensions
+
+* [Bullet Navigation](https://github.com/gilbitron/Ideal-Image-Slider/tree/master/extensions/bullet-nav)
+
 ## Requirements
 
 * **None**
