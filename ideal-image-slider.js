@@ -362,7 +362,8 @@ var IdealImageSlider = (function() {
 				if(href) slideEl.setAttribute('href', href);
 				if(target) slideEl.setAttribute('target', target);
 				if(slide.getAttribute('className')) _addClass(slideEl, slide.getAttribute('className'));
-				if(slide.getAttribute('id')) slideEl.setAttribute('id', slide.id);
+				if(slide.getAttribute('id')) slideEl.setAttribute('id', slide.getAttribute('id'));
+				if(slide.getAttribute('title')) slideEl.setAttribute('title', slide.getAttribute('title'));
 				if(slide.getAttribute('alt')) slideEl.innerHTML = slide.getAttribute('alt');
 				slideEl.setAttribute('role', 'tabpanel');
 				slideEl.setAttribute('aria-hidden', 'true');
