@@ -1,0 +1,36 @@
+---
+layout: clean
+title: Links Demo
+---
+
+<header class="header">
+	<div class="inner">
+		{% include nav.html %}
+		<div id="slider">
+			<a href="http://dev7studios.com"><img src="{{ site.baseurl }}/public/img/1.jpg" data-src-2x="{{ site.baseurl }}/public/img/1@2x.jpg" alt=""></a>
+			<a href="http://gilbitron.me"><img data-src="{{ site.baseurl }}/public/img/2.jpg" data-src-2x="{{ site.baseurl }}/public/img/2@2x.jpg" src="" alt=""></a>
+			<a href="http://www.google.com"><img data-src="{{ site.baseurl }}/public/img/3.jpg" data-src-2x="{{ site.baseurl }}/public/img/3@2x.jpg" src="" alt=""></a>
+			<a href="http://example.com"><img data-src="{{ site.baseurl }}/public/img/4.jpg" data-src-2x="{{ site.baseurl }}/public/img/4@2x.jpg" src="" alt=""></a>
+		</div>
+	</div>
+</header>
+
+<section class="content">
+	<div class="inner">
+		<p>Wrap slides with an anchor tag to make them linkable.</p>
+		<pre><code>&lt;div id=&quot;slider&quot;&gt;
+    &lt;a href=&quot;http://dev7studios.com&quot;&gt;&lt;img src=&quot;{{ site.baseurl }}/public/img/1.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;
+    &lt;a href=&quot;http://gilbitron.me&quot;&gt;&lt;img data-src=&quot;{{ site.baseurl }}/public/img/2.jpg&quot; src=&quot;&quot; alt=&quot;&quot;&gt;&lt;/a&gt;
+    &lt;a href=&quot;http://www.google.com&quot;&gt;&lt;img data-src=&quot;{{ site.baseurl }}/public/img/3.jpg&quot; src=&quot;&quot; alt=&quot;&quot;&gt;&lt;/a&gt;
+    &lt;a href=&quot;http://example.com&quot;&gt;&lt;img data-src=&quot;{{ site.baseurl }}/public/img/4.jpg&quot; src=&quot;&quot; alt=&quot;&quot;&gt;&lt;/a&gt;
+&lt;/div&gt;</code></pre>
+	</div>
+</section>
+
+<script src="{{ site.baseurl }}/public/bower_components/ideal-image-slider/ideal-image-slider.min.js"></script>
+<script>
+new IdealImageSlider.Slider({
+	selector: '#slider',
+	height: 400
+});
+</script>
