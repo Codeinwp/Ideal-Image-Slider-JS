@@ -42,7 +42,10 @@
 		-ms-transform: translateX(0%);
 			transform: translateX(0%);
 }
-.iis-effect-slide .iis-current-slide { opacity: 1; }
+.iis-effect-slide .iis-current-slide {
+	opacity: 1;
+	z-index: 1;
+}
 .iis-effect-slide .iis-previous-slide {
 	-webkit-transform: translateX(-100%);
 		-ms-transform: translateX(-100%);
@@ -76,4 +79,5 @@
 }
 .iis-effect-fade .iis-current-slide {
 	opacity: 1;
+	z-index: 1;
 }
