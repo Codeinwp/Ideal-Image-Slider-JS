@@ -38,6 +38,7 @@ And, as an example, here are some features that *should not* be in the core and 
 ## Extensions
 
 * [Bullet Navigation](https://github.com/gilbitron/Ideal-Image-Slider/tree/master/extensions/bullet-nav)
+* [Captions](https://github.com/gilbitron/Ideal-Image-Slider/tree/master/extensions/captions)
 
 ## Requirements
 
