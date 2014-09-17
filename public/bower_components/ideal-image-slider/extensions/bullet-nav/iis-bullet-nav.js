@@ -1,5 +1,5 @@
 /*
-* Ideal Image Slider: Bullet Navigation Extension v1.0.0
+* Ideal Image Slider: Bullet Navigation Extension v1.0.1
 *
 * By Gilbert Pellegrom
 * http://gilbert.pellegrom.me
@@ -26,9 +26,10 @@
 	};
 
 	IIS.Slider.prototype.addBulletNav = function() {
-		var bulletNav = document.createElement('div');
+		IIS._addClass(this._attributes.container, 'iis-has-bullet-nav');
 
 		// Create bullet nav
+		var bulletNav = document.createElement('div');
 		IIS._addClass(bulletNav, 'iis-bullet-nav');
 		bulletNav.setAttribute('role', 'tablist');
 

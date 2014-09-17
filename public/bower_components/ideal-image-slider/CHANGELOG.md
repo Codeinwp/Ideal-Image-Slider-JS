@@ -1,5 +1,9 @@
 # Ideal Image Slider Changelog
 
+Version 1.3.0 - 2014.09.17
+--------------------------
+ * [New] Added Captions extension
+
 Version 1.2.2 - 2014.09.12
 --------------------------
  * [Fixed] Links z-index bug
