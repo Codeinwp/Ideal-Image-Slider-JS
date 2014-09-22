@@ -191,6 +191,9 @@ So you want to help out? That's awesome. Here is how you can do it:
 If you are submitting a pull request please adhere to the existing coding standards used throughout the code
 and only submit **1 feature/fix per pull request**. Pull requests containing multiple changes will be rejected.
 
+Note that if you submit a pull request you are aware that you are contributing to both the free (open source) version
+and the proprietary (commercial) version of the codebase and that your work may make money for Dev7studios.
+
 ## Credits
 
 Ideal Image Slider was created by [Gilbert Pellegrom](http://gilbert.pellegrom.me) from
