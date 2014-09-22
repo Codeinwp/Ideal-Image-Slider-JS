@@ -1,12 +1,12 @@
 /*
-* Ideal Image Slider: Bullet Navigation Extension v1.0.1
-*
-* By Gilbert Pellegrom
-* http://gilbert.pellegrom.me
-*
-* Free to use and abuse under the MIT license.
-* https://raw.githubusercontent.com/gilbitron/Ideal-Image-Slider/master/LICENSE
-*/
+ * Ideal Image Slider: Bullet Navigation Extension v1.0.2
+ *
+ * By Gilbert Pellegrom
+ * http://gilbert.pellegrom.me
+ *
+ * Copyright (C) 2014 Dev7studios
+ * https://raw.githubusercontent.com/gilbitron/Ideal-Image-Slider/master/LICENSE
+ */
 
 (function(IIS) {
 	"use strict";

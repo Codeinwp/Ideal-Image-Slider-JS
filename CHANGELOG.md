@@ -1,5 +1,10 @@
 # Ideal Image Slider Changelog
 
+Version 1.4.0 - 2014.09.22
+--------------------------
+ * [Changed] Removed outdated CSS vender prefixes
+ * [Changed] Changed license to GPL
+
 Version 1.3.0 - 2014.09.17
 --------------------------
  * [New] Added Captions extension

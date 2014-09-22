@@ -1,10 +1,10 @@
 /*
- * Ideal Image Slider v1.3.0
+ * Ideal Image Slider v1.4.0
  *
  * By Gilbert Pellegrom
  * http://gilbert.pellegrom.me
  *
- * Free to use and abuse under the MIT license.
+ * Copyright (C) 2014 Dev7studios
  * https://raw.githubusercontent.com/gilbitron/Ideal-Image-Slider/master/LICENSE
  */
 

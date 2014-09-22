@@ -194,4 +194,4 @@ and only submit **1 feature/fix per pull request**. Pull requests containing mul
 ## Credits
 
 Ideal Image Slider was created by [Gilbert Pellegrom](http://gilbert.pellegrom.me) from
-[Dev7studios](http://dev7studios.com). Released under the [MIT license](https://raw.githubusercontent.com/gilbitron/Ideal-Image-Slider/master/LICENSE).
+[Dev7studios](http://dev7studios.com). Released under the [GPL license](https://raw.githubusercontent.com/gilbitron/Ideal-Image-Slider/master/LICENSE).
