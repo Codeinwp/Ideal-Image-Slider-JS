@@ -104,15 +104,10 @@ var IdealImageSlider = (function() {
 
 	var _unTranslate = function(slide) {
 		slide.style.removeProperty('-webkit-transition-duration');
-		slide.style.removeProperty('-moz-transition-duration');
-		slide.style.removeProperty('-ms-transition-duration');
-		slide.style.removeProperty('-o-transition-duration');
 		slide.style.removeProperty('transition-duration');
 
 		slide.style.removeProperty('-webkit-transform');
-		slide.style.removeProperty('-moz-transform');
 		slide.style.removeProperty('-ms-transform');
-		slide.style.removeProperty('-o-transform');
 		slide.style.removeProperty('transform');
 	};
 
