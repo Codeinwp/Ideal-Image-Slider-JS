@@ -1,0 +1,23 @@
+---
+layout: clean
+title: Announcements
+---
+
+<header class="header">
+	<div class="inner">
+		{% include nav.html %}
+		<h1>Announcements</h1>
+	</div>
+</header>
+
+<section class="content">
+	<div class="inner">
+		<ul class="announcement-list">
+			{% for post in site.posts %}
+				<li>
+					<a href="{{ post.url }}">{{ post.date|date:"%b %d, %Y" }} - {{ post.title }}</a>
+				</li>
+			{% endfor %}
+		</ul>
+	</div>
+</section>

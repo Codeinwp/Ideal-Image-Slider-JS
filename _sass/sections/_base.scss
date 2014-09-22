@@ -388,6 +388,16 @@ pre code { padding: 0; }
 		padding: 20px 0;
 		margin: 0;
 	}
+	.announcements { float: right; }
+}
+
+.announcement-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.post {
+	.post-meta { color: #acb7ba; }
 }
 
 /* ==========================================================================

@@ -1,0 +1,25 @@
+{% include header.html %}
+
+	<header class="header">
+		<div class="inner">
+			{% include nav.html %}
+			<h1>{{ page.title }}</h1>
+		</div>
+	</header>
+
+	<section class="content">
+		<div class="inner">
+			<article class="post">
+				<header class="post-meta">
+					<span class="post-date"><time datetime="{{ page.date|date:"%F" }}">{{ page.date|date:"%b %d, %Y" }}</time></span>
+		            <span class="sep">/</span>
+		            <span class="post-author">{% if page.author %}{{ page.author }}{% else %}{{ site.author }}{% endif%}</span>
+		        </header>
+				<div class="post-content">
+					{{ content }}
+				</div>
+			</article>
+		</div>
+	</section>
+
+{% include footer.html %}
