@@ -3,3 +3,5 @@
 /_sass
 /_site
 *.lock
+*.pages
+*.pdf
