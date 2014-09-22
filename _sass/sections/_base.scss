@@ -286,31 +286,9 @@ pre code { padding: 0; }
 	p { margin: 0 0 30px 0; }
 }
 
-.col2 {
-	margin-bottom: 30px;
+.quick-start {
+	margin-bottom: 50px;
 
-	.col {
-		float: left;
-		width: 65.5%;
-		margin-right: 3.5%;
-
-		&.last {
-			float: left;
-			width: 31%;
-			margin-right: 0;
-
-			@include max-screen(700px){
-				width: auto;
-				float: none;
-				margin-right: 0;
-			}
-		}
-		@include max-screen(700px){
-			width: auto;
-			float: none;
-			margin-right: 0;
-		}
-	}
 	h3 { margin: 0 0 1em 0; }
 	pre { padding: 10px; }
 }
@@ -346,6 +324,59 @@ pre code { padding: 0; }
 		line-height: 1.6em;
 		padding: 8px 20px 7px;
 		margin-left: 5px;
+	}
+}
+
+.pricing-table {
+	background: #F7F9FA;
+	background: rgba(247,249,250,0.84) -webkit-linear-gradient(#FFF,rgba(255,255,255,0));
+	background: rgba(247,249,250,0.84) -moz-linear-gradient(#fff,rgba(255,255,255,0));
+	background: rgba(247,249,250,0.84) -o-linear-gradient(#fff,rgba(255,255,255,0));
+	background: rgba(247,249,250,0.84) -ms-linear-gradient(#fff,rgba(255,255,255,0));
+	background: rgba(247,249,250,0.84) linear-gradient(#FFF,rgba(255,255,255,0));
+	color: $color-text;
+	text-shadow: none;
+	padding: 20px;
+	border-radius: 6px;
+	box-shadow: 0 2px 6px rgba(0,0,0,0.42), 0 0 1px rgba(0,0,0,0.12), inset 0 -1px 2px rgba(14,60,86,0.1);
+
+	table { width: 100%; }
+	th,
+	td {
+		width: 33.333%;
+		padding: 5px 15px;
+		text-align: center;
+	}
+	th {
+		font-size: 19px;
+		font-weight: normal;
+		line-height: 1.5em;
+		color: $color-dark;
+	}
+	tfoot td { padding-top: 15px; }
+	.cost td {
+		font-size: 26px;
+		line-height: 1.5em;
+		color: #46A41C;
+	}
+	.mdash { color: #acb7ba; }
+	.btn { padding: 5px 30px; }
+}
+
+.pricing-faq {
+	@include clearfix;
+
+	.col {
+		float: left;
+		width: 45%;
+		margin-right: 10%;
+		&.last { margin-right: 0; }
+
+		@include max-screen(700px){
+			width: auto;
+			float: none;
+			margin-right: 0;
+		}
 	}
 }
 

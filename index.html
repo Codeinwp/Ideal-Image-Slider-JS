@@ -34,51 +34,33 @@ with no bloat and be easy to extend so that more features can be added as "exten
 	</div>
 </div>
 
-<div class="col2 clearfix">
-	<div class="col">
-		<h3>Quick Start</h3>
-		<pre class="html"><code>&lt;html&gt;
+<div class="quick-start">
+	<h3>Quick Start</h3>
+	<pre class="html"><code>&lt;html&gt;
 &lt;head&gt;
+    &lt;!-- Include slider and theme CSS files --&gt;
     &lt;link rel=&quot;stylesheet&quot; href=&quot;ideal-image-slider.css&quot;&gt;
     &lt;link rel=&quot;stylesheet&quot; href=&quot;themes/default/default.css&quot;&gt;
 &lt;/head&gt;
 &lt;body&gt;
+    &lt;!-- Create your slider and add images --&gt;
     &lt;div id=&quot;slider&quot;&gt;
         &lt;img src=&quot;img/1.jpg&quot; alt=&quot;&quot;&gt;
         &lt;img data-src=&quot;img/2.jpg&quot; src=&quot;&quot; alt=&quot;&quot;&gt;
         &lt;img data-src=&quot;img/3.jpg&quot; src=&quot;&quot; alt=&quot;&quot;&gt;
     &lt;/div&gt;
+    &lt;!-- Include slider JS file --&gt;
     &lt;script src=&quot;ideal-image-slider.js&quot;&gt;&lt;/script&gt;
+    &lt;!-- Create your slider --&gt;
     &lt;script&gt;
     new IdealImageSlider.Slider(&#39;#slider&#39;);
     &lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
-	</div>
-	<div class="col last">
-		<h3>Demos</h3>
-		<ul>
-			<li><a href="{{ site.baseurl }}/demo/standard-slider.html">Standard Slider</a></li>
-			<li><a href="{{ site.baseurl }}/demo/using-the-api.html">Using the API</a></li>
-			<li><a href="{{ site.baseurl }}/demo/using-events.html">Using Events</a></li>
-			<li><a href="{{ site.baseurl }}/demo/multiple-sliders.html">Multiple Sliders</a></li>
-			<li><a href="{{ site.baseurl }}/demo/bullet-nav.html">Bullet Nav (extension)</a></li>
-		</ul>
-		<h3>Documentation</h3>
-		<ul>
-			<li><a href="https://github.com/gilbitron/Ideal-Image-Slider#getting-started">Getting Started</a></li>
-			<li><a href="https://github.com/gilbitron/Ideal-Image-Slider#settings">Settings</a></li>
-			<li><a href="https://github.com/gilbitron/Ideal-Image-Slider#events">Events</a></li>
-			<li><a href="https://github.com/gilbitron/Ideal-Image-Slider#api">API</a></li>
-			<li><a href="https://github.com/gilbitron/Ideal-Image-Slider#contribute">Contribute</a></li>
-			<li><a href="https://github.com/gilbitron/Ideal-Image-Slider/blob/master/CHANGELOG.md">Changelog</a></li>
-		</ul>
-	</div>
 </div>
 
 <div class="cta">
-	<a href="https://github.com/gilbitron/Ideal-Image-Slider/releases" class="btn">Download Latest Version</a>
-	<a href="https://github.com/gilbitron/Ideal-Image-Slider" class="btn">View on Github</a>
+	<a href="{{ site.baseurl }}/download.html" class="btn">Download Ideal Image Slider</a>
 </div>
 
 <div class="share">
@@ -97,14 +79,14 @@ with no bloat and be easy to extend so that more features can be added as "exten
 	<script src="https://apis.google.com/js/platform.js" async defer></script>
 </div>
 
-<div class="updates">
+<!--div class="updates">
 	<form action="http://dev7studios.createsend.com/t/r/s/ilzhrr/" method="post">
 		<label for="fieldEmail">To get news and updates pop in your email address below:</label><br>
 		<input id="fieldEmail" name="cm-ilzhrr-ilzhrr" type="email" required placeholder="Email Address" />
 		<button type="submit" class="btn secondary">Subscribe</button>
 		</p>
 	</form>
-</div>
+</div-->
 
 <script src="{{ site.baseurl }}/public/bower_components/ideal-image-slider/ideal-image-slider.min.js"></script>
 <script>
