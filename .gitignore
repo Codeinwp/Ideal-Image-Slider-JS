@@ -2,3 +2,5 @@
 /_site
 /node_modules
 *.lock
+*.pages
+*.pdf
