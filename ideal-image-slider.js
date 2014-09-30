@@ -369,7 +369,7 @@ var IdealImageSlider = (function() {
 
 				slideEl.style.cssText += '-webkit-transition-duration:'+ this.settings.transitionDuration +'ms;-moz-transition-duration:'+ this.settings.transitionDuration +'ms;-o-transition-duration:'+ this.settings.transitionDuration +'ms;transition-duration:'+ this.settings.transitionDuration +'ms;';
 
-				sliderEl.appendChild(slideEl);
+				//sliderEl.appendChild(slideEl);
 				validSlides.push(slideEl);
 			}
 		}.bind(this));
