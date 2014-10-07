@@ -9,5 +9,84 @@
     "grunt-string-replace": "^0.2.7",
     "jshint-stylish": "^0.4.0",
     "load-grunt-tasks": "^0.6.0"
+  },
+  "install": {
+    "resources": {
+      "head": [
+        {
+          "type": "style",
+          "src": "./ideal-image-slider.css"
+        },
+        {
+          "type": "style",
+          "src": "./themes/default/default.css"
+        }
+      ],
+      "body": [
+        {
+          "type": "script",
+          "src": "./ideal-image-slider.js"
+        },
+        {
+          "type": "script",
+          "src": "./install/ideal-image-slider-install-helper.js"
+        },
+        {
+          "type": "script",
+          "contents": "IdealImageSliderInstallHelper.init(Eager.createElement(INSTALL_OPTIONS.location), INSTALL_OPTIONS)"
+        }
+      ]
+    },
+    "options": {
+      "properties": {
+        "location": {
+          "title": "Location",
+          "type": "object",
+          "format": "element"
+        },
+        "slides": {
+          "title": "Slides",
+          "type": "array",
+          "maxItems": 10,
+          "items": {
+            "type": "object",
+            "title": "Slide",
+            "properties": {
+              "image": {
+                "title": "Image",
+                "type": "string",
+                "format":"image"
+              },
+              "description": {
+                "title": "Description",
+                "description": "This text is used as the image’s title and alt text, important for SEO.",
+                "type": "string",
+                "maxLength": 200,
+                "validationMessage": "The description cannot be longer than 200 characters."
+              },
+              "link": {
+                "title": "Link",
+                "description": "Make the slide a link to a specified web address. If left blank, the slide will not be linked.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "image"
+            ]
+          },
+          "default": [
+            {
+              "image": "http://gilbitron.github.io/Ideal-Image-Slider/public/img/1.jpg",
+              "description": "Example image description",
+              "link": "http://gilbitron.github.io/Ideal-Image-Slider"
+            },
+            {
+              "image": "http://gilbitron.github.io/Ideal-Image-Slider/public/img/2.jpg",
+              "description": "Another description"
+            }
+          ]
+        }
+      }
+    }
   }
 }

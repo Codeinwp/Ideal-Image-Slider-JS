@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<head>
+  <link rel="stylesheet" href="../ideal-image-slider.css">
+  <link rel="stylesheet" href="../themes/default/default.css">
+</head>
+<body>
+  <install-container></install-container>
+
+  <script src="../ideal-image-slider.js"></script>
+  <script src="ideal-image-slider-install-helper.js"></script>
+  <script>
+    IdealImageSliderInstallHelper.init(document.querySelector('install-container'), {
+      "location": {
+        "selector": "body",
+        "method": "append"
+      },
+      "slides": [
+        {
+          "image": "http://gilbitron.github.io/Ideal-Image-Slider/public/img/1.jpg"
+        },
+        {
+          "image": "http://gilbitron.github.io/Ideal-Image-Slider/public/img/2.jpg",
+          "description": "Example image description"
+        },
+        {
+          "image": "http://gilbitron.github.io/Ideal-Image-Slider/public/img/3.jpg",
+          "link": "http://gilbitron.github.io/Ideal-Image-Slider"
+        }
+      ]
+    });
+  </script>
+</body>
