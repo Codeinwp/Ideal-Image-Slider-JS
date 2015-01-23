@@ -78,7 +78,7 @@ like this:
 
 ```html
 <div id="slider">
-	<img src="img/1.jpg" src="" alt="Minimum required attributes">
+	<img src="img/1.jpg" alt="Minimum required attributes">
 	<img data-src="img/2.jpg" src="" alt="Use data-src for on-demand loading">
 	<img data-src="img/3.jpg" data-src-2x="img/3@2x.jpg" src="" alt="Use data-src-2x for HiDPI devices">
 	<a href="http://example.com"><img data-src="img/4.jpg" src="" alt="Links work too"></a>
@@ -105,7 +105,7 @@ If you want to tweak the settings or use the slider API it would look more like:
 var slider = new IdealImageSlider.Slider({
 	selector: '#slider',
 	height: 400, // Required but can be set by CSS
-	interval: 4000,
+	interval: 4000
 });
 slider.start();
 ```
