@@ -8,7 +8,7 @@
  * https://raw.githubusercontent.com/gilbitron/Ideal-Image-Slider/master/LICENSE
  */
 
-var bulletNavigation = function(IIS) {
+var _bulletNavigation = function(IIS) {
 	"use strict";
 
 	var _updateActiveBullet = function(slider, activeIndex) {
@@ -72,5 +72,5 @@ if(typeof IdealImageSlider !== 'undefined') {
 }
 
 if(typeof module !== 'undefined') {
-	module.exports = bulletNavigation;
+	module.exports = _bulletNavigation;
 }
