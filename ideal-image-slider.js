@@ -670,3 +670,7 @@ var IdealImageSlider = (function() {
 	};
 
 })();
+
+if(typeof module !== 'undefined') {
+	module.exports = IdealImageSlider;
+}
