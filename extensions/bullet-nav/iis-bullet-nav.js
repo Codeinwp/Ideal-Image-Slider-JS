@@ -8,7 +8,7 @@
  * https://raw.githubusercontent.com/gilbitron/Ideal-Image-Slider/master/LICENSE
  */
 
-(function(IIS) {
+function(IIS) {
 	"use strict";
 
 	var _updateActiveBullet = function(slider, activeIndex) {
@@ -65,4 +65,4 @@
 
 	return IIS;
 
-})(IdealImageSlider);
+};
