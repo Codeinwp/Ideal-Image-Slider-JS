@@ -50,7 +50,7 @@ var _captions = function(IIS) {
 
 };
 
-if (typeof IdealImageSlider !== undefined) {
+if (typeof IdealImageSlider !== 'undefined') {
 	_captions(IdealImageSlider);
 }
 
