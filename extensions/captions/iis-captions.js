@@ -8,7 +8,7 @@
  * https://raw.githubusercontent.com/gilbitron/Ideal-Image-Slider/master/LICENSE
  */
 
-(function(IIS) {
+var _captions = function(IIS) {
 	"use strict";
 
 	IIS.Slider.prototype.addCaptions = function() {
@@ -48,4 +48,12 @@
 
 	return IIS;
 
-})(IdealImageSlider);
+};
+
+if (typeof IdealImageSlider !== 'undefined') {
+	_captions(IdealImageSlider);
+}
+
+if(typeof module !== 'undefined') {
+	module.exports = _captions;
+}

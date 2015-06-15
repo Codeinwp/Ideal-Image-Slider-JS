@@ -1,5 +1,5 @@
 /*
- * Ideal Image Slider v1.4.0
+ * Ideal Image Slider v1.4.1
  *
  * By Gilbert Pellegrom
  * http://gilbert.pellegrom.me
@@ -670,3 +670,7 @@ var IdealImageSlider = (function() {
 	};
 
 })();
+
+if(typeof module !== 'undefined') {
+	module.exports = IdealImageSlider;
+}
