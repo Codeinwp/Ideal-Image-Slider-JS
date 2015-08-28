@@ -14,6 +14,11 @@ var IdealImageSlider = (function() {
 	/*
 	 * Helper functions
 	 */
+	_isType = function(type, obj) {
+		var _class = Object.prototype.toString.call(obj).slice(8, -1);
+		return obj !== undefined && obj !== null && _class === type;
+	};
+
 	var _deepExtend = function(out) {
 		out = out || {};
 		for(var i = 1; i < arguments.length; i++){
@@ -22,7 +27,7 @@ var IdealImageSlider = (function() {
 				continue;
 			for(var key in obj){
 				if(obj.hasOwnProperty(key)){
-					if(typeof obj[key] === 'object' && obj[key] !== null)
+					if(_isType('Object', obj[key]) && obj[key] !== null)
 						deepExtend(out[key], obj[key]);
 					else
 						out[key] = obj[key];
