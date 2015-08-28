@@ -318,16 +318,19 @@ var IdealImageSlider = (function() {
 		// Slides
 		var origChildren = _toArray(sliderEl.children),
 			validSlides = [];
-		sliderEl.innerHTML = '';
+			
+		//sliderEl.innerHTML = '';
 		Array.prototype.forEach.call(origChildren, function(slide, i){
 			if(slide instanceof HTMLImageElement || slide instanceof HTMLAnchorElement){
 				var slideEl = document.createElement('a'),
 					href = '',
-					target = '';
+					target = '',
+					rel = '';
 
 				if(slide instanceof HTMLAnchorElement){
 					href = slide.getAttribute('href');
 					target = slide.getAttribute('target');
+					rel = slide.getAttribute('rel');
 
 					var img = slide.querySelector('img');
 					if(img !== null){
@@ -361,6 +364,7 @@ var IdealImageSlider = (function() {
 
 				if(href) slideEl.setAttribute('href', href);
 				if(target) slideEl.setAttribute('target', target);
+				if (rel) slideEl.setAttribute('rel', rel);
 				if(slide.getAttribute('className')) _addClass(slideEl, slide.getAttribute('className'));
 				if(slide.getAttribute('id')) slideEl.setAttribute('id', slide.getAttribute('id'));
 				if(slide.getAttribute('title')) slideEl.setAttribute('title', slide.getAttribute('title'));
@@ -370,19 +374,25 @@ var IdealImageSlider = (function() {
 
 				slideEl.style.cssText += '-webkit-transition-duration:'+ this.settings.transitionDuration +'ms;-moz-transition-duration:'+ this.settings.transitionDuration +'ms;-o-transition-duration:'+ this.settings.transitionDuration +'ms;transition-duration:'+ this.settings.transitionDuration +'ms;';
 
-				sliderEl.appendChild(slideEl);
+				//sliderEl.appendChild(slideEl);
 				validSlides.push(slideEl);
 			}
 		}.bind(this));
+		
 		var slides = validSlides;
-		if(slides.length <= 1){
-			sliderEl.innerHTML = '';
-			Array.prototype.forEach.call(origChildren, function(child, i){
-				sliderEl.appendChild(child);
-			});
-			return null;
-		}
-
+	        if (slides.length <= 1) {
+	            sliderEl.innerHTML = '';
+	            Array.prototype.forEach.call(origChildren, function (child, i) {
+	                sliderEl.appendChild(child);
+	            });
+	            return null;
+	        } else {
+	            sliderEl.innerHTML = '';
+	            Array.prototype.forEach.call(slides, function (slide, i) {
+	                sliderEl.appendChild(slide);
+	            });
+	        }
+        
 		// Create navigation
 		if(!this.settings.disableNav){
 			var previousNav, nextNav;
