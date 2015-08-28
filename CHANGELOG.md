@@ -1,5 +1,9 @@
 # Ideal Image Slider Changelog
 
+Version 1.4.1 - 2014.10.07
+------------------------------
+ * [New] Make installable via package.json and install helper
+
 Version 1.4.0 - 2014.09.22
 --------------------------
  * [Changed] Removed outdated CSS vender prefixes
