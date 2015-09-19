@@ -92,6 +92,8 @@ var IdealImageSlider = (function() {
 			img.setAttribute('src', slide.getAttribute('data-src'));
 			img.onload = function() {
 				slide.style.backgroundImage = 'url('+ slide.getAttribute('data-src') +')';
+				slide.setAttribute('data-actual-width', this.naturalWidth);
+				slide.setAttribute('data-actual-height', this.naturalHeight);
 				if(typeof(callback) === 'function') callback(this);
 			};
 		}
@@ -126,6 +128,27 @@ var IdealImageSlider = (function() {
 		slide.style.removeProperty('-webkit-transform');
 		slide.style.removeProperty('-ms-transform');
 		slide.style.removeProperty('transform');
+	};
+
+	var _setContainerHeight = function(slider) {
+		if(parseInt(slider.settings.height, 10) === slider.settings.height){
+			slider._attributes.container.style.height = slider.settings.height +'px';
+		} else if (slider.settings.height === 'auto') {
+			var width = slider._attributes.currentSlide.getAttribute('data-actual-width');
+			var height = slider._attributes.currentSlide.getAttribute('data-actual-height');
+
+			if(width && height){
+				var newHeight = (height / width) * slider._attributes.container.offsetWidth;
+				var maxHeight = parseInt(slider.settings.maxHeight);
+				if (maxHeight && newHeight > maxHeight) {
+					newHeight = maxHeight;
+				}
+
+				slider._attributes.container.style.height = newHeight +'px';
+			}
+		} else {
+			// Aspect Ratio
+		}
 	};
 
 	var _touch = {
@@ -285,7 +308,8 @@ var IdealImageSlider = (function() {
 		// Defaults
 		this.settings = {
 			selector: '',
-			height: 400, // Required but can be set by CSS
+			height: 400, // px value (e.g. 400) | "auto" | aspect ratio (e.g. "16:9")
+			maxHeight: null, // if height = "auto"
 			interval: 4000,
 			transitionDuration: 700,
 			effect: 'slide',
@@ -466,8 +490,12 @@ var IdealImageSlider = (function() {
 		};
 
 		// Set height
-		if(this.settings.height){
+		if(parseInt(this.settings.height, 10) === this.settings.height){
 			this._attributes.container.style.height = this.settings.height +'px';
+		} else {
+			_addEvent(window, 'resize', function(){
+				_setContainerHeight(this);
+			}.bind(this));
 		}
 
 		// Add classes
@@ -486,6 +514,7 @@ var IdealImageSlider = (function() {
 		// Load first image
 		_loadImg(this._attributes.currentSlide, (function(){
 			this.settings.onInit.apply(this);
+			_setContainerHeight(this);
 		}).bind(this));
 		// Preload next images
 		_loadImg(this._attributes.previousSlide);
@@ -563,6 +592,7 @@ var IdealImageSlider = (function() {
 				_removeClass(this._attributes.container, this.settings.classes.animating);
 			}.bind(this), this.settings.transitionDuration);
 		}
+		_setContainerHeight(this);
 		this.settings.afterChange.apply(this);
 	};
 
@@ -607,6 +637,7 @@ var IdealImageSlider = (function() {
 				_removeClass(this._attributes.container, this.settings.classes.animating);
 			}.bind(this), this.settings.transitionDuration);
 		}
+		_setContainerHeight(this);
 		this.settings.afterChange.apply(this);
 	};
 
@@ -660,6 +691,7 @@ var IdealImageSlider = (function() {
 				_removeClass(this._attributes.container, this.settings.classes.animating);
 			}.bind(this), this.settings.transitionDuration);
 		}
+		_setContainerHeight(this);
 		this.settings.afterChange.apply(this);
 	};
 
