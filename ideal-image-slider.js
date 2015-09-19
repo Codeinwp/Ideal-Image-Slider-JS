@@ -132,8 +132,10 @@ var IdealImageSlider = (function() {
 
 	var _setContainerHeight = function(slider) {
 		if(parseInt(slider.settings.height, 10) === slider.settings.height){
-			slider._attributes.container.style.height = slider.settings.height +'px';
-		} else if (slider.settings.height === 'auto') {
+			return;
+		}
+
+		if (slider.settings.height === 'auto') {
 			var width = slider._attributes.currentSlide.getAttribute('data-actual-width');
 			var height = slider._attributes.currentSlide.getAttribute('data-actual-height');
 
