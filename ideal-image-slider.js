@@ -317,7 +317,7 @@ var IdealImageSlider = (function() {
 		// Defaults
 		this.settings = {
 			selector: '',
-			height: 400, // px value (e.g. 400) | "auto" | aspect ratio (e.g. "16:9")
+			height: 'auto', // "auto" | px value (e.g. 400) | aspect ratio (e.g. "16:9")
 			maxHeight: null, // if height = "auto"
 			interval: 4000,
 			transitionDuration: 700,
