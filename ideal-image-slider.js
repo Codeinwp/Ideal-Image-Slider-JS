@@ -12,6 +12,13 @@ var IdealImageSlider = (function() {
 	"use strict";
 
 	/*
+	 * requestAnimationFrame polyfill
+	 */
+	var _requestAnimationFrame = function(win, t) {
+		return win["webkitR" + t] || win["r" + t] || win["mozR" + t] || win["msR" + t] || function(fn) { setTimeout(fn, 1000/60); };
+	}(window, 'equestAnimationFrame');
+
+	/*
 	 * Helper functions
 	 */
 	var _isType = function(type, obj) {
@@ -130,7 +137,32 @@ var IdealImageSlider = (function() {
 		slide.style.removeProperty('transform');
 	};
 
-	var _setContainerHeight = function(slider) {
+	var _animate = function(item) {
+		var duration = item.time,
+		end = +new Date() + duration;
+
+		var step = function() {
+			var current = +new Date(),
+			remaining = end - current;
+
+			if(remaining < 60) {
+				item.run(1);  //1 = progress is at 100%
+				return;
+			} else {
+				var progress = 1 - remaining/duration;
+				item.run(progress);
+			}
+
+			_requestAnimationFrame(step);
+		};
+		step();
+	};
+
+	var _setContainerHeight = function(slider, shouldAnimate) {
+		if(typeof shouldAnimate === 'undefined'){
+			shouldAnimate = true;
+		}
+
 		if(parseInt(slider.settings.height, 10) === slider.settings.height){
 			return;
 		}
@@ -146,7 +178,17 @@ var IdealImageSlider = (function() {
 					newHeight = maxHeight;
 				}
 
-				slider._attributes.container.style.height = newHeight +'px';
+				if(shouldAnimate){
+					var currentHeight = slider._attributes.container.offsetHeight;
+					_animate({
+						time: slider.settings.transitionDuration,
+						run: function(progress) {
+							slider._attributes.container.style.height = (progress * (newHeight - currentHeight) + currentHeight) + 'px';
+						}
+					});
+				} else {
+					slider._attributes.container.style.height = newHeight + 'px';
+				}
 			}
 		} else {
 			// Aspect Ratio
@@ -524,7 +566,7 @@ var IdealImageSlider = (function() {
 		// Load first image
 		_loadImg(this._attributes.currentSlide, (function(){
 			this.settings.onInit.apply(this);
-			_setContainerHeight(this);
+			_setContainerHeight(this, false);
 		}).bind(this));
 		// Preload next images
 		_loadImg(this._attributes.previousSlide);
