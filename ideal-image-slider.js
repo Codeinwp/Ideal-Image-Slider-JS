@@ -14,7 +14,7 @@ var IdealImageSlider = (function() {
 	/*
 	 * Helper functions
 	 */
-	_isType = function(type, obj) {
+	var _isType = function(type, obj) {
 		var _class = Object.prototype.toString.call(obj).slice(8, -1);
 		return obj !== undefined && obj !== null && _class === type;
 	};
