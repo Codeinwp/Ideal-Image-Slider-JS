@@ -74,6 +74,18 @@ var IdealImageSlider = (function() {
 		return array.push.apply(array, rest);
 	};
 
+	var _addEvent = function(object, type, callback) {
+		if (object === null || typeof(object) === 'undefined') return;
+
+		if (object.addEventListener) {
+			object.addEventListener(type, callback, false);
+		} else if (object.attachEvent) {
+			object.attachEvent("on" + type, callback);
+		} else {
+			object["on"+type] = callback;
+		}
+	};
+
 	var _loadImg = function(slide, callback) {
 		if(!slide.style.backgroundImage){
 			var img = new Image();
@@ -401,12 +413,12 @@ var IdealImageSlider = (function() {
 
 			_addClass(previousNav, this.settings.classes.previousNav);
 			_addClass(nextNav, this.settings.classes.nextNav);
-			previousNav.addEventListener('click', function(){
+			_addEvent(previousNav, 'click', function(){
 				if(_hasClass(this._attributes.container, this.settings.classes.animating)) return false;
 				this.stop();
 				this.previousSlide();
 			}.bind(this));
-			nextNav.addEventListener('click', function(){
+			_addEvent(nextNav, 'click', function(){
 				if(_hasClass(this._attributes.container, this.settings.classes.animating)) return false;
 				this.stop();
 				this.nextSlide();
@@ -419,14 +431,14 @@ var IdealImageSlider = (function() {
 				nextNav.style.display = 'none';
 				_addClass(sliderEl, this.settings.classes.touchEnabled);
 
-				sliderEl.addEventListener('touchstart', _touch.start.bind(this), false);
-				sliderEl.addEventListener('touchmove', _touch.move.bind(this), false);
-				sliderEl.addEventListener('touchend', _touch.end.bind(this), false);
+				_addEvent(sliderEl, 'touchstart', _touch.start.bind(this), false);
+				_addEvent(sliderEl, 'touchmove', _touch.move.bind(this), false);
+				_addEvent(sliderEl, 'touchend', _touch.end.bind(this), false);
 			}
 
 			// Keyboard Navigation
 			if(this.settings.keyboardNav){
-				document.addEventListener('keyup', function(e){
+				_addEvent(document, 'keyup', function(e){
 					e = e || window.event;
 					var button = (typeof e.which == 'number') ? e.which : e.keyCode;
 					if (button == 37) {
