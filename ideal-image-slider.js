@@ -152,12 +152,14 @@ var IdealImageSlider = (function() {
 	};
 
 	var _touch = {
+
 		vars: {
 			start: {},
 			delta: {},
 			isScrolling: undefined,
 			direction: null
 		},
+
 		start: function(event) {
 			if(_hasClass(this._attributes.container, this.settings.classes.animating)) return;
 
@@ -176,6 +178,7 @@ var IdealImageSlider = (function() {
 			this.settings.beforeChange.apply(this);
 			_addClass(this._attributes.container, this.settings.classes.touching);
 		},
+
 		move: function(event) {
 			if(_hasClass(this._attributes.container, this.settings.classes.animating)) return;
 			// Ensure swiping with one touch and not pinching
@@ -200,6 +203,7 @@ var IdealImageSlider = (function() {
 				_translate(this._attributes.nextSlide, _touch.vars.delta.x + this._attributes.currentSlide.offsetWidth, 0);
 			}
 		},
+
 		end: function(event) {
 			if(_hasClass(this._attributes.container, this.settings.classes.animating)) return;
 
@@ -244,6 +248,7 @@ var IdealImageSlider = (function() {
 				}
 			}
 		},
+
 		transitionEnd: function(event) {
 			if(_touch.vars.direction){
 				_unTranslate(this._attributes.previousSlide);
@@ -296,9 +301,11 @@ var IdealImageSlider = (function() {
 				_addClass(this._attributes.nextSlide, this.settings.classes.nextSlide);
 				this._attributes.currentSlide.setAttribute('aria-hidden', 'false');
 
+				_setContainerHeight(this);
 				this.settings.afterChange.apply(this);
 			}
 		}
+
 	};
 
 	/*
@@ -410,6 +417,7 @@ var IdealImageSlider = (function() {
 				validSlides.push(slideEl);
 			}
 		}.bind(this));
+
 		var slides = validSlides;
 		if(slides.length <= 1){
 			sliderEl.innerHTML = '';
@@ -592,6 +600,7 @@ var IdealImageSlider = (function() {
 				_removeClass(this._attributes.container, this.settings.classes.animating);
 			}.bind(this), this.settings.transitionDuration);
 		}
+
 		_setContainerHeight(this);
 		this.settings.afterChange.apply(this);
 	};
@@ -637,6 +646,7 @@ var IdealImageSlider = (function() {
 				_removeClass(this._attributes.container, this.settings.classes.animating);
 			}.bind(this), this.settings.transitionDuration);
 		}
+
 		_setContainerHeight(this);
 		this.settings.afterChange.apply(this);
 	};
@@ -691,6 +701,7 @@ var IdealImageSlider = (function() {
 				_removeClass(this._attributes.container, this.settings.classes.animating);
 			}.bind(this), this.settings.transitionDuration);
 		}
+
 		_setContainerHeight(this);
 		this.settings.afterChange.apply(this);
 	};
