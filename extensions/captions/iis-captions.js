@@ -14,32 +14,32 @@
 	IIS.Slider.prototype.addCaptions = function() {
 		IIS._addClass(this._attributes.container, 'iis-has-captions');
 
-		Array.prototype.forEach.call(this._attributes.slides, function(slide, i){
+		Array.prototype.forEach.call(this._attributes.slides, function(slide, i) {
 			var caption = document.createElement('div');
 			IIS._addClass(caption, 'iis-caption');
 
 			var captionContent = '';
-			if(slide.getAttribute('title')){
-				captionContent += '<div class="iis-caption-title">'+ slide.getAttribute('title') +'</div>';
+			if (slide.getAttribute('title')) {
+				captionContent += '<div class="iis-caption-title">' + slide.getAttribute('title') + '</div>';
 			}
-			if(slide.getAttribute('data-caption')){
+			if (slide.getAttribute('data-caption')) {
 				var dataCaption = slide.getAttribute('data-caption');
-				if(dataCaption.substring(0,1) == '#' || dataCaption.substring(0,1) == '.'){
+				if (dataCaption.substring(0, 1) == '#' || dataCaption.substring(0, 1) == '.') {
 					var external = document.querySelector(dataCaption);
-					if(external){
-						captionContent += '<div class="iis-caption-content">'+ external.innerHTML +'</div>';
+					if (external) {
+						captionContent += '<div class="iis-caption-content">' + external.innerHTML + '</div>';
 					}
 				} else {
-					captionContent += '<div class="iis-caption-content">'+ slide.getAttribute('data-caption') +'</div>';
+					captionContent += '<div class="iis-caption-content">' + slide.getAttribute('data-caption') + '</div>';
 				}
 			} else {
-				if(slide.innerHTML){
-					captionContent += '<div class="iis-caption-content">'+ slide.innerHTML +'</div>';
+				if (slide.innerHTML) {
+					captionContent += '<div class="iis-caption-content">' + slide.innerHTML + '</div>';
 				}
 			}
 
 			slide.innerHTML = '';
-			if(captionContent){
+			if (captionContent) {
 				caption.innerHTML = captionContent;
 				slide.appendChild(caption);
 			}

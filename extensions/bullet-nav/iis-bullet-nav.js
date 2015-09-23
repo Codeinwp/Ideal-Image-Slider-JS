@@ -13,12 +13,12 @@
 
 	var _updateActiveBullet = function(slider, activeIndex) {
 		var bullets = slider._attributes.bulletNav.querySelectorAll('a');
-		if(!bullets) return;
+		if (!bullets) return;
 
-		Array.prototype.forEach.call(bullets, function(bullet, i){
+		Array.prototype.forEach.call(bullets, function(bullet, i) {
 			IIS._removeClass(bullet, 'iis-bullet-active');
 			bullet.setAttribute('aria-selected', 'false');
-			if(i === activeIndex){
+			if (i === activeIndex) {
 				IIS._addClass(bullet, 'iis-bullet-active');
 				bullet.setAttribute('aria-selected', 'true');
 			}
@@ -34,13 +34,13 @@
 		bulletNav.setAttribute('role', 'tablist');
 
 		// Create bullets
-		Array.prototype.forEach.call(this._attributes.slides, function(slide, i){
+		Array.prototype.forEach.call(this._attributes.slides, function(slide, i) {
 			var bullet = document.createElement('a');
 			bullet.innerHTML = i + 1;
 			bullet.setAttribute('role', 'tab');
 
-			bullet.addEventListener('click', function(){
-				if(IIS._hasClass(this._attributes.container, this.settings.classes.animating)) return false;
+			bullet.addEventListener('click', function() {
+				if (IIS._hasClass(this._attributes.container, this.settings.classes.animating)) return false;
 				this.stop();
 				this.gotoSlide(i + 1);
 			}.bind(this));
