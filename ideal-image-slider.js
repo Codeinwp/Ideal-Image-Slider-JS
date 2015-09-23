@@ -18,6 +18,26 @@ var IdealImageSlider = (function() {
 		return win["r" + t] || win["webkitR" + t] || win["mozR" + t] || win["msR" + t] || function(fn) { setTimeout(fn, 1000/60); };
 	}(window, 'equestAnimationFrame');
 
+	/**
+	 * Behaves the same as setTimeout except uses requestAnimationFrame() where possible for better performance
+	 * @param {function} fn The callback function
+	 * @param {int} delay The delay in milliseconds
+	 */
+	var _requestTimeout = function(fn, delay) {
+		var start = new Date().getTime(),
+			handle = {};
+
+		function loop(){
+			var current = new Date().getTime(),
+				delta = current - start;
+
+			delta >= delay ? fn.call() : handle.value = _requestAnimationFrame(loop);
+		}
+
+		handle.value = _requestAnimationFrame(loop);
+		return handle;
+	};
+
 	/*
 	 * Helper functions
 	 */
@@ -287,7 +307,7 @@ var IdealImageSlider = (function() {
 						_translate(this._attributes.currentSlide, this._attributes.currentSlide.offsetWidth, speed);
 					}
 
-					setTimeout(_touch.transitionEnd.bind(this), speed);
+					_requestTimeout(_touch.transitionEnd.bind(this), speed);
 				} else {
 					// Slides return to original position
 					if(direction == 'next'){
@@ -301,7 +321,7 @@ var IdealImageSlider = (function() {
 
 				if(speed){
 					_addClass(this._attributes.container, this.settings.classes.animating);
-					setTimeout(function(){
+					_requestTimeout(function(){
 						_removeClass(this._attributes.container, this.settings.classes.animating);
 					}.bind(this), speed);
 				}
@@ -665,13 +685,13 @@ var IdealImageSlider = (function() {
 		this._attributes.currentSlide.setAttribute('aria-hidden', 'false');
 
 		_addClass(this._attributes.container, this.settings.classes.directionPrevious);
-		setTimeout(function(){
+		_requestTimeout(function(){
 			_removeClass(this._attributes.container, this.settings.classes.directionPrevious);
 		}.bind(this), this.settings.transitionDuration);
 
 		if(this.settings.transitionDuration){
 			_addClass(this._attributes.container, this.settings.classes.animating);
-			setTimeout(function(){
+			_requestTimeout(function(){
 				_removeClass(this._attributes.container, this.settings.classes.animating);
 			}.bind(this), this.settings.transitionDuration);
 		}
@@ -711,13 +731,13 @@ var IdealImageSlider = (function() {
 		this._attributes.currentSlide.setAttribute('aria-hidden', 'false');
 
 		_addClass(this._attributes.container, this.settings.classes.directionNext);
-		setTimeout(function(){
+		_requestTimeout(function(){
 			_removeClass(this._attributes.container, this.settings.classes.directionNext);
 		}.bind(this), this.settings.transitionDuration);
 
 		if(this.settings.transitionDuration){
 			_addClass(this._attributes.container, this.settings.classes.animating);
-			setTimeout(function(){
+			_requestTimeout(function(){
 				_removeClass(this._attributes.container, this.settings.classes.animating);
 			}.bind(this), this.settings.transitionDuration);
 		}
@@ -760,19 +780,19 @@ var IdealImageSlider = (function() {
 
 		if(index < oldIndex){
 			_addClass(this._attributes.container, this.settings.classes.directionPrevious);
-			setTimeout(function(){
+			_requestTimeout(function(){
 				_removeClass(this._attributes.container, this.settings.classes.directionPrevious);
 			}.bind(this), this.settings.transitionDuration);
 		} else {
 			_addClass(this._attributes.container, this.settings.classes.directionNext);
-			setTimeout(function(){
+			_requestTimeout(function(){
 				_removeClass(this._attributes.container, this.settings.classes.directionNext);
 			}.bind(this), this.settings.transitionDuration);
 		}
 
 		if(this.settings.transitionDuration){
 			_addClass(this._attributes.container, this.settings.classes.animating);
-			setTimeout(function(){
+			_requestTimeout(function(){
 				_removeClass(this._attributes.container, this.settings.classes.animating);
 			}.bind(this), this.settings.transitionDuration);
 		}
