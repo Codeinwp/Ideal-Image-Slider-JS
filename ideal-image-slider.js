@@ -172,31 +172,41 @@ var IdealImageSlider = (function() {
 			return;
 		}
 
-		if (slider.settings.height === 'auto') {
+		var currentHeight = Math.round(slider._attributes.container.offsetHeight),
+			newHeight = currentHeight;
+
+		if(slider._attributes.aspectWidth && slider._attributes.aspectHeight){
+			// Aspect ratio
+			newHeight = (slider._attributes.aspectHeight / slider._attributes.aspectWidth) * slider._attributes.container.offsetWidth;
+		} else {
+			// Auto
 			var width = slider._attributes.currentSlide.getAttribute('data-actual-width');
 			var height = slider._attributes.currentSlide.getAttribute('data-actual-height');
 
 			if(width && height){
-				var newHeight = (height / width) * slider._attributes.container.offsetWidth;
-				var maxHeight = parseInt(slider.settings.maxHeight);
-				if (maxHeight && newHeight > maxHeight) {
-					newHeight = maxHeight;
-				}
-
-				if(shouldAnimate){
-					var currentHeight = slider._attributes.container.offsetHeight;
-					_animate({
-						time: slider.settings.transitionDuration,
-						run: function(progress) {
-							slider._attributes.container.style.height = (progress * (newHeight - currentHeight) + currentHeight) + 'px';
-						}
-					});
-				} else {
-					slider._attributes.container.style.height = newHeight + 'px';
-				}
+				newHeight = (height / width) * slider._attributes.container.offsetWidth;
 			}
+		}
+
+		var maxHeight = parseInt(slider.settings.maxHeight, 10);
+		if (maxHeight && newHeight > maxHeight) {
+			newHeight = maxHeight;
+		}
+
+		newHeight = Math.round(newHeight);
+		if(newHeight === currentHeight){
+			return;
+		}
+
+		if(shouldAnimate){
+			_animate({
+				time: slider.settings.transitionDuration,
+				run: function(progress) {
+					slider._attributes.container.style.height = Math.round(progress * (newHeight - currentHeight) + currentHeight) + 'px';
+				}
+			});
 		} else {
-			// Aspect Ratio
+			slider._attributes.container.style.height = newHeight + 'px';
 		}
 	};
 
@@ -365,7 +375,7 @@ var IdealImageSlider = (function() {
 		this.settings = {
 			selector: '',
 			height: 'auto', // "auto" | px value (e.g. 400) | aspect ratio (e.g. "16:9")
-			maxHeight: null, // if height = "auto"
+			maxHeight: null, // for "auto" and aspect ratio
 			interval: 4000,
 			transitionDuration: 700,
 			effect: 'slide',
@@ -543,15 +553,26 @@ var IdealImageSlider = (function() {
 			currentSlide: slides[0],
 			nextSlide: typeof slides[1] !== 'undefined' ? slides[1] : slides[0],
 			timerId: 0,
-			origChildren: origChildren // Used in destroy()
+			origChildren: origChildren, // Used in destroy()
+			aspectWidth: 0,
+			aspectHeight: 0
 		};
 
 		// Set height
 		if(_isInteger(this.settings.height)){
 			this._attributes.container.style.height = this.settings.height +'px';
 		} else {
+			// If aspect ratio parse and store
+			if(this.settings.height.indexOf(':') > -1){
+				var aspectRatioParts = this.settings.height.split(':');
+				if(aspectRatioParts.length == 2 && _isInteger(parseInt(aspectRatioParts[0], 10)) && _isInteger(parseInt(aspectRatioParts[1], 10))){
+					this._attributes.aspectWidth = parseInt(aspectRatioParts[0], 10);
+					this._attributes.aspectHeight = parseInt(aspectRatioParts[1], 10);
+				}
+			}
+
 			_addEvent(window, 'resize', function(){
-				_setContainerHeight(this);
+				_setContainerHeight(this, false);
 			}.bind(this));
 		}
 
