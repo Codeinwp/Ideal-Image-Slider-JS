@@ -4,6 +4,7 @@ Version 1.5.0 - 2015.09.23
 --------------------------
  * [New] Responsive height! The height of the slider now changes correctly in "auto" and aspect ratio mode
  * [New] Height can now be an aspect ratio (e.g. "16:9")
+ * [New] initialHeight and maxHeight settings
  * [Changed] Default height value is now "auto"
  * [Fixed] _deepExtend() function
  * [Fixed] Code formatting
