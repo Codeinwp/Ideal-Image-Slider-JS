@@ -118,7 +118,9 @@ in your CSS.
 |Setting|Default Value|Description|
 |---|---|---|
 |selector|`''`|CSS selector for the slider|
-|height|`400`|Height (in px) of the slider|
+|height|`'auto'`|Height of the slider. Can be `'auto'` (height changes depending on the height of the slide), a fixed px value (e.g. `400`) or an aspect ratio (e.g. `'16:9'`)|
+|initialHeight|`400`|If height is `'auto'` or an aspect ratio this is the height of the slider while the first image is loading|
+|maxHeight|`null`|If height is `'auto'` or an aspect ratio this is an optional max height in px for the slider (e.g. `800`)|
 |interval|`4000`|Time (in ms) to wait before changing to the next slide|
 |transitionDuration|`700`|Duration (in ms) of animated transition|
 |effect|`'slide'`|Transition effect (slide/fade by default)|
