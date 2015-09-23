@@ -15,7 +15,7 @@ var IdealImageSlider = (function() {
 	 * requestAnimationFrame polyfill
 	 */
 	var _requestAnimationFrame = function(win, t) {
-		return win["webkitR" + t] || win["r" + t] || win["mozR" + t] || win["msR" + t] || function(fn) { setTimeout(fn, 1000/60); };
+		return win["r" + t] || win["webkitR" + t] || win["mozR" + t] || win["msR" + t] || function(fn) { setTimeout(fn, 1000/60); };
 	}(window, 'equestAnimationFrame');
 
 	/*
