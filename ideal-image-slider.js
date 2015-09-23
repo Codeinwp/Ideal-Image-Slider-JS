@@ -375,6 +375,7 @@ var IdealImageSlider = (function() {
 		this.settings = {
 			selector: '',
 			height: 'auto', // "auto" | px value (e.g. 400) | aspect ratio (e.g. "16:9")
+			initialHeight: 400, // for "auto" and aspect ratio
 			maxHeight: null, // for "auto" and aspect ratio
 			interval: 4000,
 			transitionDuration: 700,
@@ -562,6 +563,10 @@ var IdealImageSlider = (function() {
 		if(_isInteger(this.settings.height)){
 			this._attributes.container.style.height = this.settings.height +'px';
 		} else {
+			if(_isInteger(this.settings.initialHeight)){
+				this._attributes.container.style.height = this.settings.initialHeight +'px';
+			}
+
 			// If aspect ratio parse and store
 			if(this.settings.height.indexOf(':') > -1){
 				var aspectRatioParts = this.settings.height.split(':');
