@@ -1,5 +1,18 @@
 # Ideal Image Slider Changelog
 
+Version 1.5.0 - 2015.09.23
+--------------------------
+ * [New] Responsive height! The height of the slider now changes correctly in "auto" and aspect ratio mode
+ * [New] Height can now be an aspect ratio (e.g. "16:9")
+ * [Changed] Default height value is now "auto"
+ * [Fixed] _deepExtend() function
+ * [Fixed] Code formatting
+
+Version 1.4.0 - 2014.09.22
+--------------------------
+ * [Changed] Removed outdated CSS vender prefixes
+ * [Changed] Changed license to GPL
+
 Version 1.3.0 - 2014.09.17
 --------------------------
  * [New] Added Captions extension

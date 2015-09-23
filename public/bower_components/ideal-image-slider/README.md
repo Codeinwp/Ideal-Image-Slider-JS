@@ -78,7 +78,7 @@ like this:
 
 ```html
 <div id="slider">
-	<img src="img/1.jpg" src="" alt="Minimum required attributes">
+	<img src="img/1.jpg" alt="Minimum required attributes">
 	<img data-src="img/2.jpg" src="" alt="Use data-src for on-demand loading">
 	<img data-src="img/3.jpg" data-src-2x="img/3@2x.jpg" src="" alt="Use data-src-2x for HiDPI devices">
 	<a href="http://example.com"><img data-src="img/4.jpg" src="" alt="Links work too"></a>
@@ -105,7 +105,7 @@ If you want to tweak the settings or use the slider API it would look more like:
 var slider = new IdealImageSlider.Slider({
 	selector: '#slider',
 	height: 400, // Required but can be set by CSS
-	interval: 4000,
+	interval: 4000
 });
 slider.start();
 ```
@@ -118,7 +118,9 @@ in your CSS.
 |Setting|Default Value|Description|
 |---|---|---|
 |selector|`''`|CSS selector for the slider|
-|height|`400`|Height (in px) of the slider|
+|height|`'auto'`|Height of the slider. Can be `'auto'` (height changes depending on the height of the slide), a fixed px value (e.g. `400`) or an aspect ratio (e.g. `'16:9'`)|
+|initialHeight|`400`|If height is `'auto'` or an aspect ratio this is the height of the slider while the first image is loading|
+|maxHeight|`null`|If height is `'auto'` or an aspect ratio this is an optional max height in px for the slider (e.g. `800`)|
 |interval|`4000`|Time (in ms) to wait before changing to the next slide|
 |transitionDuration|`700`|Duration (in ms) of animated transition|
 |effect|`'slide'`|Transition effect (slide/fade by default)|
@@ -191,7 +193,10 @@ So you want to help out? That's awesome. Here is how you can do it:
 If you are submitting a pull request please adhere to the existing coding standards used throughout the code
 and only submit **1 feature/fix per pull request**. Pull requests containing multiple changes will be rejected.
 
+Note that if you submit a pull request you are aware that you are contributing to both the free (open source) version
+and the proprietary (commercial) version of the codebase and that your work may make money for Dev7studios.
+
 ## Credits
 
 Ideal Image Slider was created by [Gilbert Pellegrom](http://gilbert.pellegrom.me) from
-[Dev7studios](http://dev7studios.com). Released under the [MIT license](https://raw.githubusercontent.com/gilbitron/Ideal-Image-Slider/master/LICENSE).
+[Dev7studios](http://dev7studios.com). Released under the [GPL license](https://raw.githubusercontent.com/gilbitron/Ideal-Image-Slider/master/LICENSE).
