@@ -33,7 +33,11 @@ var IdealImageSlider = (function() {
 			var current = new Date().getTime(),
 				delta = current - start;
 
-			delta >= delay ? fn.call() : handle.value = _requestAnimationFrame(loop);
+			if (delta >= delay) {
+				fn.call();
+			} else {
+				handle.value = _requestAnimationFrame(loop);
+			}
 		}
 
 		handle.value = _requestAnimationFrame(loop);
