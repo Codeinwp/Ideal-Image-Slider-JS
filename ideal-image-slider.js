@@ -26,6 +26,10 @@ var IdealImageSlider = (function() {
 		return obj !== undefined && obj !== null && _class === type;
 	};
 
+	var _isInteger = function(x) {
+        return Math.round(x) === x;
+    };
+
 	var _deepExtend = function(out) {
 		out = out || {};
 		for(var i = 1; i < arguments.length; i++){
@@ -163,7 +167,8 @@ var IdealImageSlider = (function() {
 			shouldAnimate = true;
 		}
 
-		if(parseInt(slider.settings.height, 10) === slider.settings.height){
+		// If it's a fixed height then don't change the height
+		if(_isInteger(slider.settings.height)){
 			return;
 		}
 
@@ -542,7 +547,7 @@ var IdealImageSlider = (function() {
 		};
 
 		// Set height
-		if(parseInt(this.settings.height, 10) === this.settings.height){
+		if(_isInteger(this.settings.height)){
 			this._attributes.container.style.height = this.settings.height +'px';
 		} else {
 			_addEvent(window, 'resize', function(){
