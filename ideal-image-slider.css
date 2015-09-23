@@ -31,13 +31,13 @@
 .iis-effect-slide .iis-slide {
 	opacity: 0;
 	-webkit-transition-property: -webkit-transform;
-       -moz-transition-property: -moz-transform;
-    	 -o-transition-property: -o-transform;
-    		transition-property: transform;
+	   -moz-transition-property: -moz-transform;
+		 -o-transition-property: -o-transform;
+			transition-property: transform;
 	-webkit-transition-timing-function: ease-out;
-       -moz-transition-timing-function: ease-out;
-    	 -o-transition-timing-function: ease-out;
-    		transition-timing-function: ease-out;
+	   -moz-transition-timing-function: ease-out;
+		 -o-transition-timing-function: ease-out;
+			transition-timing-function: ease-out;
 	-webkit-transform: translateX(0%);
 		-ms-transform: translateX(0%);
 			transform: translateX(0%);
@@ -49,7 +49,7 @@
 .iis-effect-slide .iis-previous-slide {
 	-webkit-transform: translateX(-100%);
 		-ms-transform: translateX(-100%);
-    		transform: translateX(-100%);
+			transform: translateX(-100%);
 }
 .iis-effect-slide .iis-next-slide {
 	-webkit-transform: translateX(100%);
