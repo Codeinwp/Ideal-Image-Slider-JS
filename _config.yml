@@ -3,6 +3,8 @@ title:		Ideal Image Slider
 tagline:	Quite simply the ideal Image Slider in vanilla JS
 author:     Gilbert Pellegrom
 
+permalink:  pretty
+
 sass:
     sass_dir: _sass
     style: :compressed
