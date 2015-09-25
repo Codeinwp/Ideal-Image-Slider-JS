@@ -63,7 +63,7 @@ QUnit.test('Slider.gotoSlide', function(assert){
 QUnit.test('Slider.destroy', function(assert){
 	var slider = new IdealImageSlider.Slider('.slider-default');
 	slider.destroy();
-	assert.equal(slider.get('container').className, 'slider-default', 'Slider is destoryed');
+	assert.ok((slider.get('container').className.indexOf('slider-default') > -1), 'Slider is destroyed');
 });
 
 QUnit.asyncTest('Slider.start', function(assert){
