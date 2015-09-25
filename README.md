@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/gilbitron/Ideal-Image-Slider.svg?branch=master)](https://travis-ci.org/gilbitron/Ideal-Image-Slider)
+
 # Ideal Image Slider
 
 The aim behind the Ideal Image Slider is to create a slider which has just the right amount of features,
