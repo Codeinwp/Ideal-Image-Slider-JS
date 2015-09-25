@@ -5,14 +5,11 @@
 /*=================================*/
 
 // Dependencies
-@import "dependencies/fonts";
 @import "dependencies/variables";
-@import "dependencies/mixins";
 @import "dependencies/media-queries";
-@import "dependencies/normalize";
 
 // Patterns
-@import "patterns/buttons";
 
 // Sections
 @import "sections/base";
+@import "sections/nav";

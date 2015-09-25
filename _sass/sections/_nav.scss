@@ -1,0 +1,13 @@
+.navbar {
+	min-height: 80px;
+}
+.navbar-brand,
+.navbar-nav > li > a {
+	padding: 30px 20px;
+}
+
+.navbar-default {
+	background-color: #fff;
+	border-color: #eee;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
