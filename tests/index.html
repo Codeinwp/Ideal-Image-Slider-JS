@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <title>Ideal Image Slider Tests - QUnit</title>
-  <link rel="stylesheet" href="//code.jquery.com/qunit/qunit-1.15.0.css">
+	<meta charset="utf-8">
+	<title>Ideal Image Slider Tests - QUnit</title>
+
+	<script src="../ideal-image-slider.js"></script>
+
+	<link rel="stylesheet" href="../node_modules/qunitjs/qunit/qunit.css">
+	<script src="../node_modules/qunitjs/qunit/qunit.js"></script>
+	<script src="bind.polyfill.js"></script>
+	<script src="tests.js"></script>
 </head>
 <body>
-    <div id="qunit"></div>
-    <div id="qunit-fixture">
+	<div id="qunit"></div>
+	<div id="qunit-fixture">
 
-        <div class="slider-default">
-            <img src="img/base.jpg" alt="" data-index="1" />
-            <img src="img/base.jpg" alt="" data-index="2" />
-            <img src="img/base.jpg" alt="" data-index="3" />
-            <img src="img/base.jpg" alt="" data-index="4" />
-        </div>
+		<div class="slider-default">
+			<img src="img/base.jpg" alt="" data-index="1" />
+			<img src="img/base.jpg" alt="" data-index="2" />
+			<img src="img/base.jpg" alt="" data-index="3" />
+			<img src="img/base.jpg" alt="" data-index="4" />
+		</div>
 
-    </div>
-    <script src="//code.jquery.com/qunit/qunit-1.15.0.js"></script>
-    <script src="../ideal-image-slider.js"></script>
-    <script src="tests.js"></script>
+	</div>
 </body>
 </html>

@@ -46,6 +46,10 @@ module.exports = function(grunt) {
 			}
 		},
 
+		qunit: {
+			all: ['tests/**/*.html']
+		},
+
 		watch: {
 			options: {
 				livereload: true
@@ -90,5 +94,7 @@ module.exports = function(grunt) {
 		'string-replace',
 		'watch'
 	]);
+
+	grunt.registerTask('test', ['qunit']);
 
 };
