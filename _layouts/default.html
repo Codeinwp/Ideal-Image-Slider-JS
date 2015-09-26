@@ -2,6 +2,10 @@
 
 	{% include nav.html %}
 
+	{% if page.title == "Home" %}
+		{% include hero.html %}
+	{% endif %}
+
 	<section class="content">
 		<div class="container">
 			{{ content }}
@@ -10,7 +14,7 @@
 
 	<footer class="footer">
 		<div class="container">
-			<a href="{{ site.baseurl }}/announcements.html" class="announcements pull-right">Announcements</a>
+			<a href="{{ site.baseurl }}/announcements" class="announcements pull-right">Announcements</a>
 			Copyright &copy; {{ site.time | date: '%Y' }} <a href="http://dev7studios.com">Dev7studios</a>.
 			{{ site.title }} is released under the <a href="https://raw.githubusercontent.com/gilbitron/Ideal-Image-Slider/master/LICENSE">GPL license</a>.
 		</div>

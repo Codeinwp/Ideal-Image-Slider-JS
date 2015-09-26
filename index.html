@@ -7,30 +7,47 @@ description: HTML5 (SEO optimised), CSS3 transitions, Touch/swipe support, Respo
 <p class="intro">The aim behind the Ideal Image Slider was to create a slider which has just the right amount of features,
 with no bloat and be easy to extend so that more features can be added as "extensions".</p>
 
-<div class="features clearfix">
+<div class="features">
 	<div class="feature">
-		<h3><span class="icon-search"></span> HTML5 &amp; SEO friendly</h3>
-		<p>Modern HTML5 structure that is search engine friendly.</p>
+		<h3>Fully responsive</h3>
+		<div class="row">
+			<div class="col-sm-8 feature-content">
+				<p>No matter what device people are viewing the Ideal Image Slider on it will always look amazing!
+				The width of the slider is calculated automatically and three different height settings allow you to control how the
+				slider should respond on smaller screens. For example you can set a fixed height for the slider, an "auto"
+				height or even an tell the slider to maintain an aspect ratio.</p>
+			</div>
+			<div class="col-sm-4 feature-icon">
+				<i class="fa fa-expand"></i>
+			</div>
+		</div>
 	</div>
-	<div class="feature">
-		<h3><span class="icon-play"></span> CSS3 powered transitions</h3>
-		<p>Hardware-accelerated transition effects powered by CSS3.</p>
+	<div class="feature row">
+		<h3>CSS3 powered transitions</h3>
+		<div class="row">
+			<div class="col-sm-4 feature-icon">
+				<i class="fa fa-tachometer"></i>
+			</div>
+			<div class="col-sm-8 feature-content">
+				<p>Hardware-accelerated transition effects powered by CSS3.</p>
+			</div>
+		</div>
 	</div>
-	<div class="feature last">
+	<div class="feature row">
 		<h3><span class="icon-touch"></span> Touch-enabled navigation</h3>
 		<p>Standard left/right navigation with touch support for mobile devices.</p>
 	</div>
-	<div class="feature">
-		<h3><span class="icon-size"></span> Fully responsive</h3>
-		<p>Images fit the slider on devices of any shape and size.</p>
-	</div>
-	<div class="feature">
+	<div class="feature row">
 		<h3><span class="icon-location"></span> HiDPI (retina) support</h3>
 		<p>Optional @2x support for HiDPI devices, including retina devices.</p>
 	</div>
-	<div class="feature last">
+	<div class="feature row">
 		<h3><span class="icon-support"></span> ARIA support</h3>
 		<p>Increased accessibility using the W3C ARIA specification.</p>
+	</div>
+	<div class="feature row">
+		<h3><span class="icon-search"></span> HTML5 &amp; SEO friendly</h3>
+		<p>Modern HTML5 structure that is search engine friendly.</p>
 	</div>
 </div>
 
@@ -92,11 +109,3 @@ with no bloat and be easy to extend so that more features can be added as "exten
 	</form>
 </div-->
 
-<script src="{{ site.baseurl }}/public/bower_components/ideal-image-slider/ideal-image-slider.min.js"></script>
-<script>
-var slider = new IdealImageSlider.Slider({
-	selector: '#slider',
-	height: 400
-});
-slider.start();
-</script>

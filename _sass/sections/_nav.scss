@@ -1,13 +1,21 @@
-.navbar {
-	min-height: 80px;
-}
+.navbar { min-height: 80px; }
+
 .navbar-brand,
-.navbar-nav > li > a {
-	padding: 30px 20px;
-}
+.navbar-nav > li > a { padding: 30px 20px; }
 
 .navbar-default {
+	font-family: "europa", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	background-color: #fff;
 	border-color: #eee;
 	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+
+	.navbar-brand {
+		font-size: 25px;
+		font-weight: 600;
+		color: #333;
+		padding-left: 14px;
+	}
+	.navbar-nav > li > a {
+		font-size: 16px;
+	}
 }

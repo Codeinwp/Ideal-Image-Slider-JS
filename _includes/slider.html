@@ -1,0 +1,13 @@
+<div id="slider">
+	<img src="{{ site.baseurl }}/public/img/1.jpg" data-src-2x="{{ site.baseurl }}/public/img/1@2x.jpg" alt="Slide 1">
+	<img data-src="{{ site.baseurl }}/public/img/2.jpg" data-src-2x="{{ site.baseurl }}/public/img/2@2x.jpg" src="" alt="Slide 2">
+	<img data-src="{{ site.baseurl }}/public/img/3.jpg" data-src-2x="{{ site.baseurl }}/public/img/3@2x.jpg" src="" alt="Slide 3">
+	<img data-src="{{ site.baseurl }}/public/img/4.jpg" data-src-2x="{{ site.baseurl }}/public/img/4@2x.jpg" src="" alt="Slide 4">
+</div>
+<script>
+	var slider = new IdealImageSlider.Slider({
+		selector: '#slider',
+		height: '16:7'
+	});
+	slider.start();
+</script>
