@@ -1,16 +1,16 @@
 ---
-layout: default
+layout: demo
 title: Using the API Demo
 ---
 
 <p>Control the slider using the buttons.</p>
 <p>
-	<a href="#" class="btn start">Start</a>
-	<a href="#" class="btn stop">Stop</a>
-	<a href="#" class="btn prev">Prev</a>
-	<a href="#" class="btn next">Next</a>
-	<a href="#" class="btn goto">Goto(3)</a>
-	<a href="#" class="btn destroy">Destroy</a>
+	<a href="#" class="btn btn-primary start">Start</a>
+	<a href="#" class="btn btn-primary stop">Stop</a>
+	<a href="#" class="btn btn-primary prev">Prev</a>
+	<a href="#" class="btn btn-primary next">Next</a>
+	<a href="#" class="btn btn-primary goto">Goto(3)</a>
+	<a href="#" class="btn btn-primary destroy">Destroy</a>
 </p>
 <p><strong>Status:</strong> <span class="status">Stopped</span></p>
 <pre><code>var slider = new IdealImageSlider.Slider('#slider');
@@ -50,7 +50,9 @@ document.querySelector('.destroy').addEventListener('click', function(e){
 <script>
 var slider = new IdealImageSlider.Slider({
 	selector: '#slider',
-	height: 400,
+	height: '16:9',
+	initialHeight: 400,
+	maxHeight: 600,
 	onStart: function(){
 		document.querySelector('.content .status').innerHTML = 'Playing';
 	},

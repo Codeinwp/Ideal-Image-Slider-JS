@@ -8,46 +8,35 @@ description: HTML5 (SEO optimised), CSS3 transitions, Touch/swipe support, Respo
 with no bloat and be easy to extend so that more features can be added as "extensions".</p>
 
 <div class="features">
-	<div class="feature">
-		<h3>Fully responsive</h3>
-		<div class="row">
-			<div class="col-sm-8 feature-content">
-				<p>No matter what device people are viewing the Ideal Image Slider on it will always look amazing!
-				The width of the slider is calculated automatically and three different height settings allow you to control how the
-				slider should respond on smaller screens. For example you can set a fixed height for the slider, an "auto"
-				height or even an tell the slider to maintain an aspect ratio.</p>
-			</div>
-			<div class="col-sm-4 feature-icon">
-				<i class="fa fa-expand"></i>
-			</div>
+	<div class="row">
+		<div class="feature col-sm-6">
+			<h3><i class="fa fa-expand"></i> Fully responsive</h3>
+			<p>Images fit the slider on devices of any shape and size.</p>
+		</div>
+		<div class="feature col-sm-6">
+			<h3><i class="fa fa-play-circle"></i> CSS3 powered transitions</h3>
+			<p>Hardware-accelerated transition effects powered by CSS3.</p>
 		</div>
 	</div>
-	<div class="feature row">
-		<h3>CSS3 powered transitions</h3>
-		<div class="row">
-			<div class="col-sm-4 feature-icon">
-				<i class="fa fa-tachometer"></i>
-			</div>
-			<div class="col-sm-8 feature-content">
-				<p>Hardware-accelerated transition effects powered by CSS3.</p>
-			</div>
+	<div class="row">
+		<div class="feature col-sm-6">
+			<h3><i class="fa fa-hand-pointer-o"></i> Touch-enabled navigation</h3>
+			<p>Standard navigation with touch support for mobile devices.</p>
 		</div>
+		<div class="feature col-sm-6">
+			<h3><i class="fa fa-television"></i> HiDPI (retina) support</h3>
+			<p>Optional @2x support for HiDPI devices, including retina devices.</p>
+		</div>
+	<div class="row">
 	</div>
-	<div class="feature row">
-		<h3><span class="icon-touch"></span> Touch-enabled navigation</h3>
-		<p>Standard left/right navigation with touch support for mobile devices.</p>
-	</div>
-	<div class="feature row">
-		<h3><span class="icon-location"></span> HiDPI (retina) support</h3>
-		<p>Optional @2x support for HiDPI devices, including retina devices.</p>
-	</div>
-	<div class="feature row">
-		<h3><span class="icon-support"></span> ARIA support</h3>
-		<p>Increased accessibility using the W3C ARIA specification.</p>
-	</div>
-	<div class="feature row">
-		<h3><span class="icon-search"></span> HTML5 &amp; SEO friendly</h3>
-		<p>Modern HTML5 structure that is search engine friendly.</p>
+		<div class="feature col-sm-6">
+			<h3><i class="fa fa-life-ring"></i> ARIA support</h3>
+			<p>Increased accessibility using the W3C ARIA specification.</p>
+		</div>
+		<div class="feature col-sm-6">
+			<h3><i class="fa fa-search"></i> HTML5 &amp; SEO friendly</h3>
+			<p>Modern HTML5 structure that is search engine friendly.</p>
+		</div>
 	</div>
 </div>
 
@@ -55,30 +44,36 @@ with no bloat and be easy to extend so that more features can be added as "exten
 	<h3>Quick Start</h3>
 	<pre class="html"><code>&lt;html&gt;
 &lt;head&gt;
+
     &lt;!-- Include slider and theme CSS files --&gt;
     &lt;link rel=&quot;stylesheet&quot; href=&quot;ideal-image-slider.css&quot;&gt;
     &lt;link rel=&quot;stylesheet&quot; href=&quot;themes/default/default.css&quot;&gt;
+
 &lt;/head&gt;
 &lt;body&gt;
+
     &lt;!-- Create your slider and add images --&gt;
     &lt;div id=&quot;slider&quot;&gt;
         &lt;img src=&quot;img/1.jpg&quot; alt=&quot;&quot;&gt;
         &lt;img data-src=&quot;img/2.jpg&quot; src=&quot;&quot; alt=&quot;&quot;&gt;
         &lt;img data-src=&quot;img/3.jpg&quot; src=&quot;&quot; alt=&quot;&quot;&gt;
     &lt;/div&gt;
+
     &lt;!-- Include slider JS file --&gt;
     &lt;script src=&quot;ideal-image-slider.js&quot;&gt;&lt;/script&gt;
+
     &lt;!-- Create your slider --&gt;
     &lt;script&gt;
     new IdealImageSlider.Slider(&#39;#slider&#39;);
     &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 </div>
 
 <div class="cta">
-	<a href="https://github.com/gilbitron/Ideal-Image-Slider/releases" class="btn btn-success">Download Javascript Plugin</a>
-	<a href="http://dev7studios.com/products/ideal-image-slider-wordpress-plugin" class="btn btn-success">Buy WordPress Plugin</a><br>
+	<a href="https://github.com/gilbitron/Ideal-Image-Slider/releases" class="btn btn-lg btn-success">Download Javascript Plugin</a>
+	<a href="http://dev7studios.com/products/ideal-image-slider-wordpress-plugin" class="btn btn-lg btn-success">Buy WordPress Plugin</a><br>
 	<a href="https://eager.io/app/vxI8j699OODI/install?source=button">
 		<img src="https://install.eager.io/cta/apps/vxI8j699OODI.png" border="0" width="292">
 	</a>
@@ -99,13 +94,3 @@ with no bloat and be easy to extend so that more features can be added as "exten
 	}(document, 'script', 'facebook-jssdk'));</script>
 	<script src="https://apis.google.com/js/platform.js" async defer></script>
 </div>
-
-<!--div class="updates">
-	<form action="http://dev7studios.createsend.com/t/r/s/ilzhrr/" method="post">
-		<label for="fieldEmail">To get news and updates pop in your email address below:</label><br>
-		<input id="fieldEmail" name="cm-ilzhrr-ilzhrr" type="email" required placeholder="Email Address" />
-		<button type="submit" class="btn secondary">Subscribe</button>
-		</p>
-	</form>
-</div-->
-

@@ -3,20 +3,17 @@ layout: clean
 title: Links Demo
 ---
 
-<header class="header">
-	<div class="inner">
-		{% include nav.html %}
-		<div id="slider">
-			<a href="http://dev7studios.com"><img src="{{ site.baseurl }}/public/img/1.jpg" data-src-2x="{{ site.baseurl }}/public/img/1@2x.jpg" alt=""></a>
-			<a href="http://gilbitron.me"><img data-src="{{ site.baseurl }}/public/img/2.jpg" data-src-2x="{{ site.baseurl }}/public/img/2@2x.jpg" src="" alt=""></a>
-			<a href="http://www.google.com"><img data-src="{{ site.baseurl }}/public/img/3.jpg" data-src-2x="{{ site.baseurl }}/public/img/3@2x.jpg" src="" alt=""></a>
-			<a href="http://example.com"><img data-src="{{ site.baseurl }}/public/img/4.jpg" data-src-2x="{{ site.baseurl }}/public/img/4@2x.jpg" src="" alt=""></a>
-		</div>
+<div class="demo">
+	<div id="slider">
+		<a href="http://dev7studios.com"><img src="{{ site.baseurl }}/public/img/1.jpg" data-src-2x="{{ site.baseurl }}/public/img/1@2x.jpg" alt=""></a>
+		<a href="http://gilbitron.me"><img data-src="{{ site.baseurl }}/public/img/2.jpg" data-src-2x="{{ site.baseurl }}/public/img/2@2x.jpg" src="" alt=""></a>
+		<a href="http://www.google.com"><img data-src="{{ site.baseurl }}/public/img/3.jpg" data-src-2x="{{ site.baseurl }}/public/img/3@2x.jpg" src="" alt=""></a>
+		<a href="http://example.com"><img data-src="{{ site.baseurl }}/public/img/4.jpg" data-src-2x="{{ site.baseurl }}/public/img/4@2x.jpg" src="" alt=""></a>
 	</div>
-</header>
+</div>
 
 <section class="content">
-	<div class="inner">
+	<div class="container">
 		<p>Wrap slides with an anchor tag to make them linkable.</p>
 		<pre><code>&lt;div id=&quot;slider&quot;&gt;
     &lt;a href=&quot;http://dev7studios.com&quot;&gt;&lt;img src=&quot;{{ site.baseurl }}/public/img/1.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;
@@ -31,6 +28,8 @@ title: Links Demo
 <script>
 new IdealImageSlider.Slider({
 	selector: '#slider',
-	height: 400
+	height: '16:9',
+	initialHeight: 400,
+	maxHeight: 600
 });
 </script>

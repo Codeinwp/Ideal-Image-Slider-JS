@@ -13,24 +13,21 @@ title: Captions Extension Demo
 .iis-caption-content p { margin: 0; }
 </style>
 
-<header class="header">
-	<div class="inner">
-		{% include nav.html %}
-		<div id="slider">
-			<img src="{{ site.baseurl }}/public/img/1.jpg" data-src-2x="{{ site.baseurl }}/public/img/1@2x.jpg" title="Baloons" alt="This is the caption content">
-			<img data-src="{{ site.baseurl }}/public/img/2.jpg" data-src-2x="{{ site.baseurl }}/public/img/2@2x.jpg" src="" title="Skateboard" alt="Captions <em>can</em> contain <strong>HTML</strong>">
-			<img data-src="{{ site.baseurl }}/public/img/3.jpg" data-src-2x="{{ site.baseurl }}/public/img/3@2x.jpg" src="" alt="This will be overridden" data-caption="#caption-3">
-			<img data-src="{{ site.baseurl }}/public/img/4.jpg" data-src-2x="{{ site.baseurl }}/public/img/4@2x.jpg" src="" title="A title without a caption" alt="">
-		</div>
-		<div id="caption-3" style="display:none;">
-		    <h3>External Caption</h3>
-		    <p>When using <a href="#">HTML in captions</a> it might be better to use an external caption.</p>
-		</div>
+<div class="demo">
+	<div id="slider">
+		<img src="{{ site.baseurl }}/public/img/1.jpg" data-src-2x="{{ site.baseurl }}/public/img/1@2x.jpg" title="Baloons" alt="This is the caption content">
+		<img data-src="{{ site.baseurl }}/public/img/2.jpg" data-src-2x="{{ site.baseurl }}/public/img/2@2x.jpg" src="" title="Skateboard" alt="Captions <em>can</em> contain <strong>HTML</strong>">
+		<img data-src="{{ site.baseurl }}/public/img/3.jpg" data-src-2x="{{ site.baseurl }}/public/img/3@2x.jpg" src="" alt="This will be overridden" data-caption="#caption-3">
+		<img data-src="{{ site.baseurl }}/public/img/4.jpg" data-src-2x="{{ site.baseurl }}/public/img/4@2x.jpg" src="" title="A title without a caption" alt="">
 	</div>
-</header>
+	<div id="caption-3" style="display:none;">
+	    <h3>External Caption</h3>
+	    <p>When using <a href="#">HTML in captions</a> it might be better to use an external caption.</p>
+	</div>
+</div>
 
 <section class="content">
-	<div class="inner">
+	<div class="container">
 		<p>Slider using the <a href="https://github.com/gilbitron/Ideal-Image-Slider/tree/master/extensions/captions">Captions extension</a>.</p>
 		<pre><code>var slider = new IdealImageSlider.Slider('#slider');
 slider.addCaptions();
@@ -43,7 +40,9 @@ slider.start();</code></pre>
 <script>
 var slider = new IdealImageSlider.Slider({
 	selector: '#slider',
-	height: 400
+	height: '16:9',
+	initialHeight: 400,
+	maxHeight: 600
 });
 slider.addCaptions();
 slider.start();

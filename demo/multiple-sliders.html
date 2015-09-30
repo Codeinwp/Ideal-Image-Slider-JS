@@ -3,27 +3,24 @@ layout: clean
 title: Multiple Sliders Demo
 ---
 
-<header class="header">
-	<div class="inner">
-		{% include nav.html %}
-		<div id="slider1" style="margin-bottom:30px;">
-			<img src="{{ site.baseurl }}/public/img/1.jpg" data-src-2x="{{ site.baseurl }}/public/img/1@2x.jpg" alt="">
-			<img data-src="{{ site.baseurl }}/public/img/2.jpg" data-src-2x="{{ site.baseurl }}/public/img/2@2x.jpg" src="" alt="">
-			<img data-src="{{ site.baseurl }}/public/img/3.jpg" data-src-2x="{{ site.baseurl }}/public/img/3@2x.jpg" src="" alt="">
-			<img data-src="{{ site.baseurl }}/public/img/4.jpg" data-src-2x="{{ site.baseurl }}/public/img/4@2x.jpg" src="" alt="">
-		</div>
-
-		<div id="slider2">
-			<img src="{{ site.baseurl }}/public/img/2.jpg" data-src-2x="{{ site.baseurl }}/public/img/2@2x.jpg" alt="">
-			<img data-src="{{ site.baseurl }}/public/img/1.jpg" data-src-2x="{{ site.baseurl }}/public/img/1@2x.jpg" src="" alt="">
-			<img data-src="{{ site.baseurl }}/public/img/3.jpg" data-src-2x="{{ site.baseurl }}/public/img/3@2x.jpg" src="" alt="">
-			<img data-src="{{ site.baseurl }}/public/img/4.jpg" data-src-2x="{{ site.baseurl }}/public/img/4@2x.jpg" src="" alt="">
-		</div>
+<div class="demo">
+	<div id="slider1" style="margin-bottom:30px;">
+		<img src="{{ site.baseurl }}/public/img/1.jpg" data-src-2x="{{ site.baseurl }}/public/img/1@2x.jpg" alt="">
+		<img data-src="{{ site.baseurl }}/public/img/2.jpg" data-src-2x="{{ site.baseurl }}/public/img/2@2x.jpg" src="" alt="">
+		<img data-src="{{ site.baseurl }}/public/img/3.jpg" data-src-2x="{{ site.baseurl }}/public/img/3@2x.jpg" src="" alt="">
+		<img data-src="{{ site.baseurl }}/public/img/4.jpg" data-src-2x="{{ site.baseurl }}/public/img/4@2x.jpg" src="" alt="">
 	</div>
-</header>
+
+	<div id="slider2">
+		<img src="{{ site.baseurl }}/public/img/2.jpg" data-src-2x="{{ site.baseurl }}/public/img/2@2x.jpg" alt="">
+		<img data-src="{{ site.baseurl }}/public/img/1.jpg" data-src-2x="{{ site.baseurl }}/public/img/1@2x.jpg" src="" alt="">
+		<img data-src="{{ site.baseurl }}/public/img/3.jpg" data-src-2x="{{ site.baseurl }}/public/img/3@2x.jpg" src="" alt="">
+		<img data-src="{{ site.baseurl }}/public/img/4.jpg" data-src-2x="{{ site.baseurl }}/public/img/4@2x.jpg" src="" alt="">
+	</div>
+</div>
 
 <section class="content">
-	<div class="inner">
+	<div class="container">
 		<p>Multiple sliders are supported and can be controlled independantly.</p>
 		<pre><code>var slider1 = new IdealImageSlider.Slider('#slider1');
 var slider2 = new IdealImageSlider.Slider({
@@ -37,11 +34,15 @@ var slider2 = new IdealImageSlider.Slider({
 <script>
 var slider1 = new IdealImageSlider.Slider({
 	selector: '#slider1',
-	height: 400
+	height: '16:9',
+	initialHeight: 400,
+	maxHeight: 600
 });
 var slider2 = new IdealImageSlider.Slider({
 	selector: '#slider2',
-	height: 400,
+	height: '16:9',
+	initialHeight: 400,
+	maxHeight: 600,
 	effect: 'fade'
 });
 </script>

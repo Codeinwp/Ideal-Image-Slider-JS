@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: demo
 title: Bullet Navigation Extension Demo
 ---
 
@@ -17,7 +17,9 @@ slider.start();
 <script>
 var slider = new IdealImageSlider.Slider({
 	selector: '#slider',
-	height: 400
+	height: '16:9',
+	initialHeight: 400,
+	maxHeight: 600
 });
 slider.addBulletNav();
 slider.start();

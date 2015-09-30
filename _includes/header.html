@@ -22,7 +22,7 @@
 	<link rel="stylesheet" href="{{ site.baseurl }}/public/bower_components/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="{{ site.baseurl }}/public/css/style.css">
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/monokai.min.css">
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/styles/solarized_light.min.css">
 
 	<script src="https://use.typekit.net/faq8ucs.js"></script>
 	<script>try{Typekit.load({ async: true });}catch(e){}</script>
@@ -41,3 +41,9 @@
 	</script>
 </head>
 <body>
+
+	{% include nav.html %}
+
+	{% if page.title == "Home" %}
+		{% include hero.html %}
+	{% endif %}

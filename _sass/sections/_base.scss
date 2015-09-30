@@ -11,9 +11,16 @@ h1, h2, h3, h4, h5, h6 {
 	color: #111;
 }
 
+pre {
+	background: #fdf6e3;
+	border-color: #e5e5e5;
+}
+
 @media (min-width: 1200px) {
 	.container { width: 1000px }
 }
+
+.btn { font-family: "europa", "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
 .content {
 	padding: 100px 0;
@@ -27,10 +34,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero {
-	.hero-inner {
-		margin: 0 -100px;
-	}
-
 	h1, h2 { text-align: center; }
 	h1 {
 		font-size: 40px;
@@ -39,13 +42,26 @@ h1, h2, h3, h4, h5, h6 {
 	}
 	h2 {
 		font-size: 25px;
-		margin: 0 0 80px;
+		margin: 0;
 	}
 }
 
 .features {
+	padding: 30px 0;
+
 	.feature-icon {
 		font-size: 120px;
 		text-align: center;
 	}
+}
+
+.cta {
+	padding: 50px 0;
+	text-align: center;
+
+	.btn { margin-bottom: 30px; }
+}
+
+.share {
+	text-align: center;
 }
