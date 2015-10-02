@@ -14,13 +14,26 @@ title: Links Demo
 
 <section class="content">
 	<div class="container">
+		<h1>Links</h1>
 		<p>Wrap slides with an anchor tag to make them linkable.</p>
-		<pre><code>&lt;div id=&quot;slider&quot;&gt;
+
+		<ul class="nav nav-tabs" role="tablist">
+			<li role="presentation"><a href="#js" aria-controls="js" role="tab" data-toggle="tab">JS</a></li>
+			<li role="presentation" class="active"><a href="#html" aria-controls="html" role="tab" data-toggle="tab">HTML</a></li>
+		</ul>
+		<div class="tab-content">
+			<div role="tabpanel" class="tab-pane" id="js">
+				<pre><code>new IdealImageSlider.Slider('#slider');</code></pre>
+			</div>
+			<div role="tabpanel" class="tab-pane active" id="html">
+				<pre><code>&lt;div id=&quot;slider&quot;&gt;
     &lt;a href=&quot;http://dev7studios.com&quot;&gt;&lt;img src=&quot;{{ site.baseurl }}/public/img/1.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;
     &lt;a href=&quot;http://gilbitron.me&quot;&gt;&lt;img data-src=&quot;{{ site.baseurl }}/public/img/2.jpg&quot; src=&quot;&quot; alt=&quot;&quot;&gt;&lt;/a&gt;
     &lt;a href=&quot;http://www.google.com&quot;&gt;&lt;img data-src=&quot;{{ site.baseurl }}/public/img/3.jpg&quot; src=&quot;&quot; alt=&quot;&quot;&gt;&lt;/a&gt;
     &lt;a href=&quot;http://example.com&quot;&gt;&lt;img data-src=&quot;{{ site.baseurl }}/public/img/4.jpg&quot; src=&quot;&quot; alt=&quot;&quot;&gt;&lt;/a&gt;
 &lt;/div&gt;</code></pre>
+			</div>
+		</div>
 	</div>
 </section>
 
