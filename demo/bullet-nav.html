@@ -3,14 +3,31 @@ layout: demo
 title: Bullet Navigation Extension Demo
 ---
 
+<h1>Bullet Navigation</h1>
 <p>Slider using the <a href="https://github.com/gilbitron/Ideal-Image-Slider/tree/master/extensions/bullet-nav">Bullet Navigation extension</a>.</p>
-<pre class="html"><code>&lt;script src=&quot;ideal-image-slider.js&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;extensions/bullet-nav/iis-bullet-nav.js&quot;&gt;&lt;/script&gt;
-&lt;script&gt;
-var slider = new IdealImageSlider.Slider(&apos;#slider&apos;);
+
+<ul class="nav nav-tabs" role="tablist">
+	<li role="presentation" class="active"><a href="#js" aria-controls="js" role="tab" data-toggle="tab">JS</a></li>
+	<li role="presentation"><a href="#html" aria-controls="html" role="tab" data-toggle="tab">HTML</a></li>
+</ul>
+<div class="tab-content">
+	<div role="tabpanel" class="tab-pane active" id="js">
+		<pre><code>var slider = new IdealImageSlider.Slider(&apos;#slider&apos;);
 slider.addBulletNav();
-slider.start();
-&lt;/script&gt;</code></pre>
+slider.start();</code></pre>
+	</div>
+	<div role="tabpanel" class="tab-pane" id="html">
+				<pre><code>&lt;script src=&quot;ideal-image-slider.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;extensions/bullet-nav/iis-bullet-nav.js&quot;&gt;&lt;/script&gt;
+
+&lt;div id=&quot;slider&quot;&gt;
+    &lt;img src=&quot;{{ site.baseurl }}/public/img/1.jpg&quot; alt=&quot;&quot;&gt;
+    &lt;img data-src=&quot;{{ site.baseurl }}/public/img/2.jpg&quot; src=&quot;&quot; alt=&quot;&quot;&gt;
+    &lt;img data-src=&quot;{{ site.baseurl }}/public/img/3.jpg&quot; src=&quot;&quot; alt=&quot;&quot;&gt;
+    &lt;img data-src=&quot;{{ site.baseurl }}/public/img/4.jpg&quot; src=&quot;&quot; alt=&quot;&quot;&gt;
+&lt;/div&gt;</code></pre>
+	</div>
+</div>
 
 <script src="{{ site.baseurl }}/public/bower_components/ideal-image-slider/ideal-image-slider.min.js"></script>
 <script src="{{ site.baseurl }}/public/bower_components/ideal-image-slider/extensions/bullet-nav/iis-bullet-nav.js"></script>
