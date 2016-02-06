@@ -1,6 +1,18 @@
 {
   "name": "ideal-image-slider",
   "version": "1.5.0",
+  "description": "Quite simply the ideal Image Slider in vanilla JS.",
+  "keywords": [
+    "ideal",
+    "image",
+    "slider"
+  ],
+  "author": "Gilbert Pellegrom",
+  "license": "GPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gilbitron/Ideal-Image-Slider.git"
+  },
   "scripts": {
     "test": "grunt test"
   },
