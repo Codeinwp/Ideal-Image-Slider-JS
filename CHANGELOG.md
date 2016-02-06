@@ -1,5 +1,9 @@
 # Ideal Image Slider Changelog
 
+Version 1.5.1 - 2016.02.06
+--------------------------
+ * [Changed] Small changes and update package.json
+
 Version 1.5.0 - 2015.09.23
 --------------------------
  * [New] Responsive height! The height of the slider now changes correctly in "auto" and aspect ratio mode
