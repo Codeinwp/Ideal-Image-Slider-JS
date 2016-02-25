@@ -58,7 +58,7 @@
 			var slides = this._attributes.slides,
 				index = slides.indexOf(this._attributes.currentSlide);
 			_updateActiveBullet(this, index);
-			return origAfterChange();
+			return origAfterChange.call(this);
 		}.bind(this);
 		this.settings.afterChange = afterChange;
 	};
