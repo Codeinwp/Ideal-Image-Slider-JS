@@ -431,6 +431,7 @@ var IdealImageSlider = (function() {
 			beforeChange: function() {},
 			afterChange: function() {}
 		};
+		this.length = 0;
 
 		// Parse args
 		if (typeof args === 'string') {
@@ -456,21 +457,22 @@ var IdealImageSlider = (function() {
 		} else if ((s = selectionType[1])) {
 			if ((elem = document.getElementsByClassName( s )))
 				sliderEl = elem[0];
-		}
-		
-		// Fallback to querySelector
-		if (!sliderEl)
+		} else {
 			sliderEl = document.querySelector(this.settings.selector);
+		}
 
-		console.log(sliderEl);
-		if (!sliderEl) return null;
+		if (!sliderEl) {
+			return null;
+		}
+
+		//Add loading class
+		_addClass(sliderEl, 'iis-loading');
 
 		// Slides
 		var origChildren = _toArray(sliderEl.cloneNode(true).children), //ensure slideEl is a static nodeList
 			validSlides = [];
 		sliderEl.innerHTML = '';
 		Array.prototype.forEach.call(origChildren, function(slide, i) {
-			console.log(slide);
 			if (slide instanceof HTMLImageElement || slide instanceof HTMLAnchorElement) {
 				var slideEl = document.createElement('a'),
 					href = '',
@@ -535,6 +537,9 @@ var IdealImageSlider = (function() {
 			return null;
 		}
 
+		// Set length
+		this.length = 1;
+
 		// Create navigation
 		if (!this.settings.disableNav) {
 			var previousNav, nextNav;
@@ -565,7 +570,7 @@ var IdealImageSlider = (function() {
 			}.bind(this));
 
 			// Touch Navigation
-			if (typeof(jQuery.supportsTrueHover) == 'function' ?
+			if ( (typeof jQuery !== 'undefined' && typeof(jQuery.supportsTrueHover)) == 'function' ?
 	!jQuery.supportsTrueHover() :
 	!!('ontouchstart' in window) 
 	|| !!('ontouchstart' in document.documentElement) 
@@ -656,6 +661,10 @@ var IdealImageSlider = (function() {
 		// Preload next images
 		_loadImg(this._attributes.previousSlide);
 		_loadImg(this._attributes.nextSlide);
+
+		//Remove loading class
+		_removeClass(sliderEl, 'iis-loading');
+		_addClass(sliderEl, 'iis-loaded');
 	};
 
 	Slider.prototype.get = function(attribute) {
