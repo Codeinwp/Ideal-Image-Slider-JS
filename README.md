@@ -1,5 +1,7 @@
 [![Build Status](https://travis-ci.org/gilbitron/Ideal-Image-Slider.svg?branch=master)](https://travis-ci.org/gilbitron/Ideal-Image-Slider)
 
+**Maintainer's Wanted!** - Ineterested in contributing regularly to Ideal Image Slider development? [Get in touch](https://dev7studios.com/support/contact/)
+
 # Ideal Image Slider
 
 The aim behind the Ideal Image Slider is to create a slider which has just the right amount of features,
