@@ -830,3 +830,14 @@ var IdealImageSlider = (function() {
 	};
 
 })();
+
+// AMD Exports:
+if (typeof(module) !== 'undefined') {
+	module.exports = IdealImageSlider;
+}
+else if (typeof define === 'function' && define.amd) {
+	define([], function () {
+		'use strict';
+		return IdealImageSlider;
+	});
+}
