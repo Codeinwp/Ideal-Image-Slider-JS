@@ -63,7 +63,7 @@ var IdealImageSlider = (function() {
 			if (!obj)
 				continue;
 			for (var key in obj) {
-				if (obj.hasOwnProperty(key)) {
+				if (Object.prototype.hasOwnProperty.call(obj, key)) {
 					if (_isType('Object', obj[key]) && obj[key] !== null)
 						_deepExtend(out[key], obj[key]);
 					else
