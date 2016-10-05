@@ -47,7 +47,7 @@ And, as an example, here are some features that *should not* be in the core and 
 
 * **None**
 
-Ideal Image Slider is written in vanilla JS and has no dependancies.
+Ideal Image Slider is written in vanilla JS and has no dependencies.
 
 ## Getting Started
 
