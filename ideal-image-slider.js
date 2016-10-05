@@ -431,6 +431,7 @@ var IdealImageSlider = (function() {
 			beforeChange: function() {},
 			afterChange: function() {}
 		};
+		this.length = 0;
 
 		// Parse args
 		if (typeof args === 'string') {
@@ -440,11 +441,35 @@ var IdealImageSlider = (function() {
 		}
 
 		// Slider (container) element
-		var sliderEl = document.querySelector(this.settings.selector);
-		if (!sliderEl) return null;
+		var sliderEl = false,
+			rquickExpr =  /^(?:#([\w-]+)|(\w+)|\.([\w-]+))$/,
+			selectionType = rquickExpr.exec( this.settings.selector ),
+			s, elem;
+		
+		// Handle ID, Name, and Class selection
+		if ((s = selectionType[1])) {
+			// getElementById can match elements by name instead of ID
+			if ((elem = document.getElementById( s )) && elem.id === s)
+				sliderEl = elem;
+		} else if (selectionType[2]) {
+			if ((elem = document.getElementsByTagName( this.settings.selector )))
+				sliderEl = elem[0];
+		} else if ((s = selectionType[1])) {
+			if ((elem = document.getElementsByClassName( s )))
+				sliderEl = elem[0];
+		} else {
+			sliderEl = document.querySelector(this.settings.selector);
+		}
+
+		if (!sliderEl) {
+			return null;
+		}
+
+		//Add loading class
+		_addClass(sliderEl, 'iis-loading');
 
 		// Slides
-		var origChildren = _toArray(sliderEl.children),
+		var origChildren = _toArray(sliderEl.cloneNode(true).children), //ensure slideEl is a static nodeList
 			validSlides = [];
 		sliderEl.innerHTML = '';
 		Array.prototype.forEach.call(origChildren, function(slide, i) {
@@ -512,6 +537,9 @@ var IdealImageSlider = (function() {
 			return null;
 		}
 
+		// Set length
+		this.length = 1;
+
 		// Create navigation
 		if (!this.settings.disableNav) {
 			var previousNav, nextNav;
@@ -542,7 +570,13 @@ var IdealImageSlider = (function() {
 			}.bind(this));
 
 			// Touch Navigation
-			if (('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch) {
+			if ( (typeof jQuery !== 'undefined' && typeof(jQuery.supportsTrueHover)) == 'function' ?
+	!jQuery.supportsTrueHover() :
+	!!('ontouchstart' in window) 
+	|| !!('ontouchstart' in document.documentElement) 
+	|| !!window.ontouchstart 
+	|| (!!window.Touch && !!window.Touch.length) 
+	|| !!window.onmsgesturechange || (window.DocumentTouch && window.document instanceof window.DocumentTouch)) {
 				this.settings.effect = 'slide';
 				previousNav.style.display = 'none';
 				nextNav.style.display = 'none';
@@ -627,6 +661,10 @@ var IdealImageSlider = (function() {
 		// Preload next images
 		_loadImg(this._attributes.previousSlide);
 		_loadImg(this._attributes.nextSlide);
+
+		//Remove loading class
+		_removeClass(sliderEl, 'iis-loading');
+		_addClass(sliderEl, 'iis-loaded');
 	};
 
 	Slider.prototype.get = function(attribute) {
