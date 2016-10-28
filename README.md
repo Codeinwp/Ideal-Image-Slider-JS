@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/gilbitron/Ideal-Image-Slider.svg?branch=master)](https://travis-ci.org/gilbitron/Ideal-Image-Slider)
+[![CDNJS](https://img.shields.io/cdnjs/v/ideal-image-slider.svg)](https://cdnjs.com/libraries/ideal-image-slider)
 
 **Maintainer's Wanted!** - Ineterested in contributing regularly to Ideal Image Slider development? [Get in touch](https://dev7studios.com/support/contact/)
 
