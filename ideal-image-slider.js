@@ -571,12 +571,12 @@ var IdealImageSlider = (function() {
 
 			// Touch Navigation
 			if ( (typeof jQuery !== 'undefined' && typeof(jQuery.supportsTrueHover)) == 'function' ?
-	!jQuery.supportsTrueHover() :
-	!!('ontouchstart' in window) 
-	|| !!('ontouchstart' in document.documentElement) 
-	|| !!window.ontouchstart 
-	|| (!!window.Touch && !!window.Touch.length) 
-	|| !!window.onmsgesturechange || (window.DocumentTouch && window.document instanceof window.DocumentTouch)) {
+				!jQuery.supportsTrueHover() :
+				!!('ontouchstart' in window) 
+				|| !!('ontouchstart' in document.documentElement) 
+				|| !!window.ontouchstart 
+				|| (!!window.Touch && !!window.Touch.length) 
+				|| !!window.onmsgesturechange || (window.DocumentTouch && window.document instanceof window.DocumentTouch)) {
 				this.settings.effect = 'slide';
 				previousNav.style.display = 'none';
 				nextNav.style.display = 'none';
