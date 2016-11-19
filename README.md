@@ -29,11 +29,11 @@ And, as an example, here are some features that *should not* be in the core and 
 
 ## Demos
 
-* [Standard Slider](http://idealimageslider.com/Ideal-Image-Slider/demo/standard-slider.html)
-* [With Links](http://idealimageslider.com/Ideal-Image-Slider/demo/links.html)
-* [Using the API](http://idealimageslider.com/Ideal-Image-Slider/demo/using-the-api.html)
-* [Using Events](http://idealimageslider.com/Ideal-Image-Slider/demo/using-events.html)
-* [Multiple Sliders](http://idealimageslider.com/Ideal-Image-Slider/demo/multiple-sliders.html)
+* [Standard Slider](http://idealimageslider.com/demo/standard-slider.html)
+* [With Links](http://idealimageslider.com/demo/links.html)
+* [Using the API](http://idealimageslider.com/demo/using-the-api.html)
+* [Using Events](http://idealimageslider.com/demo/using-events.html)
+* [Multiple Sliders](http://idealimageslider.com/demo/multiple-sliders.html)
 
 ## Extensions
 
