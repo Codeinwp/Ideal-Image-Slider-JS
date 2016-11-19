@@ -1,7 +1,3 @@
-[![Build Status](https://travis-ci.org/gilbitron/Ideal-Image-Slider.svg?branch=master)](https://travis-ci.org/gilbitron/Ideal-Image-Slider)
-
-**Maintainer's Wanted!** - Ineterested in contributing regularly to Ideal Image Slider development? [Get in touch](https://dev7studios.com/support/contact/)
-
 # Ideal Image Slider
 
 The aim behind the Ideal Image Slider is to create a slider which has just the right amount of features,
@@ -33,11 +29,11 @@ And, as an example, here are some features that *should not* be in the core and 
 
 ## Demos
 
-* [Standard Slider](http://gilbitron.github.io/Ideal-Image-Slider/demo/standard-slider.html)
-* [With Links](http://gilbitron.github.io/Ideal-Image-Slider/demo/links.html)
-* [Using the API](http://gilbitron.github.io/Ideal-Image-Slider/demo/using-the-api.html)
-* [Using Events](http://gilbitron.github.io/Ideal-Image-Slider/demo/using-events.html)
-* [Multiple Sliders](http://gilbitron.github.io/Ideal-Image-Slider/demo/multiple-sliders.html)
+* [Standard Slider](http://idealimageslider.com/Ideal-Image-Slider/demo/standard-slider.html)
+* [With Links](http://idealimageslider.com/Ideal-Image-Slider/demo/links.html)
+* [Using the API](http://idealimageslider.com/Ideal-Image-Slider/demo/using-the-api.html)
+* [Using Events](http://idealimageslider.com/Ideal-Image-Slider/demo/using-events.html)
+* [Multiple Sliders](http://idealimageslider.com/Ideal-Image-Slider/demo/multiple-sliders.html)
 
 ## Extensions
 
