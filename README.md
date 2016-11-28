@@ -201,3 +201,12 @@ and the proprietary (commercial) version of the codebase and that your work may 
 
 Ideal Image Slider was created by [Gilbert Pellegrom](http://gilbert.pellegrom.me) from
 [Dev7studios](http://dev7studios.com). Released under the [GPL license](https://raw.githubusercontent.com/gilbitron/Ideal-Image-Slider/master/LICENSE).
+
+## Other Projects
+
+Check-out other stuff that we are working on : 
+
+* [ThemeIsle](https://themeisle.com)
+* [Codeinwp](https://codeinwp.com/blog/)
+* [Revive.social](https://revive.social)
+* [Mystock.photos](http://mystock.photos)
