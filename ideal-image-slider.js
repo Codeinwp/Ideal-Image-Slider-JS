@@ -504,11 +504,14 @@ var IdealImageSlider = (function() {
 		}.bind(this));
 
 		var slides = validSlides;
-		if (slides.length <= 1) {
+		if (slides.length == 1) {
+			slides[1] = slides[0];
+		} else if (slides.length <= 0) {
 			sliderEl.innerHTML = '';
 			Array.prototype.forEach.call(origChildren, function(child, i) {
 				sliderEl.appendChild(child);
 			});
+			console.error('No images supplied');
 			return null;
 		}
 
