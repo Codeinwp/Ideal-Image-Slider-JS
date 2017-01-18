@@ -410,6 +410,7 @@ var IdealImageSlider = (function() {
 			keyboardNav: true,
 			previousNavSelector: '',
 			nextNavSelector: '',
+			stopOnBlur: true,
 			classes: {
 				container: 'ideal-image-slider',
 				slide: 'iis-slide',
@@ -647,9 +648,11 @@ var IdealImageSlider = (function() {
 		this.settings.onStart.apply(this);
 
 		// Stop if window blur
-		window.onblur = function() {
-			this.stop();
-		}.bind(this);
+		if (this.settings.stopOnBlur) {
+			window.onblur = function() {
+				this.stop();
+			}.bind(this);
+		}
 	};
 
 	Slider.prototype.stop = function() {
