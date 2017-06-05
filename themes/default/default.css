@@ -66,6 +66,7 @@
 }
 .iis-has-captions .iis-bullet-nav { max-width: 42%; }
 .iis-bullet-nav a {
+    	font-size: 0;
 	display: inline-block;
 	width: 10px;
 	height: 10px;
