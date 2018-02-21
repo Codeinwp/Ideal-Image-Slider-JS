@@ -681,6 +681,10 @@ var IdealImageSlider = (function() {
 
 	Slider.prototype.start = function() {
 		if (!this._attributes) return;
+		if (this._attributes.timerId) {
+			clearInterval(this._attributes.timerId);
+			this._attributes.timerId = 0;
+		}
 		this._attributes.timerId = setInterval(this.nextSlide.bind(this), this.settings.interval);
 		this.settings.onStart.apply(this);
 
