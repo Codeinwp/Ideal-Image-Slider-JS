@@ -1,9 +1,13 @@
 /*
- * Ideal Image Slider v1.5.1
+ * Ideal Image Slider v1.6.0
  *
  * By Gilbert Pellegrom
  * http://gilbert.pellegrom.me
+ * v1.6.0+ By Matthew Sigley
+ * https://github.com/msigley/
  *
+ * Copyright (C) 2017 Matthew Sigley
+ * https://github.com/msigley/
  * Copyright (C) 2014 Dev7studios
  * https://raw.githubusercontent.com/gilbitron/Ideal-Image-Slider/master/LICENSE
  */
@@ -242,7 +246,8 @@ var IdealImageSlider = (function() {
 			start: {},
 			delta: {},
 			isScrolling: undefined,
-			direction: null
+			direction: null,
+			moved: false
 		},
 
 		start: function(event) {
@@ -282,6 +287,7 @@ var IdealImageSlider = (function() {
 			// If user is not trying to scroll vertically
 			if (!_touch.vars.isScrolling) {
 				event.preventDefault(); // Prevent native scrolling
+				_touch.vars.moved = true;
 
 				_translate(this._attributes.previousSlide, _touch.vars.delta.x - this._attributes.previousSlide.offsetWidth, 0);
 				_translate(this._attributes.currentSlide, _touch.vars.delta.x, 0);
@@ -301,7 +307,7 @@ var IdealImageSlider = (function() {
 			var speed = this.settings.transitionDuration ? this.settings.transitionDuration / 2 : 0;
 
 			// If not scrolling vertically
-			if (!_touch.vars.isScrolling) {
+			if (!_touch.vars.isScrolling && _touch.vars.moved) {
 				if (isChangeSlide) {
 					_touch.vars.direction = direction;
 
@@ -331,6 +337,8 @@ var IdealImageSlider = (function() {
 						_removeClass(this._attributes.container, this.settings.classes.animating);
 					}.bind(this), speed);
 				}
+
+				_touch.vars.moved = false;
 			}
 		},
 
@@ -432,7 +440,7 @@ var IdealImageSlider = (function() {
 			afterChange: function() {}
 		};
 		this.length = 0;
-
+		
 		// Parse args
 		if (typeof args === 'string') {
 			this.settings.selector = args;
@@ -571,12 +579,12 @@ var IdealImageSlider = (function() {
 
 			// Touch Navigation
 			if ( (typeof jQuery !== 'undefined' && typeof(jQuery.supportsTrueHover)) == 'function' ?
-				!jQuery.supportsTrueHover() :
-				!!('ontouchstart' in window) 
-				|| !!('ontouchstart' in document.documentElement) 
-				|| !!window.ontouchstart 
-				|| (!!window.Touch && !!window.Touch.length) 
-				|| !!window.onmsgesturechange || (window.DocumentTouch && window.document instanceof window.DocumentTouch)) {
+	!jQuery.supportsTrueHover() :
+	!!('ontouchstart' in window) 
+	|| !!('ontouchstart' in document.documentElement) 
+	|| !!window.ontouchstart 
+	|| (!!window.Touch && !!window.Touch.length) 
+	|| !!window.onmsgesturechange || (window.DocumentTouch && window.document instanceof window.DocumentTouch)) {
 				this.settings.effect = 'slide';
 				previousNav.style.display = 'none';
 				nextNav.style.display = 'none';
@@ -622,17 +630,16 @@ var IdealImageSlider = (function() {
 		if (_isInteger(this.settings.height)) {
 			this._attributes.container.style.height = this.settings.height + 'px';
 		} else {
-			if (_isInteger(this.settings.initialHeight)) {
-				this._attributes.container.style.height = this.settings.initialHeight + 'px';
-			}
-
 			// If aspect ratio parse and store
 			if (this.settings.height.indexOf(':') > -1) {
 				var aspectRatioParts = this.settings.height.split(':');
 				if (aspectRatioParts.length == 2 && _isInteger(parseInt(aspectRatioParts[0], 10)) && _isInteger(parseInt(aspectRatioParts[1], 10))) {
 					this._attributes.aspectWidth = parseInt(aspectRatioParts[0], 10);
 					this._attributes.aspectHeight = parseInt(aspectRatioParts[1], 10);
+					this._attributes.container.style.height = Math.round( (this._attributes.aspectHeight / this._attributes.aspectWidth) * this._attributes.container.offsetWidth ) + 'px';
 				}
+			} else if (_isInteger(this.settings.initialHeight)) {
+				this._attributes.container.style.height = this.settings.initialHeight + 'px';
 			}
 
 			_addEvent(window, 'resize', function() {
