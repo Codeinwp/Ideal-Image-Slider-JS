@@ -209,4 +209,5 @@ Check-out other stuff that we are working on :
 * [ThemeIsle](https://themeisle.com)
 * [Codeinwp](https://codeinwp.com/blog/)
 * [Revive.social](https://revive.social)
-* [Mystock.photos](http://mystock.photos)
+* [FinMasters](https://finmasters.com)
+
