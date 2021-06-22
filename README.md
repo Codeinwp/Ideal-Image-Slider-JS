@@ -129,6 +129,7 @@ in your CSS.
 |keyboardNav|`true`|Toggle keyboard navigation|
 |previousNavSelector|`''`|Selector for custom previous nav element|
 |nextNavSelector|`''`|Selector for custom next nav element|
+|stopOnBlur|`true`|Prevent the slider to stop when browser lost its focus|
 |classes|`{...}`|List of classes to be used by slider. Probably shouldn't be changed|
 
 ## Events
